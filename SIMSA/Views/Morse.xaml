@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:resources="clr-namespace:SIMSA.Resources"
+             x:Class="SIMSA.Views.Morse"
+			 Style="{StaticResource Page}">
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="60" />
+			<RowDefinition Height="60" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Label Text="{Binding Morse}" Style="{StaticResource InputLabel}" Grid.Row="0" Grid.ColumnSpan="3"/>
+		<Label Text="{Binding Alphabetic}" Style="{StaticResource InputLabel}" Grid.Row="1" Grid.ColumnSpan="3"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Add}" CommandParameter="0" Text="⬤" Grid.Row="2" Grid.Column="0"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Add}" CommandParameter="1" Text="—" FontAttributes="Bold" Grid.Row="2" Grid.Column="1"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Delete}" Text="⌫" Grid.Row="2" Grid.Column="2"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Add}" CommandParameter="|" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="0"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Clear}" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
+		<Button Style="{StaticResource InputButton}" Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
+	</Grid>
+</ContentPage>
