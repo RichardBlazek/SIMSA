@@ -1,6 +1,5 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SIMSA.Resources;
 using SIMSA.ViewModels;
 
 namespace SIMSA.Views
@@ -12,7 +11,6 @@ namespace SIMSA.Views
 		{
 			InitializeComponent();
 			BindingContext = binaryText;
-			Title = AppResources.MorsePageTitle;
 		}
 		public Morse() : this(new MorseViewModel()) { }
 	}

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Views.Braille"
-			 Style="{StaticResource Page}">
+			 Style="{StaticResource Page}"
+			 Title="{x:Static resources:AppResources.BraillePageTitle}">
 	<ContentPage.Resources>
 		<Style x:Key="CircleButton" TargetType="Button">
 			<Setter Property="WidthRequest" Value="60"/>

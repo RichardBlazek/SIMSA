@@ -138,6 +138,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Smazat</value>
   </data>
+  <data name="EditAlphabetPageTitle" xml:space="preserve">
+    <value>Upravit abecedu</value>
+  </data>
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>Anglická abeceda</value>
   </data>
@@ -156,7 +159,7 @@
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
   </data>
-  <data name="Settings" xml:space="preserve">
+  <data name="SettingsPageTitle" xml:space="preserve">
     <value>Nastavení</value>
   </data>
 </root>

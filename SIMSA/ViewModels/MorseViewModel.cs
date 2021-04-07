@@ -14,8 +14,8 @@ namespace SIMSA.ViewModels
             {
                 text = value;
                 OnPropertyChanged("Text");
-                OnPropertyChanged("MorseFormat");
-                OnPropertyChanged("MorseConvert");
+                OnPropertyChanged("Morse");
+                OnPropertyChanged("Alphabetic");
             }
         }
         public ICommand Add { get; protected set; }

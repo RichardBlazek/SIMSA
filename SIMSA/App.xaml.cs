@@ -8,7 +8,7 @@ namespace SIMSA
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Views.Menu(LoadAlphabets(), ab => Properties["Alphabets"] = ab));
+			MainPage = new NavigationPage(new Views.Menu(LoadAlphabets(), SaveAlphabets));
 		}
 
 		Alphabets LoadAlphabets()
@@ -20,9 +20,14 @@ namespace SIMSA
 			Properties["Alphabets"] = Alphabets.Initial.ToString();
 			return Alphabets.Initial;
 		}
+		async void SaveAlphabets(Alphabets alphabets)
+		{
+			Properties["Alphabets"] = alphabets;
+			await SavePropertiesAsync();
+		}
 
 		protected override void OnStart() { }
-		protected override async void OnSleep() => await SavePropertiesAsync();
+		protected override void OnSleep() { }
 		protected override void OnResume() { }
 	}
 }

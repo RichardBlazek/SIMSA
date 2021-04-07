@@ -133,6 +133,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit alphabet.
+        /// </summary>
+        public static string EditAlphabetPageTitle {
+            get {
+                return ResourceManager.GetString("EditAlphabetPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English alphabet.
         /// </summary>
         public static string EnglishAlphabet {
@@ -189,9 +198,9 @@ namespace SIMSA.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string Settings {
+        public static string SettingsPageTitle {
             get {
-                return ResourceManager.GetString("Settings", resourceCulture);
+                return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
             }
         }
         

@@ -25,8 +25,8 @@ namespace SIMSA.Views
 						Content = new StackLayout
 						{
 							Children = {
-								ButtonFor(new Morse()),
 								ButtonFor(new Braille()),
+								ButtonFor(new Morse()),
 								ButtonFor(new Settings(alphabets, saveAlphabets))
 							}
 						}

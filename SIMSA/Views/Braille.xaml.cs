@@ -1,6 +1,6 @@
-﻿using SIMSA.Resources;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SIMSA.ViewModels;
 
 namespace SIMSA.Views
 {
@@ -10,8 +10,7 @@ namespace SIMSA.Views
 		public Braille()
 		{
 			InitializeComponent();
-			Title = AppResources.BraillePageTitle;
-			BindingContext = new ViewModels.BrailleViewModel();
+			BindingContext = new BrailleViewModel();
 		}
 	}
 }

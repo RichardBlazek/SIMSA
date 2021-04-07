@@ -9,9 +9,9 @@ namespace SIMSA.Views
 	public class Settings : ContentPage
 	{
 		Alphabets alphabets;
-		Action<Alphabets> saveAlphabets;
-		StackLayout stack;
-		Task OpenEditAsync(int customIndex) => Navigation.PushAsync(new EditAlphabet(alphabets, SaveAlphabets, customIndex));
+		readonly Action<Alphabets> saveAlphabets;
+		readonly StackLayout stack;
+		Task OpenEditAsync(int customIndex) => Navigation.PushAsync(new EditAlphabet(alphabets, SaveAlphabets, customIndex), false);
 		Task NewAlphabetAsync()
 		{
 			SaveAlphabets(alphabets.Add(CustomAlphabet.Empty));
@@ -26,7 +26,7 @@ namespace SIMSA.Views
 		void ReloadContent()
 		{
 			stack.Children.Clear();
-			stack.Children.Add(new Label { Text = AppResources.Alphabets });
+			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["HeaderLabel"] as Style });
 			for (int i = 0, count = alphabets.Custom.Count; i < count; ++i)
 			{
 				stack.Children.Add(EditOpener(i));
@@ -49,7 +49,7 @@ namespace SIMSA.Views
 			this.saveAlphabets = saveAlphabets;
 			Content = stack = new StackLayout();
 			SaveAlphabets(alphabets);
-			Title = AppResources.Settings;
+			Title = AppResources.SettingsPageTitle;
 			Style = Application.Current.Resources["Page"] as Style;
 		}
 	}
