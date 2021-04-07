@@ -1,17 +1,24 @@
-﻿using Xamarin.Forms;
-using System.Text.Json;
+﻿using SIMSA.Models;
+using Xamarin.Forms;
 
 namespace SIMSA
 {
 	public partial class App : Application
 	{
-		T GetProperty<T>(string key) => JsonSerializer.Deserialize<T>((Properties[key] as string)!)!;
-		void SetProperty<T>(string key, T value) => Properties[key] = JsonSerializer.Serialize(value);
-
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Views.Menu());
+			MainPage = new NavigationPage(new Views.Menu(LoadAlphabets(), ab => Properties["Alphabets"] = ab));
+		}
+
+		Alphabets LoadAlphabets()
+		{
+			if (Properties.ContainsKey("Alphabets"))
+			{
+				return Alphabets.Parse((string)Properties["Alphabets"]);
+			}
+			Properties["Alphabets"] = Alphabets.Initial.ToString();
+			return Alphabets.Initial;
 		}
 
 		protected override void OnStart() { }

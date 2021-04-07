@@ -1,10 +1,12 @@
-﻿namespace SIMSA.Models
+﻿using SIMSA.Resources;
+
+namespace SIMSA.Models
 {
 	public class AsciiAlphabet : IAlphabet
 	{
-		static int Mod(int nom, int den) => (nom % den + nom) % den;
-		public string this[int index] => char.ConvertFromUtf32(Mod(index, 128));
-		public int IndexOf(string letter) => letter.Length != 1 || letter[0] > 127 ? -1 : letter[0];
+		public string Name => AppResources.ASCII;
+		public int ToUnicode(int index) => ((index % 256 + 256) % 256);
+		public int FromUnicode(int letter) => letter > 127 || letter < 0 ? -1 : letter;
 
 	}
 }

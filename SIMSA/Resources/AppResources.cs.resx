@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddAlphabet" xml:space="preserve">
+    <value>Přidat abecedu</value>
+  </data>
+  <data name="Alphabet" xml:space="preserve">
+    <value>Abeceda</value>
+  </data>
+  <data name="Alphabets" xml:space="preserve">
+    <value>Abecedy</value>
+  </data>
   <data name="BraillePageTitle" xml:space="preserve">
     <value>Braillovo písmo</value>
   </data>
@@ -126,8 +135,17 @@
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="EnglishAlphabet" xml:space="preserve">
+    <value>Anglická abeceda</value>
+  </data>
   <data name="Invert" xml:space="preserve">
     <value>Invertovat</value>
+  </data>
+  <data name="LettersOfYourAlphabet" xml:space="preserve">
+    <value>Písmena Vaší abecedy</value>
   </data>
   <data name="MenuPageTitle" xml:space="preserve">
     <value>ŠIMŠA</value>
@@ -137,5 +155,8 @@
   </data>
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavení</value>
   </data>
 </root>

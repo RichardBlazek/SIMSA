@@ -2,7 +2,8 @@
 {
 	public interface IAlphabet
 	{
-		string this[int i] { get; }
-		int IndexOf(string letter);
+		string Name { get; }
+		int FromUnicode(int utf32);
+		int ToUnicode(int index);
 	}
 }

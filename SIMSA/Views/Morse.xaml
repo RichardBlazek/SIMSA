@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Views.Morse"
 			 Style="{StaticResource Page}">
-	<Grid Margin="10">
+	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*" />
 			<RowDefinition Height="*" />

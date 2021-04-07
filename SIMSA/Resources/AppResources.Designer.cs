@@ -61,6 +61,42 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add an alphabet.
+        /// </summary>
+        public static string AddAlphabet {
+            get {
+                return ResourceManager.GetString("AddAlphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabet.
+        /// </summary>
+        public static string Alphabet {
+            get {
+                return ResourceManager.GetString("Alphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabets.
+        /// </summary>
+        public static string Alphabets {
+            get {
+                return ResourceManager.GetString("Alphabets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ASCII.
+        /// </summary>
+        public static string ASCII {
+            get {
+                return ResourceManager.GetString("ASCII", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Braille alphabet.
         /// </summary>
         public static string BraillePageTitle {
@@ -88,11 +124,38 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English alphabet.
+        /// </summary>
+        public static string EnglishAlphabet {
+            get {
+                return ResourceManager.GetString("EnglishAlphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invert.
         /// </summary>
         public static string Invert {
             get {
                 return ResourceManager.GetString("Invert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letters of your alphabet.
+        /// </summary>
+        public static string LettersOfYourAlphabet {
+            get {
+                return ResourceManager.GetString("LettersOfYourAlphabet", resourceCulture);
             }
         }
         
@@ -120,6 +183,24 @@ namespace SIMSA.Resources {
         public static string Separator {
             get {
                 return ResourceManager.GetString("Separator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unicode.
+        /// </summary>
+        public static string Unicode {
+            get {
+                return ResourceManager.GetString("Unicode", resourceCulture);
             }
         }
     }
