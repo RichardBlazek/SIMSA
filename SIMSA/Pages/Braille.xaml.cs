@@ -2,7 +2,7 @@
 using Xamarin.Forms.Xaml;
 using SIMSA.ViewModels;
 
-namespace SIMSA.Views
+namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Braille : ContentPage

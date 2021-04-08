@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
-             x:Class="SIMSA.Views.Braille"
+             x:Class="SIMSA.Pages.Braille"
 			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.BraillePageTitle}">
 	<ContentPage.Resources>
@@ -31,7 +31,7 @@
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<Label Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource InputLabel}" Text="{Binding Text}"/>
+		<Label Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource CenteredLabel}" Text="{Binding Text}"/>
 		<Button Grid.Row="1" Grid.Column="2" Style="{StaticResource CircleButton}" BackgroundColor="{Binding ColorAt0}" Command="{Binding Clicked}" CommandParameter="0"/>
 		<Button Grid.Row="1" Grid.Column="3" Style="{StaticResource CircleButton}" BackgroundColor="{Binding ColorAt1}" Command="{Binding Clicked}" CommandParameter="1"/>
 		<Button Grid.Row="2" Grid.Column="2" Style="{StaticResource CircleButton}" BackgroundColor="{Binding ColorAt2}" Command="{Binding Clicked}" CommandParameter="2"/>

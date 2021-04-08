@@ -3,7 +3,7 @@ using SIMSA.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SIMSA.Views
+namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditAlphabet : ContentPage
@@ -17,8 +17,8 @@ namespace SIMSA.Views
 		{
 			InitializeComponent();
 			name.Text = alphabets.Custom[i].Name;
+			letters.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
 			letters.Text = alphabets.Custom[i].ToString();
-			letters.TextChanged += (o, a) => letters.Text = letters.Text.ToUpperInvariant();
 
 			confirm.Command = Action(() => saveAlphabets(alphabets.Update(i, new CustomAlphabet(letters.Text, name.Text))));
 			delete.Command = Action(() => saveAlphabets(alphabets.Remove(i)));

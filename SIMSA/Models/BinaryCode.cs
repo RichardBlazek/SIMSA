@@ -51,15 +51,11 @@ namespace SIMSA.Models
 
         readonly string text;
 		public BinaryCode(string txt = "") => text = txt;
-        public BinaryCode Add(char c) => (c == '|' && text.Length > 0 && text[^1] != '|') || c == '0' || c == '1' ? new BinaryCode(text + c) : this;
+        public BinaryCode Add(char c, int i) => c == '0' || c == '1' || c == '|' ? new BinaryCode(text[..i] + c + text[i..]) : this;
+        public BinaryCode Remove(int i) => text.Length > i && i >= 0 ? new BinaryCode(text[..i] + text[(i + 1)..]) : this;
         public BinaryCode Invert() => new BinaryCode(text.Replace('0', '*').Replace('1', '0').Replace('*', '1'));
-        public BinaryCode PopBit() => text.Length > 0 ? new BinaryCode(text[..^1]) : this;
-        public BinaryCode PopLetter()
-        {
-            int index = text.LastIndexOf('|');
-            return index < text.Length ? new BinaryCode(text[..index]) : this;
-        }
 
+        public int Length => text.Length;
         public override string ToString() => text;
         public string ToMorse() => text.Replace('0', '\u2022').Replace('1', '\u2013');
         public string ToLettersFromMorse() => string.Join("", text.Split('|').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')));

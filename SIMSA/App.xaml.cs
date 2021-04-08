@@ -1,5 +1,5 @@
-﻿using SIMSA.Models;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using SIMSA.Models;
 
 namespace SIMSA
 {
@@ -8,7 +8,7 @@ namespace SIMSA
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Views.Menu(LoadAlphabets(), SaveAlphabets));
+			MainPage = new NavigationPage(new Pages.Menu(LoadAlphabets(), SaveAlphabets));
 		}
 
 		Alphabets LoadAlphabets()

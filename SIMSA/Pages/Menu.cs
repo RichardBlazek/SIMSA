@@ -3,7 +3,7 @@ using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
 
-namespace SIMSA.Views
+namespace SIMSA.Pages
 {
 	public class Menu : ContentPage
 	{
@@ -27,6 +27,7 @@ namespace SIMSA.Views
 							Children = {
 								ButtonFor(new Braille()),
 								ButtonFor(new Morse()),
+								ButtonFor(new Numeric()),
 								ButtonFor(new Settings(alphabets, saveAlphabets))
 							}
 						}

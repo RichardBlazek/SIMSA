@@ -4,7 +4,7 @@ using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
 
-namespace SIMSA.Views
+namespace SIMSA.Pages
 {
 	public class Settings : ContentPage
 	{
@@ -26,7 +26,7 @@ namespace SIMSA.Views
 		void ReloadContent()
 		{
 			stack.Children.Clear();
-			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["HeaderLabel"] as Style });
+			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["CenteredLabel"] as Style });
 			for (int i = 0, count = alphabets.Custom.Count; i < count; ++i)
 			{
 				stack.Children.Add(EditOpener(i));

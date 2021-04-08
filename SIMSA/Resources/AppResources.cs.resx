@@ -156,6 +156,9 @@
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morseova abeceda</value>
   </data>
+  <data name="NumericPageTitle" xml:space="preserve">
+    <value>Číselný kód</value>
+  </data>
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
   </data>

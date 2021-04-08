@@ -17,16 +17,11 @@
 			<Setter Property="BackgroundColor" Value="#333"/>
 			<Setter Property="Padding" Value="10"/>
 		</Style>
-		<Style x:Key="InputLabel" TargetType="Label">
+		<Style x:Key="CenteredLabel" TargetType="Label">
 			<Setter Property="FontSize" Value="25"/>
 			<Setter Property="TextColor" Value="#FFF"/>
 			<Setter Property="HorizontalOptions" Value="Center"/>
-			<Setter Property="Margin" Value="20,0,20,0"/>
-		</Style>
-		<Style x:Key="HeaderLabel" TargetType="Label">
 			<Setter Property="HorizontalTextAlignment" Value="Center"/>
-			<Setter Property="TextColor" Value="#FFF"/>
-			<Setter Property="FontSize" Value="Title"/>
 		</Style>
 	</Application.Resources>
 </Application>

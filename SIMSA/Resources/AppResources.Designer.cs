@@ -187,6 +187,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number code.
+        /// </summary>
+        public static string NumericPageTitle {
+            get {
+                return ResourceManager.GetString("NumericPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Separator.
         /// </summary>
         public static string Separator {
