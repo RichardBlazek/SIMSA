@@ -196,6 +196,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Radix.
+        /// </summary>
+        public static string Radix {
+            get {
+                return ResourceManager.GetString("Radix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Separator.
         /// </summary>
         public static string Separator {

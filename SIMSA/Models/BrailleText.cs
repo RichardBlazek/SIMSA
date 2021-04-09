@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Text;
 
 namespace SIMSA.Models
 {
@@ -46,7 +45,7 @@ namespace SIMSA.Models
 		public BrailleText() => letters = ImmutableArray.Create((byte)0);
 		BrailleText(ImmutableArray<byte> letters) => this.letters = letters;
 
-		public override string ToString() => string.Join("", letters.Select(b => BrailleToLetter.GetValueOrDefault(b, '?')));
+		public override string ToString() => letters.Select(b => BrailleToLetter.GetValueOrDefault(b, '?')).Cat();
 		public bool this[Index index, int bit] => IsSet(letters[index], bit);
 		public BrailleText InvertAt(int bit) => new BrailleText(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
 		public BrailleText Invert() => new BrailleText(letters.Select(c => (byte)(~c & 0b111111)).ToImmutableArray());
@@ -55,7 +54,7 @@ namespace SIMSA.Models
 
 		public int Count => letters.Length;
 		public byte this[int index] => letters[index];
-		public IEnumerator<byte> GetEnumerator() => ((IEnumerable<byte>)letters).GetEnumerator();
-		IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)letters).GetEnumerator();
+		public IEnumerator<byte> GetEnumerator() => (letters as IEnumerable<byte>).GetEnumerator();
+		IEnumerator IEnumerable.GetEnumerator() => (letters as IEnumerable).GetEnumerator();
 	}
 }

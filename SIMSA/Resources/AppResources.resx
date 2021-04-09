@@ -163,6 +163,9 @@
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Number code</value>
   </data>
+  <data name="Radix" xml:space="preserve">
+    <value>Radix</value>
+  </data>
   <data name="Separator" xml:space="preserve">
     <value>Separator</value>
   </data>

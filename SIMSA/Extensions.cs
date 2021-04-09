@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace SIMSA
 {
-	public static class XamarinExtensions
+	public static class Extensions
 	{
 		public static void SetText(this Entry entry, string text, int position)
 		{
@@ -20,5 +22,9 @@ namespace SIMSA
 			entry.CursorPosition = Math.Clamp(position, 0, text.Length);
 			entry.CursorPosition = Math.Clamp(position, 0, text.Length);
 		}
+
+		public static string Cat<T>(this IEnumerable<T> e, string str = "") => string.Join(str, e.Select(it => it?.ToString() ?? ""));
+		public static string Cat(this IEnumerable<string> e, string str = "") => string.Join(str, e);
+		public static int Mod(this int n, int d) => (n % d + d) % d;
 	}
 }

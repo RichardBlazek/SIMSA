@@ -2,10 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
+			 xmlns:effects="clr-namespace:SIMSA.Effects"
              x:Class="SIMSA.Pages.Numeric"
 			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.NumericPageTitle}">
-    <StackLayout>
-        
-    </StackLayout>
+	<StackLayout>
+		<ScrollView>
+			<Grid x:Name="grid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="40"/>
+				</Grid.RowDefinitions>
+
+				<Label x:Name="output" Style="{StaticResource CenteredLabel}" Grid.ColumnSpan="6"/>
+				<Entry x:Name="input" Grid.Row="1" Grid.ColumnSpan="6">
+					<Entry.Effects>
+						<effects:HideKeyboard/>
+					</Entry.Effects>
+				</Entry>
+				<Label x:Name="radixLabel" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Title"/>
+				<Button x:Name="radixInc" Text="+" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="2"/>
+				<Button x:Name="radixDec" Text="−" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="3"/>
+				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Button x:Name="backspace" Text="⌫" Style="{StaticResource InputButton}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Style="{StaticResource InputButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Style="{StaticResource InputButton}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+			</Grid>
+		</ScrollView>
+	</StackLayout>
 </ContentPage>

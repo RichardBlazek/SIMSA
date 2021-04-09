@@ -33,7 +33,7 @@
 		</Grid.ColumnDefinitions>
 		<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource CenteredLabel}" Text="{Binding Text}"/>
 		<Button x:Name="clear" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Clear}"/>
-		<Button x:Name="delete" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource InputButton}" Text="⌫" FontSize="20"/>
+		<Button x:Name="backspace" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource InputButton}" Text="⌫" FontSize="20"/>
 		<Button x:Name="invert" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Invert}"/>
 		<Button x:Name="confirm" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Confirm}"/>
 	</Grid>

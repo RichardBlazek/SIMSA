@@ -5,8 +5,8 @@ namespace SIMSA.Models
 	public class AsciiAlphabet : IAlphabet
 	{
 		public string Name => AppResources.ASCII;
-		public int ToUnicode(int index) => ((index % 256 + 256) % 256);
-		public int FromUnicode(int letter) => letter > 127 || letter < 0 ? -1 : letter;
+		public string this[int index] => char.ConvertFromUtf32((index % 256 + 256) % 256);
+		public int IndexOf(string text) => text.Length == 1 && text[0] < 256 ? text[0] : -1;
 
 	}
 }

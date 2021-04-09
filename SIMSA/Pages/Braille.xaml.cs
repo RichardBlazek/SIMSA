@@ -33,7 +33,7 @@ namespace SIMSA.Pages
 				buttons[i] = MakeBraile(i);
 				grid.Children.Add(buttons[i], 2 + i % 2, 1 + i / 2);
 			}
-			delete.Clicked += (o, a) => SetBrailleText(braille.Pop());
+			backspace.Clicked += (o, a) => SetBrailleText(braille.Pop());
 			clear.Clicked += (o, a) => SetBrailleText(new BrailleText());
 			confirm.Clicked += (o, a) => SetBrailleText(braille.Add(0));
 			invert.Clicked += (o, a) => SetBrailleText(braille.Invert());

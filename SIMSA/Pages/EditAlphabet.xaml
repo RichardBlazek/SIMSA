@@ -18,6 +18,6 @@
 		<Entry x:Name="name" Grid.Row="0" Grid.ColumnSpan="2"/>
 		<Entry x:Name="letters" IsSpellCheckEnabled="false" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="{x:Static resources:AppResources.LettersOfYourAlphabet}"/>
 		<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Confirm}"/>
-		<Button x:Name="delete" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Delete}"/>
+		<Button x:Name="backspace" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Delete}"/>
 	</Grid>
 </ContentPage>

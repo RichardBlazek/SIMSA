@@ -27,7 +27,7 @@ namespace SIMSA.Pages
 							Children = {
 								ButtonFor(new Braille()),
 								ButtonFor(new Morse()),
-								ButtonFor(new Numeric()),
+								ButtonFor(new Numeric(new UnicodeAlphabet())),
 								ButtonFor(new Settings(alphabets, saveAlphabets))
 							}
 						}

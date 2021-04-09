@@ -159,6 +159,9 @@
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Číselný kód</value>
   </data>
+  <data name="Radix" xml:space="preserve">
+    <value>Základ</value>
+  </data>
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
   </data>

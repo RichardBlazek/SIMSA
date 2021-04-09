@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Immutable;
+using System.Linq;
 using SIMSA.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,8 +22,8 @@ namespace SIMSA.Pages
 			letters.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
 			letters.Text = alphabets.Custom[i].ToString();
 
-			confirm.Command = Action(() => saveAlphabets(alphabets.Update(i, new CustomAlphabet(letters.Text, name.Text))));
-			delete.Command = Action(() => saveAlphabets(alphabets.Remove(i)));
+			confirm.Command = Action(() => saveAlphabets(alphabets.Update(i, new CustomAlphabet(letters.Text.Select(c => c.ToString()).ToImmutableArray(), name.Text))));
+			backspace.Command = Action(() => saveAlphabets(alphabets.Remove(i)));
 		}
 	}
 }

@@ -3,7 +3,7 @@
 	public interface IAlphabet
 	{
 		string Name { get; }
-		int FromUnicode(int utf32);
-		int ToUnicode(int index);
+		int IndexOf(string text);
+		string this[int index] { get; }
 	}
 }

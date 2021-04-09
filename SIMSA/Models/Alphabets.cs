@@ -22,7 +22,7 @@ namespace SIMSA.Models
 		public override string ToString() => JsonSerializer.Serialize(Custom.Select(ab => Tuple.Create(ab.Name, ab.Letters)));
 		public static Alphabets Parse(string text)
 		{
-			var tuples = JsonSerializer.Deserialize<IEnumerable<Tuple<string, ImmutableArray<int>>>>(text);
+			var tuples = JsonSerializer.Deserialize<IEnumerable<Tuple<string, ImmutableArray<string>>>>(text);
 			return new Alphabets(tuples.Select(pair => new CustomAlphabet(pair.Item2, pair.Item1)).ToImmutableList());
 		}
 		public static readonly Alphabets Initial = new Alphabets(ImmutableList.Create(CustomAlphabet.English));
