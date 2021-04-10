@@ -11,7 +11,7 @@ namespace SIMSA.Pages
 		{
 			Text = page.Title,
 			Command = new Command(async () => await Navigation.PushAsync(page, false)),
-			Style = Application.Current.Resources["MenuButton"] as Style
+			Style = Application.Current.Resources["Button"] as Style
 		};
 		public Menu(Alphabets alphabets, Action<Alphabets> saveAlphabets)
 		{
@@ -27,7 +27,7 @@ namespace SIMSA.Pages
 							Children = {
 								ButtonFor(new Braille()),
 								ButtonFor(new Morse()),
-								ButtonFor(new Numeric(new UnicodeAlphabet())),
+								ButtonFor(new Numeric(alphabets)),
 								ButtonFor(new Settings(alphabets, saveAlphabets))
 							}
 						}

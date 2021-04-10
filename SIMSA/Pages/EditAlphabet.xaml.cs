@@ -23,7 +23,7 @@ namespace SIMSA.Pages
 			letters.Text = alphabets.Custom[i].ToString();
 
 			confirm.Command = Action(() => saveAlphabets(alphabets.Update(i, new CustomAlphabet(letters.Text.Select(c => c.ToString()).ToImmutableArray(), name.Text))));
-			backspace.Command = Action(() => saveAlphabets(alphabets.Remove(i)));
+			delete.Command = Action(() => saveAlphabets(alphabets.Remove(i)));
 		}
 	}
 }

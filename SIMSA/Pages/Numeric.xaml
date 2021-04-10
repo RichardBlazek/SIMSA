@@ -36,13 +36,14 @@
 						<effects:HideKeyboard/>
 					</Entry.Effects>
 				</Entry>
-				<Label x:Name="radixLabel" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Title"/>
-				<Button x:Name="radixInc" Text="+" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="2"/>
-				<Button x:Name="radixDec" Text="−" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="3"/>
-				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Style="{StaticResource InputButton}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-				<Button x:Name="backspace" Text="⌫" Style="{StaticResource InputButton}" Grid.Row="3" Grid.ColumnSpan="2"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Style="{StaticResource InputButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Style="{StaticResource InputButton}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Label x:Name="radixLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Title"/>
+				<Button x:Name="radixInc" Text="+" Style="{StaticResource Button}" Grid.Row="2" Grid.Column="0"/>
+				<Button x:Name="radixDec" Text="−" Style="{StaticResource Button}" Grid.Row="2" Grid.Column="3"/>
+				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Style="{StaticResource Button}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Button x:Name="backspace" Text="⌫" Style="{StaticResource Button}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Style="{StaticResource Button}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Style="{StaticResource Button}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Button x:Name="selectAlphabet" Grid.Row="4" Grid.ColumnSpan="6" Style="{StaticResource Button}"/>
 			</Grid>
 		</ScrollView>
 	</StackLayout>

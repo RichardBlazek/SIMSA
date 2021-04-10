@@ -24,11 +24,11 @@
 				<effects:HideKeyboard/>
 			</Entry.Effects>
 		</Entry>
-		<Button x:Name="add0" Style="{StaticResource InputButton}" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
-		<Button x:Name="add1" Style="{StaticResource InputButton}" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
-		<Button x:Name="backspace" Style="{StaticResource InputButton}" Text="⌫" FontSize="20" Grid.Row="2" Grid.Column="2"/>
-		<Button x:Name="separate" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="0"/>
-		<Button x:Name="clear" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
-		<Button x:Name="invert" Style="{StaticResource InputButton}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
+		<Button x:Name="add0" Style="{StaticResource Button}" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
+		<Button x:Name="add1" Style="{StaticResource Button}" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
+		<Button x:Name="backspace" Style="{StaticResource Button}" Text="⌫" FontSize="20" Grid.Row="2" Grid.Column="2"/>
+		<Button x:Name="separate" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="0"/>
+		<Button x:Name="clear" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
+		<Button x:Name="invert" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
 	</Grid>
 </ContentPage>

@@ -205,6 +205,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select alphabet.
+        /// </summary>
+        public static string SelectAlphabetPageTitle {
+            get {
+                return ResourceManager.GetString("SelectAlphabetPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Separator.
         /// </summary>
         public static string Separator {

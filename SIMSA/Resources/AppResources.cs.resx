@@ -162,6 +162,9 @@
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>
   </data>
+  <data name="SelectAlphabetPageTitle" xml:space="preserve">
+    <value>Vybrat abecedu</value>
+  </data>
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
   </data>

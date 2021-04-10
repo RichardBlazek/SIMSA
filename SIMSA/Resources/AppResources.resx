@@ -166,6 +166,9 @@
   <data name="Radix" xml:space="preserve">
     <value>Radix</value>
   </data>
+  <data name="SelectAlphabetPageTitle" xml:space="preserve">
+    <value>Select alphabet</value>
+  </data>
   <data name="Separator" xml:space="preserve">
     <value>Separator</value>
   </data>

@@ -21,7 +21,7 @@ namespace SIMSA.Pages
 		{
 			Text = alphabets.Custom[customIndex].Name,
 			Command = new Command(async () => await OpenEditAsync(customIndex)),
-			Style = Application.Current.Resources["MenuButton"] as Style
+			Style = Application.Current.Resources["Button"] as Style
 		};
 		void ReloadContent()
 		{
@@ -35,7 +35,7 @@ namespace SIMSA.Pages
 			{
 				Text = AppResources.AddAlphabet,
 				Command = new Command(async () => await NewAlphabetAsync()),
-				Style = Application.Current.Resources["MenuButton"] as Style
+				Style = Application.Current.Resources["Button"] as Style
 			});
 		}
 		void SaveAlphabets(Alphabets alphabets)

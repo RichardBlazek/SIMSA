@@ -32,14 +32,21 @@ namespace SIMSA.Pages
 		Button MakeKey(int i) => new Button
 		{
 			Text = NumericCode.Digits[i].ToString(),
-			Style = Application.Current.Resources["InputButton"] as Style,
+			Style = Application.Current.Resources["Button"] as Style,
 			Command = new Command(() => Set(code.Add(NumericCode.Digits[i], input.CursorPosition), input.CursorPosition + 1))
 		};
-		public Numeric(NumericCode initCode, IAlphabet alphabet)
+		void SetAlphabet(IAlphabet alphabet)
 		{
-			code = initCode;
+			selectAlphabet.Text = alphabet.Name;
 			this.alphabet = alphabet;
+		}
+		public Numeric(NumericCode initCode, Alphabets alphabets)
+		{
 			InitializeComponent();
+
+			code = initCode;
+			SetAlphabet(alphabets[0]);
+			selectAlphabet.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(alphabets, SetAlphabet), true);
 
 			radixInc.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix + 1)), input.CursorPosition);
 			radixDec.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix - 1)), input.CursorPosition);
@@ -53,11 +60,11 @@ namespace SIMSA.Pages
 			{
 				keyboard[i] = MakeKey(i);
 				keyboard[i].IsVisible = i < code.Radix;
-				grid.Children.Add(keyboard[i], i % 6, i / 6 + 4);
+				grid.Children.Add(keyboard[i], i % 6, i / 6 + 5);
 			}
 
 			Set(code, code.Length);
 		}
-		public Numeric(IAlphabet alphabet) : this(new NumericCode(), alphabet) { }
+		public Numeric(Alphabets alphabets) : this(new NumericCode(), alphabets) { }
 	}
 }
