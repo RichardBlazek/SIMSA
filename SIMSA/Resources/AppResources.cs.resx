@@ -120,9 +120,6 @@
   <data name="AddAlphabet" xml:space="preserve">
     <value>Přidat abecedu</value>
   </data>
-  <data name="Alphabet" xml:space="preserve">
-    <value>Abeceda</value>
-  </data>
   <data name="AlphabetName" xml:space="preserve">
     <value>Název abecedy</value>
   </data>
@@ -159,8 +156,14 @@
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morseova abeceda</value>
   </data>
+  <data name="NewAlphabet" xml:space="preserve">
+    <value>Nová abeceda</value>
+  </data>
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Číselný kód</value>
+  </data>
+  <data name="NumericValueOfTheFirstLetter" xml:space="preserve">
+    <value>Číslo prvního písmena</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>

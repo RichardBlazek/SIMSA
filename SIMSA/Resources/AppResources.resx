@@ -120,9 +120,6 @@
   <data name="AddAlphabet" xml:space="preserve">
     <value>Add an alphabet</value>
   </data>
-  <data name="Alphabet" xml:space="preserve">
-    <value>Alphabet</value>
-  </data>
   <data name="AlphabetName" xml:space="preserve">
     <value>Alphabet name</value>
   </data>
@@ -159,8 +156,14 @@
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morse code</value>
   </data>
+  <data name="NewAlphabet" xml:space="preserve">
+    <value>New alphabet</value>
+  </data>
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Number code</value>
+  </data>
+  <data name="NumericValueOfTheFirstLetter" xml:space="preserve">
+    <value>Numeric value of the first letter</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Radix</value>

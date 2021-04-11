@@ -11,6 +11,8 @@
 			<RowDefinition Height="50"/>
 			<RowDefinition Height="30"/>
 			<RowDefinition Height="50"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="50"/>
 			<RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -21,7 +23,9 @@
 		<Entry x:Name="name" Grid.Row="1" Grid.ColumnSpan="2"/>
 		<Label Text="{x:Static resources:AppResources.LettersOfTheAlphabet}" Style="{StaticResource InputLabel}" Grid.Row="2" Grid.ColumnSpan="2"/>
 		<Entry x:Name="letters" IsSpellCheckEnabled="false" Grid.Row="3" Grid.ColumnSpan="2"/>
-		<Button x:Name="confirm" Grid.Row="4" Grid.Column="0" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Confirm}"/>
-		<Button x:Name="delete" Grid.Row="4" Grid.Column="1" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Delete}"/>
+		<Label Text="{x:Static resources:AppResources.NumericValueOfTheFirstLetter}" Style="{StaticResource InputLabel}" Grid.Row="4" Grid.ColumnSpan="2"/>
+		<Entry x:Name="zeroIndex" Keyboard="Numeric" Grid.Row="5" Grid.ColumnSpan="2"/>
+		<Button x:Name="confirm" Grid.Row="6" Grid.Column="0" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Confirm}"/>
+		<Button x:Name="delete" Grid.Row="6" Grid.Column="1" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Delete}"/>
 	</Grid>
 </ContentPage>
