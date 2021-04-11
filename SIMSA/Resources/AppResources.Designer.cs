@@ -79,20 +79,20 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alphabet name.
+        /// </summary>
+        public static string AlphabetName {
+            get {
+                return ResourceManager.GetString("AlphabetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alphabets.
         /// </summary>
         public static string Alphabets {
             get {
                 return ResourceManager.GetString("Alphabets", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ASCII.
-        /// </summary>
-        public static string ASCII {
-            get {
-                return ResourceManager.GetString("ASCII", resourceCulture);
             }
         }
         
@@ -160,11 +160,11 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Letters of your alphabet.
+        ///   Looks up a localized string similar to Letters of the alphabet.
         /// </summary>
-        public static string LettersOfYourAlphabet {
+        public static string LettersOfTheAlphabet {
             get {
-                return ResourceManager.GetString("LettersOfYourAlphabet", resourceCulture);
+                return ResourceManager.GetString("LettersOfTheAlphabet", resourceCulture);
             }
         }
         

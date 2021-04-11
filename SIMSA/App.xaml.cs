@@ -8,21 +8,11 @@ namespace SIMSA
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Pages.Menu(LoadAlphabets(), SaveAlphabets));
+			MainPage = new NavigationPage(new Pages.Menu(Config.Load(Properties, "Config"), SaveConfig));
 		}
-
-		Alphabets LoadAlphabets()
+		async void SaveConfig(Config cfg)
 		{
-			if (Properties.ContainsKey("Alphabets"))
-			{
-				return Alphabets.Parse((string)Properties["Alphabets"]);
-			}
-			Properties["Alphabets"] = Alphabets.Initial.ToString();
-			return Alphabets.Initial;
-		}
-		async void SaveAlphabets(Alphabets alphabets)
-		{
-			Properties["Alphabets"] = alphabets;
+			cfg.Save(Properties, "Config");
 			await SavePropertiesAsync();
 		}
 

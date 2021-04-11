@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Immutable;
+using System.Threading.Tasks;
 using SIMSA.Models;
-using SIMSA.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Numeric : ContentPage
+	public partial class Numeric : ContentPage, IConfigurable
 	{
-		readonly Button[] keyboard = new Button[36];
+		public Config Config { get; set; }
+		readonly ImmutableArray<Button> keyboard;
 		NumericCode code;
 		IAlphabet alphabet;
 		void Set(NumericCode cd, int position)
@@ -37,16 +39,20 @@ namespace SIMSA.Pages
 		};
 		void SetAlphabet(IAlphabet alphabet)
 		{
-			selectAlphabet.Text = alphabet.Name;
 			this.alphabet = alphabet;
+			selectAlphabet.Text = alphabet.Name;
+			Set(code, code.Length);
 		}
-		public Numeric(NumericCode initCode, Alphabets alphabets)
+		Task OpenSelectAlphabet() => Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
+		public Numeric(Config config, NumericCode initCode)
 		{
 			InitializeComponent();
 
+			Config = config;
 			code = initCode;
-			SetAlphabet(alphabets[0]);
-			selectAlphabet.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(alphabets, SetAlphabet), true);
+
+			selectAlphabet.Clicked += async (o, a) => await OpenSelectAlphabet();
+			input.TextChanged += TextChangedHandler;
 
 			radixInc.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix + 1)), input.CursorPosition);
 			radixDec.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix - 1)), input.CursorPosition);
@@ -55,16 +61,14 @@ namespace SIMSA.Pages
 			invert.Clicked += (o, a) => Set(code.Invert(), input.CursorPosition);
 			separate.Clicked += (o, a) => Set(code.Add('|', input.CursorPosition), input.CursorPosition + 1);
 
-			input.TextChanged += TextChangedHandler;
+			keyboard = 36.Range(MakeKey).ToImmutableArray();
 			for (int i = 0; i < keyboard.Length; ++i)
 			{
-				keyboard[i] = MakeKey(i);
 				keyboard[i].IsVisible = i < code.Radix;
-				grid.Children.Add(keyboard[i], i % 6, i / 6 + 5);
+				grid.Children.Add(keyboard[i], (i + 3) % 6, (i + 3) / 6 + 4);
 			}
 
-			Set(code, code.Length);
+			SetAlphabet(config.DefaultAlphabet);
 		}
-		public Numeric(Alphabets alphabets) : this(new NumericCode(), alphabets) { }
 	}
 }

@@ -123,6 +123,9 @@
   <data name="Alphabet" xml:space="preserve">
     <value>Abeceda</value>
   </data>
+  <data name="AlphabetName" xml:space="preserve">
+    <value>Název abecedy</value>
+  </data>
   <data name="Alphabets" xml:space="preserve">
     <value>Abecedy</value>
   </data>
@@ -147,8 +150,8 @@
   <data name="Invert" xml:space="preserve">
     <value>Invertovat</value>
   </data>
-  <data name="LettersOfYourAlphabet" xml:space="preserve">
-    <value>Písmena Vaší abecedy</value>
+  <data name="LettersOfTheAlphabet" xml:space="preserve">
+    <value>Písmena abecedy</value>
   </data>
   <data name="MenuPageTitle" xml:space="preserve">
     <value>ŠIMŠA</value>

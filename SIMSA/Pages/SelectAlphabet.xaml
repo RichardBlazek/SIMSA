@@ -5,5 +5,5 @@
              x:Class="SIMSA.Pages.SelectAlphabet"
 			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.SelectAlphabetPageTitle}">
-	<StackLayout x:Name="buttons"/>
+	<StackLayout x:Name="buttons" Style="{StaticResource Content}"/>
 </ContentPage>

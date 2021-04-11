@@ -6,31 +6,34 @@ using Xamarin.Forms;
 
 namespace SIMSA.Pages
 {
-	public class Settings : ContentPage
+	public class Settings : ContentPage, IConfigurable
 	{
-		Alphabets alphabets;
-		readonly Action<Alphabets> saveAlphabets;
+		public Config Config { get; set; }
+		readonly Action<Config> save;
 		readonly StackLayout stack;
-		Task OpenEditAsync(int customIndex) => Navigation.PushAsync(new EditAlphabet(alphabets, SaveAlphabets, customIndex), false);
+
+		Task OpenEditAsync(int i)
+		{
+			var page = new EditAlphabet(Config.Alphabets, alphabets => Save(Config.With(alphabets)), i);
+			return Navigation.PushAsync(page, false);
+		}
 		Task NewAlphabetAsync()
 		{
-			SaveAlphabets(alphabets.Add(CustomAlphabet.Empty));
-			return OpenEditAsync(alphabets.Custom.Count - 1);
+			Save(Config.Add(CustomAlphabet.Empty));
+			return OpenEditAsync(Config.Alphabets.Custom.Count - 1);
 		}
-		Button EditOpener(int customIndex) => new Button
+		Button EditOpener(int i) => new Button
 		{
-			Text = alphabets.Custom[customIndex].Name,
-			Command = new Command(async () => await OpenEditAsync(customIndex)),
+			Text = Config.Alphabets.Custom[i].Name,
+			Command = new Command(async () => await OpenEditAsync(i)),
 			Style = Application.Current.Resources["Button"] as Style
 		};
 		void ReloadContent()
 		{
 			stack.Children.Clear();
 			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["CenteredLabel"] as Style });
-			for (int i = 0, count = alphabets.Custom.Count; i < count; ++i)
-			{
-				stack.Children.Add(EditOpener(i));
-			}
+			
+			Config.Alphabets.Custom.Count.Range(i => stack.Children.Add(EditOpener(i)));
 			stack.Children.Add(new Button
 			{
 				Text = AppResources.AddAlphabet,
@@ -38,19 +41,22 @@ namespace SIMSA.Pages
 				Style = Application.Current.Resources["Button"] as Style
 			});
 		}
-		void SaveAlphabets(Alphabets alphabets)
+		void Save(Config config)
 		{
-			this.alphabets = alphabets;
-			saveAlphabets(alphabets);
+			Config = config;
+			save(Config);
 			ReloadContent();
 		}
-		public Settings(Alphabets alphabets, Action<Alphabets> saveAlphabets)
+		public Settings(Config config, Action<Config> save)
 		{
-			this.saveAlphabets = saveAlphabets;
-			Content = stack = new StackLayout();
-			SaveAlphabets(alphabets);
+			this.save = save;
+			Config = config;
+
+			Content = stack = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
 			Title = AppResources.SettingsPageTitle;
 			Style = Application.Current.Resources["Page"] as Style;
+
+			ReloadContent();
 		}
 	}
 }

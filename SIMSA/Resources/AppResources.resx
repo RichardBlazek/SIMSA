@@ -123,12 +123,11 @@
   <data name="Alphabet" xml:space="preserve">
     <value>Alphabet</value>
   </data>
+  <data name="AlphabetName" xml:space="preserve">
+    <value>Alphabet name</value>
+  </data>
   <data name="Alphabets" xml:space="preserve">
     <value>Alphabets</value>
-  </data>
-  <data name="ASCII" xml:space="preserve">
-    <value>ASCII</value>
-    <comment>Not translated</comment>
   </data>
   <data name="BraillePageTitle" xml:space="preserve">
     <value>Braille alphabet</value>
@@ -151,8 +150,8 @@
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>
   </data>
-  <data name="LettersOfYourAlphabet" xml:space="preserve">
-    <value>Letters of your alphabet</value>
+  <data name="LettersOfTheAlphabet" xml:space="preserve">
+    <value>Letters of the alphabet</value>
   </data>
   <data name="MenuPageTitle" xml:space="preserve">
     <value>ICE</value>

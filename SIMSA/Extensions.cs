@@ -26,5 +26,13 @@ namespace SIMSA
 		public static string Cat<T>(this IEnumerable<T> e, string str = "") => string.Join(str, e.Select(it => it?.ToString() ?? ""));
 		public static string Cat(this IEnumerable<string> e, string str = "") => string.Join(str, e);
 		public static int Mod(this int n, int d) => (n % d + d) % d;
+		public static IEnumerable<T> Range<T>(this int n, Func<int, T> fn) => Enumerable.Range(0, n).Select(fn);
+		public static void Range(this int n, Action<int> action)
+		{
+			for (int i = 0; i < n; ++i)
+			{
+				action(i);
+			}
+		}
 	}
 }

@@ -9,21 +9,20 @@ namespace SIMSA.Models
 {
 	public class Alphabets : IReadOnlyList<IAlphabet>
 	{
-		static readonly AsciiAlphabet zero = new AsciiAlphabet();
-		static readonly UnicodeAlphabet one = new UnicodeAlphabet();
-		public readonly ImmutableList<CustomAlphabet> Custom;
+		static readonly UnicodeAlphabet zero = new UnicodeAlphabet();
+		public ImmutableList<CustomAlphabet> Custom { get; }
 		Alphabets(ImmutableList<CustomAlphabet> custom) => Custom = custom;
 
-		public IAlphabet this[int i] => i switch { 0 => zero, 1 => one, _ => Custom[i - 2] };
-		public int Count => Custom.Count + 2;
-		public IEnumerator<IAlphabet> GetEnumerator() => new IAlphabet[] { zero, one }.Concat(Custom).GetEnumerator();
+		public IAlphabet this[int i] => i == 0 ? zero : Custom[i - 1] as IAlphabet;
+		public int Count => Custom.Count + 1;
+		public IEnumerator<IAlphabet> GetEnumerator() => Custom.OfType<IAlphabet>().Prepend(zero).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-		public override string ToString() => JsonSerializer.Serialize(Custom.Select(ab => Tuple.Create(ab.Name, ab.Letters)));
+		public override string ToString() => JsonSerializer.Serialize(Custom.Select(ab => Tuple.Create(ab.Letters, ab.Name, ab.ZeroIndex)));
 		public static Alphabets Parse(string text)
 		{
-			var tuples = JsonSerializer.Deserialize<IEnumerable<Tuple<string, ImmutableArray<string>>>>(text);
-			return new Alphabets(tuples.Select(pair => new CustomAlphabet(pair.Item2, pair.Item1)).ToImmutableList());
+			var tuples = JsonSerializer.Deserialize<IEnumerable<Tuple<ImmutableArray<string>, string, int>>>(text);
+			return new Alphabets(tuples.Select(pair => new CustomAlphabet(pair.Item1, pair.Item2, pair.Item3)).ToImmutableList());
 		}
 		public static readonly Alphabets Initial = new Alphabets(ImmutableList.Create(CustomAlphabet.English));
 		public Alphabets Add(CustomAlphabet alphabet) => new Alphabets(Custom.Add(alphabet));

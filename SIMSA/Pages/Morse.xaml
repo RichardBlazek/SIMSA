@@ -6,7 +6,7 @@
              x:Class="SIMSA.Pages.Morse"
 			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.MorsePageTitle}">
-	<Grid>
+	<Grid Style="{StaticResource Content}">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="60"/>

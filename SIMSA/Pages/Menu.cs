@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Immutable;
+using System.Linq;
 using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
@@ -7,33 +9,36 @@ namespace SIMSA.Pages
 {
 	public class Menu : ContentPage
 	{
-		Button ButtonFor(Page page) => new Button
+		readonly Action<Config> save;
+		readonly ImmutableArray<IConfigurable> pages;
+		void Save(Config config)
+		{
+			foreach (var page in pages)
+			{
+				page.Config = config;
+			}
+			save(config);
+		}
+		Button ButtonFor<T>(T page) where T : Page => new Button
 		{
 			Text = page.Title,
 			Command = new Command(async () => await Navigation.PushAsync(page, false)),
 			Style = Application.Current.Resources["Button"] as Style
 		};
-		public Menu(Alphabets alphabets, Action<Alphabets> saveAlphabets)
+		public Menu(Config config, Action<Config> save)
 		{
+			this.save = save;
 			Title = AppResources.MenuPageTitle;
 			Style = Application.Current.Resources["Page"] as Style;
-			Content = new StackLayout
+			
+			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Settings(config, Save));
+			var layout = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
+			foreach (var page in pages.OfType<Page>())
 			{
-				Children = {
-					new ScrollView
-					{
-						Content = new StackLayout
-						{
-							Children = {
-								ButtonFor(new Braille()),
-								ButtonFor(new Morse()),
-								ButtonFor(new Numeric(alphabets)),
-								ButtonFor(new Settings(alphabets, saveAlphabets))
-							}
-						}
-					}
-				}
-			};
+				layout.Children.Add(ButtonFor(page));
+			}
+
+			Content = new StackLayout { Children = { new ScrollView { Content = layout } } };
 		}
 	}
 }
