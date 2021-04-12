@@ -4,7 +4,6 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
 			 xmlns:effects="clr-namespace:SIMSA.Effects"
              x:Class="SIMSA.Pages.Numeric"
-			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.NumericPageTitle}">
 	<StackLayout>
 		<ScrollView>
@@ -31,20 +30,20 @@
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>
 
-				<Label x:Name="output" Style="{StaticResource CenteredLabel}" Grid.ColumnSpan="6"/>
+				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="6"/>
 				<Entry x:Name="input" Grid.Row="1" Grid.ColumnSpan="6" IsSpellCheckEnabled="False">
 					<Entry.Effects>
 						<effects:HideKeyboard/>
 					</Entry.Effects>
 				</Entry>
-				<Button x:Name="selectAlphabet" Grid.Row="2" Grid.ColumnSpan="4" Style="{StaticResource Button}"/>
-				<Button x:Name="backspace" Text="⌫" Style="{StaticResource Button}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Style="{StaticResource Button}" Grid.Row="3" Grid.ColumnSpan="2"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Style="{StaticResource Button}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Style="{StaticResource Button}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Button x:Name="selectAlphabet" Grid.Row="2" Grid.ColumnSpan="4"/>
+				<Button x:Name="backspace" Text="⌫" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
 				<Label x:Name="radixLabel" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Title" Grid.Row="4" Grid.Column="1"/>
-				<Button x:Name="radixInc" Text="+" Style="{StaticResource Button}" Grid.Row="4" Grid.Column="0"/>
-				<Button x:Name="radixDec" Text="−" Style="{StaticResource Button}" Grid.Row="4" Grid.Column="2"/>
+				<Button x:Name="radixInc" Text="+" Grid.Row="4" Grid.Column="0"/>
+				<Button x:Name="radixDec" Text="−" Grid.Row="4" Grid.Column="2"/>
 			</Grid>
 		</ScrollView>
 	</StackLayout>

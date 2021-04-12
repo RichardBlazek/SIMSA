@@ -17,7 +17,7 @@ namespace SIMSA.Pages
 			output.Text = braille.ToString();
 			for (int i = 0; i < 6; ++i)
 			{
-				buttons[i].BackgroundColor = braille[^1, i] ? new Color(1, 1, 1) : new Color(0, 0, 0);
+				buttons[i].BackgroundColor = braille[^1, i] ? new Color(0, 0, 0) : new Color(1, 1, 1);
 			}
 		}
 		Button MakeBraile(int value) => new Button

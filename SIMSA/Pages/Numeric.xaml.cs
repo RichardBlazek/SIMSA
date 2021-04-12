@@ -34,7 +34,6 @@ namespace SIMSA.Pages
 		Button MakeKey(int i) => new Button
 		{
 			Text = NumericCode.Digits[i].ToString(),
-			Style = Application.Current.Resources["Button"] as Style,
 			Command = new Command(() => Set(code.Add(NumericCode.Digits[i], input.CursorPosition), input.CursorPosition + 1))
 		};
 		void SetAlphabet(IAlphabet alphabet)

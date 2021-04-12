@@ -17,7 +17,6 @@ namespace SIMSA.Pages
 		Button AlphabetSelector(IAlphabet alphabet, Action<IAlphabet> onSelected) => new Button
 		{
 			Text = alphabet.Name,
-			Style = Application.Current.Resources["Button"] as Style,
 			Command = new Command(async () => await Selected(alphabet, onSelected))
 		};
 		public SelectAlphabet(Alphabets alphabets, Action<IAlphabet> onSelected)

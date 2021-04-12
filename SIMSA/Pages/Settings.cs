@@ -25,20 +25,18 @@ namespace SIMSA.Pages
 		Button EditOpener(int i) => new Button
 		{
 			Text = Config.Alphabets.Custom[i].Name,
-			Command = new Command(async () => await OpenEditAsync(i)),
-			Style = Application.Current.Resources["Button"] as Style
+			Command = new Command(async () => await OpenEditAsync(i))
 		};
 		void ReloadContent()
 		{
 			stack.Children.Clear();
-			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["CenteredLabel"] as Style });
+			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["Caption"] as Style });
 			
 			Config.Alphabets.Custom.Count.Range(i => stack.Children.Add(EditOpener(i)));
 			stack.Children.Add(new Button
 			{
 				Text = AppResources.AddAlphabet,
-				Command = new Command(async () => await NewAlphabetAsync()),
-				Style = Application.Current.Resources["Button"] as Style
+				Command = new Command(async () => await NewAlphabetAsync())
 			});
 		}
 		void Save(Config config)
@@ -54,7 +52,6 @@ namespace SIMSA.Pages
 
 			Content = stack = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
 			Title = AppResources.SettingsPageTitle;
-			Style = Application.Current.Resources["Page"] as Style;
 
 			ReloadContent();
 		}

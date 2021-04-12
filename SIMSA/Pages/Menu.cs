@@ -22,14 +22,12 @@ namespace SIMSA.Pages
 		Button ButtonFor<T>(T page) where T : Page => new Button
 		{
 			Text = page.Title,
-			Command = new Command(async () => await Navigation.PushAsync(page, false)),
-			Style = Application.Current.Resources["Button"] as Style
+			Command = new Command(async () => await Navigation.PushAsync(page, false))
 		};
 		public Menu(Config config, Action<Config> save)
 		{
 			this.save = save;
 			Title = AppResources.MenuPageTitle;
-			Style = Application.Current.Resources["Page"] as Style;
 			
 			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Settings(config, Save));
 			var layout = new StackLayout { Style = Application.Current.Resources["Content"] as Style };

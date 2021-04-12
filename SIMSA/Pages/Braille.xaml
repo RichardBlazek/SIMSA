@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Braille"
-			 Style="{StaticResource Page}"
 			 Title="{x:Static resources:AppResources.BraillePageTitle}">
 	<ContentPage.Resources>
 		<Style x:Key="CircleButton" TargetType="Button">
 			<Setter Property="WidthRequest" Value="60"/>
 			<Setter Property="HeightRequest" Value="60"/>
 			<Setter Property="CornerRadius" Value="30"/>
-			<Setter Property="BorderColor" Value="#FFF"/>
-			<Setter Property="BorderWidth" Value="1"/>
+			<Setter Property="BorderColor" Value="#333"/>
+			<Setter Property="BorderWidth" Value="2"/>
 		</Style>
 	</ContentPage.Resources>
 	<Grid x:Name="grid" Style="{StaticResource Content}">
@@ -31,10 +30,10 @@
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource CenteredLabel}" Text="{Binding Text}"/>
-		<Button x:Name="clear" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Clear}"/>
-		<Button x:Name="backspace" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource Button}" Text="⌫" FontSize="20"/>
-		<Button x:Name="invert" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Invert}"/>
-		<Button x:Name="confirm" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource Button}" Text="{x:Static resources:AppResources.Confirm}"/>
+		<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource Output}"/>
+		<Button x:Name="clear" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Clear}"/>
+		<Button x:Name="backspace" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Text="⌫" FontSize="20"/>
+		<Button x:Name="invert" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Invert}"/>
+		<Button x:Name="confirm" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Confirm}"/>
 	</Grid>
 </ContentPage>
