@@ -25,8 +25,8 @@
 		</Entry>
 		<Button x:Name="add0" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
 		<Button x:Name="add1" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
-		<Button x:Name="backspace" Text="⌫" FontSize="20" Grid.Row="2" Grid.Column="2"/>
-		<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="0"/>
+		<Button x:Name="separate" Text="/" Grid.Row="2" Grid.Column="2"/>
+		<Button x:Name="backspace" Text="⌫" FontSize="20" Grid.Row="3" Grid.Column="0"/>
 		<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
 		<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
 	</Grid>

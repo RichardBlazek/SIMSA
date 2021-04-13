@@ -9,41 +9,25 @@
 		<ScrollView>
 			<Grid x:Name="grid" Style="{StaticResource Content}">
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="2*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="50"/>
 					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
-					<RowDefinition Height="40"/>
+					<RowDefinition Height="50"/>
 				</Grid.RowDefinitions>
 
-				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="6"/>
-				<Entry x:Name="input" Grid.Row="1" Grid.ColumnSpan="6" IsSpellCheckEnabled="False">
-					<Entry.Effects>
-						<effects:HideKeyboard/>
-					</Entry.Effects>
-				</Entry>
-				<Button x:Name="selectAlphabet" Grid.Row="2" Grid.ColumnSpan="4"/>
-				<Button x:Name="backspace" Text="⌫" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.ColumnSpan="2"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-				<Button x:Name="separate" Text="{x:Static resources:AppResources.Separator}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
-				<Label x:Name="radixLabel" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Title" Grid.Row="4" Grid.Column="1"/>
-				<Button x:Name="radixInc" Text="+" Grid.Row="4" Grid.Column="0"/>
-				<Button x:Name="radixDec" Text="−" Grid.Row="4" Grid.Column="2"/>
+				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
+				<Label Text="{x:Static resources:AppResources.NumersSeparatedBySlash}" Style="{StaticResource Caption}" Grid.Row="1"/>
+				<Entry x:Name="input" Keyboard="Url" Grid.Row="2" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
+				
+				<Button x:Name="alphabetBtn" Grid.Row="3"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
+				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="4"/>
+				<Entry x:Name="radix" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</StackLayout>

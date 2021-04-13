@@ -24,7 +24,7 @@ namespace SIMSA.Models
 				}
 				value += digit;
 			}
-			return alphabet[value];
+			return alphabet[value - 1];
 		}
 
 		readonly string text;
@@ -34,16 +34,17 @@ namespace SIMSA.Models
 			text = txt;
 			Radix = radix;
 		}
-		public NumericCode() : this(string.Empty, 2) { }
-		public static NumericCode Parse(string text, int radix) => new NumericCode(text.Where(c => c == '|' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
+		public NumericCode() : this(string.Empty, 10) { }
+		public static NumericCode Parse(string text, int radix) => new NumericCode(text.Where(c => c == '/' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
 
-		public NumericCode Add(char c, int i) => c == '|' || DigitValue(c) < Radix ? new NumericCode(text[..i] + c + text[i..], Radix) : this;
+		public NumericCode Add(char c, int i) => c == '/' || DigitValue(c) < Radix ? new NumericCode(text[..i] + c + text[i..], Radix) : this;
 		public NumericCode Remove(int i) => i >= 0 && i < text.Length ? new NumericCode(text[..i] + text[(i + 1)..], Radix) : this;
-		public NumericCode WithRadix(byte r) => r >= 2 && r <= 36 ? new NumericCode(text.Where(c => c == '|' || DigitValue(c) < r).Cat(), r) : this;
-		public NumericCode Invert() => new NumericCode(text.Select(c => c == '|' ? '|' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
+		public NumericCode WithRadix(byte r) => r >= 2 && r <= 36 ? new NumericCode(text.Where(c => c == '/' || DigitValue(c) < r).Cat(), r) : this;
+		public NumericCode Invert() => new NumericCode(text.Select(c => c == '/' ? '/' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
 
 		public int Length => text.Length;
 		public override string ToString() => text;
-		public string ToLetters(IAlphabet alphabet) => text.Split('|').Select(code => CodeToText(code, alphabet)).Cat();
+		public string ToLetters(IAlphabet alphabet) => text.Split('/').Select(code => CodeToText(code, alphabet)).Cat();
+		public bool IsTextValid(string text) => text.All(c => c == '/' || DigitValue(c) < Radix);
 	}
 }

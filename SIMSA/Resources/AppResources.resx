@@ -147,6 +147,9 @@
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>
   </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
   <data name="LettersOfTheAlphabet" xml:space="preserve">
     <value>Letters of the alphabet</value>
   </data>
@@ -159,11 +162,14 @@
   <data name="NewAlphabet" xml:space="preserve">
     <value>New alphabet</value>
   </data>
+  <data name="NumericBase" xml:space="preserve">
+    <value>Numeric base</value>
+  </data>
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Number code</value>
   </data>
-  <data name="NumericValueOfTheFirstLetter" xml:space="preserve">
-    <value>Numeric value of the first letter</value>
+  <data name="NumersSeparatedBySlash" xml:space="preserve">
+    <value>Numers separated by slash</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Radix</value>
@@ -177,8 +183,14 @@
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
   <data name="Unicode" xml:space="preserve">
     <value>Unicode</value>
     <comment>Not translated</comment>
+  </data>
+  <data name="VigenerePageTitle" xml:space="preserve">
+    <value>Alphabet shift</value>
   </data>
 </root>

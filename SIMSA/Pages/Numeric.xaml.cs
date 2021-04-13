@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Immutable;
-using System.Threading.Tasks;
-using SIMSA.Models;
+﻿using SIMSA.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,38 +8,24 @@ namespace SIMSA.Pages
 	public partial class Numeric : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		readonly ImmutableArray<Button> keyboard;
 		NumericCode code;
 		IAlphabet alphabet;
-		void Set(NumericCode cd, int position)
+		void SetCode(NumericCode newCode, bool changeEntry)
 		{
-			int invertFrom = Math.Min(cd.Radix, code.Radix), invertTo = Math.Max(cd.Radix, code.Radix);
-			code = cd;
-			radixLabel.Text = code.Radix.ToString();
-			output.Text = cd.ToLetters(alphabet);
-
-			input.TextChanged -= TextChangedHandler;
-			input.SetText(cd.ToString(), position);
-			input.TextChanged += TextChangedHandler;
-
-			for (int i = invertFrom; i < invertTo; ++i)
+			code = newCode;
+			radix.Text = code.Radix.ToString();
+			output.Text = code.ToLetters(alphabet);
+			if (changeEntry)
 			{
-				keyboard[i].IsVisible = !keyboard[i].IsVisible;
+				input.Text = code.ToString();
 			}
 		}
-		void TextChangedHandler(object o, TextChangedEventArgs a) => Set(NumericCode.Parse(input.Text, code.Radix), input.CursorPosition);
-		Button MakeKey(int i) => new Button
+		void SetAlphabet(IAlphabet newAlphabet)
 		{
-			Text = NumericCode.Digits[i].ToString(),
-			Command = new Command(() => Set(code.Add(NumericCode.Digits[i], input.CursorPosition), input.CursorPosition + 1))
-		};
-		void SetAlphabet(IAlphabet alphabet)
-		{
-			this.alphabet = alphabet;
-			selectAlphabet.Text = alphabet.Name;
-			Set(code, code.Length);
+			alphabet = newAlphabet;
+			alphabetBtn.Text = newAlphabet.Name;
+			SetCode(code, false);
 		}
-		Task OpenSelectAlphabet() => Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
 		public Numeric(Config config, NumericCode initCode)
 		{
 			InitializeComponent();
@@ -50,22 +33,10 @@ namespace SIMSA.Pages
 			Config = config;
 			code = initCode;
 
-			selectAlphabet.Clicked += async (o, a) => await OpenSelectAlphabet();
-			input.TextChanged += TextChangedHandler;
-
-			radixInc.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix + 1)), input.CursorPosition);
-			radixDec.Clicked += (o, a) => Set(code.WithRadix((byte)(code.Radix - 1)), input.CursorPosition);
-			clear.Clicked += (o, a) => Set(new NumericCode(), 0);
-			backspace.Clicked += (o, a) => Set(code.Remove(input.CursorPosition - 1), input.CursorPosition - 1);
-			invert.Clicked += (o, a) => Set(code.Invert(), input.CursorPosition);
-			separate.Clicked += (o, a) => Set(code.Add('|', input.CursorPosition), input.CursorPosition + 1);
-
-			keyboard = 36.Range(MakeKey).ToImmutableArray();
-			for (int i = 0; i < keyboard.Length; ++i)
-			{
-				keyboard[i].IsVisible = i < code.Radix;
-				grid.Children.Add(keyboard[i], (i + 3) % 6, (i + 3) / 6 + 4);
-			}
+			alphabetBtn.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
+			input.TextChanged += (o, a) => SetCode(NumericCode.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
+			radix.Unfocused += (o, a) => SetCode(code.WithRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix), true);
+			invert.Clicked += (o, a) => SetCode(code.Invert(), true);
 
 			SetAlphabet(config.DefaultAlphabet);
 		}

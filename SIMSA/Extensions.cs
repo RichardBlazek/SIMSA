@@ -34,5 +34,31 @@ namespace SIMSA
 				action(i);
 			}
 		}
+		public static IEnumerable<string> DivideToUnicodeChars(this string s)
+		{
+			for (int i = 0; i < s.Length; ++i)
+			{
+				if (char.IsHighSurrogate(s[i]))
+				{
+					yield return s[i].ToString() + s[i + 1];
+					++i;
+				}
+				else
+				{
+					yield return s[i].ToString();
+				}
+			}
+		}
+		public static IEnumerable<T> Forever<T>(this IEnumerable<T> e)
+		{
+			for (; ; )
+			{
+				foreach (var it in e)
+				{
+					yield return it;
+				}
+			}
+		}
+		public static IEnumerable<(T First, U Second)> Zip<T, U>(this IEnumerable<T> f, IEnumerable<U> s) => f.Zip(s, (a, b) => (a, b));
 	}
 }

@@ -147,6 +147,9 @@
   <data name="Invert" xml:space="preserve">
     <value>Invertovat</value>
   </data>
+  <data name="Key" xml:space="preserve">
+    <value>Klíč</value>
+  </data>
   <data name="LettersOfTheAlphabet" xml:space="preserve">
     <value>Písmena abecedy</value>
   </data>
@@ -159,11 +162,14 @@
   <data name="NewAlphabet" xml:space="preserve">
     <value>Nová abeceda</value>
   </data>
+  <data name="NumericBase" xml:space="preserve">
+    <value>Základ číselné soustavy</value>
+  </data>
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Číselný kód</value>
   </data>
-  <data name="NumericValueOfTheFirstLetter" xml:space="preserve">
-    <value>Číslo prvního písmena</value>
+  <data name="NumersSeparatedBySlash" xml:space="preserve">
+    <value>Čísla oddělená lomítkem</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>
@@ -176,5 +182,11 @@
   </data>
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>Nastavení</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="VigenerePageTitle" xml:space="preserve">
+    <value>Posun abecedy</value>
   </data>
 </root>

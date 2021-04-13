@@ -29,7 +29,7 @@ namespace SIMSA.Pages
 			add0.Clicked += (o, a) => SetCode(morse.Add('\u2022', input.CursorPosition), input.CursorPosition + 1);
 			add1.Clicked += (o, a) => SetCode(morse.Add('\u2013', input.CursorPosition), input.CursorPosition + 1);
 			backspace.Clicked += (o, a) => SetCode(morse.Remove(input.CursorPosition - 1), input.CursorPosition - 1);
-			separate.Clicked += (o, a) => SetCode(morse.Add('|', input.CursorPosition), input.CursorPosition + 1);
+			separate.Clicked += (o, a) => SetCode(morse.Add('/', input.CursorPosition), input.CursorPosition + 1);
 			clear.Clicked += (o, a) => SetCode(new MorseCode(), 0);
 			invert.Clicked += (o, a) => SetCode(morse.Invert(), input.CursorPosition);
 			input.TextChanged += TextChangedHandler;

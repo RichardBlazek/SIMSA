@@ -151,6 +151,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Key.
+        /// </summary>
+        public static string Key {
+            get {
+                return ResourceManager.GetString("Key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Letters of the alphabet.
         /// </summary>
         public static string LettersOfTheAlphabet {
@@ -187,6 +196,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Numeric base.
+        /// </summary>
+        public static string NumericBase {
+            get {
+                return ResourceManager.GetString("NumericBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number code.
         /// </summary>
         public static string NumericPageTitle {
@@ -196,11 +214,11 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numeric value of the first letter.
+        ///   Looks up a localized string similar to Numers separated by slash.
         /// </summary>
-        public static string NumericValueOfTheFirstLetter {
+        public static string NumersSeparatedBySlash {
             get {
-                return ResourceManager.GetString("NumericValueOfTheFirstLetter", resourceCulture);
+                return ResourceManager.GetString("NumersSeparatedBySlash", resourceCulture);
             }
         }
         
@@ -241,11 +259,29 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        public static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unicode.
         /// </summary>
         public static string Unicode {
             get {
                 return ResourceManager.GetString("Unicode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabet shift.
+        /// </summary>
+        public static string VigenerePageTitle {
+            get {
+                return ResourceManager.GetString("VigenerePageTitle", resourceCulture);
             }
         }
     }

@@ -10,22 +10,20 @@ namespace SIMSA.Models
 	{
 		public ImmutableArray<string> Letters { get; }
 		public string Name { get; }
-		public int ZeroIndex { get; }
-		public CustomAlphabet(ImmutableArray<string> letters, string name, int zeroIndex)
+		public CustomAlphabet(ImmutableArray<string> letters, string name)
 		{
 			Letters = letters;
 			Name = name;
-			ZeroIndex = zeroIndex;
 		}
 
-		public string this[int i] => Letters[(i - ZeroIndex).Mod(Letters.Length)];
-		public int IndexOf(string letter) => Letters.IndexOf(letter) + ZeroIndex;
+		public string this[int i] => Letters[i.Mod(Letters.Length)];
+		public int IndexOf(string letter) => Letters.IndexOf(letter);
 
 		public int Count => Letters.Length;
 		public IEnumerator<string> GetEnumerator() => (Letters as IEnumerable<string>).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => (Letters as IEnumerable).GetEnumerator();
 
-		public static readonly CustomAlphabet English = new CustomAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Select(c => c.ToString()).ToImmutableArray(), AppResources.EnglishAlphabet, 1);
-		public static readonly CustomAlphabet Empty = new CustomAlphabet(English.Letters, AppResources.NewAlphabet, 0);
+		public static readonly CustomAlphabet English = new CustomAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Select(c => c.ToString()).ToImmutableArray(), AppResources.EnglishAlphabet);
+		public static readonly CustomAlphabet Empty = new CustomAlphabet(English.Letters, AppResources.NewAlphabet);
 	}
 }

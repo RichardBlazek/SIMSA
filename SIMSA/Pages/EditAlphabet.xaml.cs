@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using SIMSA.Models;
 using Xamarin.Forms;
@@ -13,8 +14,8 @@ namespace SIMSA.Pages
 	{
 		Task EditAndQuit(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
 		{
-			var newLetters = letters.Text.Split(",").Select(s => s.Trim()).Where(s => s.Length > 0).ToImmutableArray();
-			saveAlphabets(alphabets.Update(i, new CustomAlphabet(newLetters, name.Text, int.TryParse(zeroIndex.Text, out int zero) ? zero : 0)));
+			var newLetters = letters.Text.DivideToUnicodeChars().ToImmutableArray();
+			saveAlphabets(alphabets.Update(i, new CustomAlphabet(newLetters, name.Text)));
 			return Navigation.PopAsync(false);
 		}
 		Task RemoveAndQuit(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
@@ -27,9 +28,8 @@ namespace SIMSA.Pages
 			InitializeComponent();
 			letters.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
 
-			zeroIndex.Text = alphabets.Custom[i].ZeroIndex.ToString();
 			name.Text = alphabets.Custom[i].Name;
-			letters.Text = alphabets.Custom[i].Cat(",");
+			letters.Text = alphabets.Custom[i].Cat();
 
 			confirm.Clicked += async (o, a) => await EditAndQuit(alphabets, saveAlphabets, i);
 			delete.Clicked += async (o, a) => await RemoveAndQuit(alphabets, saveAlphabets, i);

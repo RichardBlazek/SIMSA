@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Immutable;
-using System.Linq;
 using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
@@ -29,7 +28,7 @@ namespace SIMSA.Pages
 			this.save = save;
 			Title = AppResources.MenuPageTitle;
 			
-			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Settings(config, Save));
+			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Vigenere(config, new VigenereText()), new Settings(config, Save));
 			var layout = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
 			foreach (var page in pages.OfType<Page>())
 			{
