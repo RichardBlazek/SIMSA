@@ -22,7 +22,7 @@ namespace SIMSA.Models
 			foreach (var (textPart, keyPart) in Text.DivideToUnicodeChars().Zip(Key.DivideToUnicodeChars().Forever()))
 			{
 				int textCode = alphabet.IndexOf(textPart), keyCode = alphabet.IndexOf(keyPart);
-				_ = result.Append(textCode == -1 || keyCode == -1 ? textPart : alphabet[textCode + keyCode]);
+				_ = result.Append(textCode == -1 || keyCode == -1 ? textPart : alphabet[textCode + keyCode - alphabet.ZeroIndex]);
 			}
 			return result.ToString();
 		}
@@ -32,7 +32,7 @@ namespace SIMSA.Models
 			foreach (string part in Key.DivideToUnicodeChars())
 			{
 				int code = alphabet.IndexOf(part);
-				_ = result.Append(code == -1 ? part : alphabet[^code]);
+				_ = result.Append(code == -1 ? part : alphabet[^(code - alphabet.ZeroIndex * 2)]);
 			}
 			return new VigenereText(Text, result.ToString());
 		}

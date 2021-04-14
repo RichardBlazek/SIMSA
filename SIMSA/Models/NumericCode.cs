@@ -24,7 +24,7 @@ namespace SIMSA.Models
 				}
 				value += digit;
 			}
-			return alphabet[value - 1];
+			return alphabet[value];
 		}
 
 		readonly string text;
