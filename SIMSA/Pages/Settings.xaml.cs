@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace SIMSA.Pages
 {
-	public class Settings : ContentPage, IConfigurable
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Settings : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
 		readonly Action<Config> save;
-		readonly StackLayout stack;
 
 		Task OpenEditAsync(int i)
 		{
@@ -31,7 +35,7 @@ namespace SIMSA.Pages
 		{
 			stack.Children.Clear();
 			stack.Children.Add(new Label { Text = AppResources.Alphabets, Style = Application.Current.Resources["Caption"] as Style });
-			
+
 			Config.Alphabets.Custom.Count.Range(i => stack.Children.Add(EditOpener(i)));
 			stack.Children.Add(new Button
 			{
@@ -47,12 +51,9 @@ namespace SIMSA.Pages
 		}
 		public Settings(Config config, Action<Config> save)
 		{
+			InitializeComponent();
 			this.save = save;
 			Config = config;
-
-			Content = stack = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
-			Title = AppResources.SettingsPageTitle;
-
 			ReloadContent();
 		}
 	}

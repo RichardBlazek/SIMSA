@@ -16,7 +16,7 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="30"/>
 					<RowDefinition Height="50"/>
-					<RowDefinition Height="60"/>
+					<RowDefinition Height="50"/>
 					<RowDefinition Height="50"/>
 				</Grid.RowDefinitions>
 
@@ -27,7 +27,7 @@
 				<Button x:Name="alphabetBtn" Grid.Row="3"/>
 				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
 				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="4"/>
-				<Entry x:Name="radix" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"/>
+				<Entry x:Name="radix" HorizontalTextAlignment="Center" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</StackLayout>

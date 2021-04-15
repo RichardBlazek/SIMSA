@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Immutable;
 using SIMSA.Models;
-using SIMSA.Resources;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace SIMSA.Pages
 {
-	public class Menu : ContentPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Menu : ContentPage
 	{
 		readonly Action<Config> save;
 		readonly ImmutableArray<IConfigurable> pages;
@@ -25,17 +26,15 @@ namespace SIMSA.Pages
 		};
 		public Menu(Config config, Action<Config> save)
 		{
-			this.save = save;
-			Title = AppResources.MenuPageTitle;
+			InitializeComponent();
 			
+			this.save = save;
 			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Vigenere(config, new VigenereText()), new Settings(config, Save));
-			var layout = new StackLayout { Style = Application.Current.Resources["Content"] as Style };
 			foreach (var page in pages.OfType<Page>())
 			{
-				layout.Children.Add(ButtonFor(page));
+				stack.Children.Add(ButtonFor(page));
 			}
-
-			Content = new StackLayout { Children = { new ScrollView { Content = layout } } };
 		}
+
 	}
 }
