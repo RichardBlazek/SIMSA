@@ -26,7 +26,7 @@
 				<Label Text="{x:Static resources:AppResources.Key}" Style="{StaticResource Caption}" Grid.Row="3" Grid.ColumnSpan="3"/>
 				<Entry x:Name="key" Grid.Row="4" Grid.ColumnSpan="3"/>
 				<Button x:Name="alphabetBtn" Grid.Row="5" Grid.ColumnSpan="2"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="5" Grid.Column="2"/>
+				<Button x:Name="sign" Text="+" Grid.Row="5" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </StackLayout>
