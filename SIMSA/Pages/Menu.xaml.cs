@@ -29,12 +29,11 @@ namespace SIMSA.Pages
 			InitializeComponent();
 			
 			this.save = save;
-			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Vigenere(config, new VigenereText()), new Settings(config, Save));
+			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseCode()), new Numeric(config, new NumericCode()), new Vigenere(config, new VigenereText()), new FlagSemaphore(config, new SemaphoreText()), new Settings(config, Save));
 			foreach (var page in pages.OfType<Page>())
 			{
 				stack.Children.Add(ButtonFor(page));
 			}
 		}
-
 	}
 }

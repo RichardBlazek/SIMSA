@@ -11,7 +11,7 @@ namespace SIMSA.Pages
 		public Config Config { get; set; }
 		readonly ImmutableArray<Button> buttons;
 		BrailleText braille;
-		void SetBrailleText(BrailleText bt)
+		void SetText(BrailleText bt)
 		{
 			braille = bt;
 			output.Text = braille.ToString();
@@ -23,7 +23,7 @@ namespace SIMSA.Pages
 		Button MakeBraile(int value) => new Button
 		{
 			Style = Resources["CircleButton"] as Style,
-			Command = new Command(() => SetBrailleText(braille.InvertAt(value)))
+			Command = new Command(() => SetText(braille.InvertAt(value)))
 		};
 		public Braille(Config config, BrailleText brailleText)
 		{
@@ -37,12 +37,12 @@ namespace SIMSA.Pages
 				grid.Children.Add(buttons[i], 2 + i % 2, 1 + i / 2);
 			}
 
-			backspace.Clicked += (o, a) => SetBrailleText(braille.Pop());
-			clear.Clicked += (o, a) => SetBrailleText(new BrailleText());
-			confirm.Clicked += (o, a) => SetBrailleText(braille.Add(0));
-			invert.Clicked += (o, a) => SetBrailleText(braille.Invert());
+			backspace.Clicked += (o, a) => SetText(braille.Pop());
+			clear.Clicked += (o, a) => SetText(new BrailleText());
+			confirm.Clicked += (o, a) => SetText(braille.Add(0));
+			invert.Clicked += (o, a) => SetText(braille.Invert());
 
-			SetBrailleText(braille);
+			SetText(braille);
 		}
 	}
 }

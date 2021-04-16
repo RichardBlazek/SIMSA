@@ -144,6 +144,9 @@
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>English alphabet</value>
   </data>
+  <data name="FlagSemaphorePageTitle" xml:space="preserve">
+    <value>Flag semaphore</value>
+  </data>
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Turn</value>
   </data>
   <data name="Unicode" xml:space="preserve">
     <value>Unicode</value>

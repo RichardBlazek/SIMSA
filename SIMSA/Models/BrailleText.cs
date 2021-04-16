@@ -10,36 +10,36 @@ namespace SIMSA.Models
 	{
 		static bool IsSet(byte value, int bit) => ((value >> (5 - bit)) & 1) == 1;
 		static byte Negate(byte value, int bit) => (byte)((1 << (5 - bit)) ^ value);
-		static readonly ImmutableDictionary<char, byte> LetterToBraille = new Dictionary<char, byte>
+		static readonly ImmutableDictionary<byte, char> BrailleToLetter = new Dictionary<byte, char>
 		{
-			{ 'A', 0b10_00_00 },
-			{ 'B', 0b10_10_00 },
-			{ 'C', 0b11_00_00 },
-			{ 'D', 0b11_01_00 },
-			{ 'E', 0b10_01_00 },
-			{ 'F', 0b11_10_00 },
-			{ 'G', 0b11_11_00 },
-			{ 'H', 0b10_11_00 },
-			{ 'I', 0b01_10_00 },
-			{ 'J', 0b01_11_00 },
-			{ 'K', 0b10_00_10 },
-			{ 'L', 0b10_10_10 },
-			{ 'M', 0b11_00_10 },
-			{ 'N', 0b11_01_10 },
-			{ 'O', 0b10_01_10 },
-			{ 'P', 0b11_10_10 },
-			{ 'Q', 0b11_11_10 },
-			{ 'R', 0b10_11_10 },
-			{ 'S', 0b01_10_10 },
-			{ 'T', 0b01_11_10 },
-			{ 'U', 0b10_00_11 },
-			{ 'V', 0b10_10_11 },
-			{ 'X', 0b11_00_11 },
-			{ 'Y', 0b11_01_11 },
-			{ 'Z', 0b10_01_11 },
-			{ 'W', 0b01_11_01 }
+			{0b10_00_00, 'A'},
+			{0b10_10_00, 'B'},
+			{0b11_00_00, 'C'},
+			{0b11_01_00, 'D'},
+			{0b10_01_00, 'E'},
+			{0b11_10_00, 'F'},
+			{0b11_11_00, 'G'},
+			{0b10_11_00, 'H'},
+			{0b01_10_00, 'I'},
+			{0b01_11_00, 'J'},
+			{0b10_00_10, 'K'},
+			{0b10_10_10, 'L'},
+			{0b11_00_10, 'M'},
+			{0b11_01_10, 'N'},
+			{0b10_01_10, 'O'},
+			{0b11_10_10, 'P'},
+			{0b11_11_10, 'Q'},
+			{0b10_11_10, 'R'},
+			{0b01_10_10, 'S'},
+			{0b01_11_10, 'T'},
+			{0b10_00_11, 'U'},
+			{0b10_10_11, 'V'},
+			{0b11_00_11, 'X'},
+			{0b11_01_11, 'Y'},
+			{0b10_01_11, 'Z'},
+			{0b01_11_01, 'W'},
+			{0b10_11_11, 'W'}
 		}.ToImmutableDictionary();
-		static readonly ImmutableDictionary<byte, char> BrailleToLetter = LetterToBraille.ToImmutableDictionary(kv => kv.Value, kv => kv.Key);
 
 		readonly ImmutableArray<byte> letters;
 		public BrailleText() => letters = ImmutableArray.Create((byte)0);

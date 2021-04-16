@@ -142,6 +142,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Flag semaphore.
+        /// </summary>
+        public static string FlagSemaphorePageTitle {
+            get {
+                return ResourceManager.GetString("FlagSemaphorePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invert.
         /// </summary>
         public static string Invert {
@@ -264,6 +273,15 @@ namespace SIMSA.Resources {
         public static string Text {
             get {
                 return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn.
+        /// </summary>
+        public static string Turn {
+            get {
+                return ResourceManager.GetString("Turn", resourceCulture);
             }
         }
         

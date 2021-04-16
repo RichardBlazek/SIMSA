@@ -144,6 +144,9 @@
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>Anglická abeceda</value>
   </data>
+  <data name="FlagSemaphorePageTitle" xml:space="preserve">
+    <value>Vlajková abeceda</value>
+  </data>
   <data name="Invert" xml:space="preserve">
     <value>Invertovat</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Otočit</value>
   </data>
   <data name="VigenerePageTitle" xml:space="preserve">
     <value>Posun abecedy</value>

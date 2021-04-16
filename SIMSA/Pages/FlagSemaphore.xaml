@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:resources="clr-namespace:SIMSA.Resources"
+			 xmlns:touch="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+             x:Class="SIMSA.Pages.FlagSemaphore"
+			 Title="{x:Static resources:AppResources.FlagSemaphorePageTitle}">
+	<StackLayout>
+		<ScrollView>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="200"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="output" Grid.ColumnSpan="3"/>
+				<Grid Grid.Row="1" Grid.ColumnSpan="3">
+					<skia:SKCanvasView x:Name="canvas" PaintSurface="SemaphorePaintSurfaceHandler"/>
+					<Grid.Effects>
+						<touch:TouchEffect Capture="True" TouchAction="SemaphoreTouchHandler"/>
+					</Grid.Effects>
+				</Grid>
+				<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
+				<Button x:Name="turn" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Turn}"/>
+				<Button x:Name="backspace" Grid.Row="2" Grid.Column="2" Text="⌫" FontSize="20"/>
+			</Grid>
+		</ScrollView>
+    </StackLayout>
+</ContentPage>
