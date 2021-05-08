@@ -115,6 +115,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decryption.
+        /// </summary>
+        public static string Decryption {
+            get {
+                return ResourceManager.GetString("Decryption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -129,6 +138,15 @@ namespace SIMSA.Resources {
         public static string EditAlphabetPageTitle {
             get {
                 return ResourceManager.GetString("EditAlphabetPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encryption.
+        /// </summary>
+        public static string Encryption {
+            get {
+                return ResourceManager.GetString("Encryption", resourceCulture);
             }
         }
         
@@ -228,6 +246,24 @@ namespace SIMSA.Resources {
         public static string NumersSeparatedBySlash {
             get {
                 return ResourceManager.GetString("NumersSeparatedBySlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Omitted letter.
+        /// </summary>
+        public static string OmittedLetter {
+            get {
+                return ResourceManager.GetString("OmittedLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Playfair cipher.
+        /// </summary>
+        public static string PlayfairPageTitle {
+            get {
+                return ResourceManager.GetString("PlayfairPageTitle", resourceCulture);
             }
         }
         

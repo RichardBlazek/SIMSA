@@ -27,6 +27,7 @@ namespace SIMSA.Pages
 			InitializeComponent();
 			Config = config;
 			text = initText;
+			alphabet = config.DefaultAlphabet;
 
 			input.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
 			key.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
@@ -36,7 +37,7 @@ namespace SIMSA.Pages
 			key.TextChanged += (o, a) => SetText(text.WithKey(a.NewTextValue.ToUpper()));
 			sign.Clicked += (o, a) => SetText(text.InvertSign());
 
-			SetAlphabet(config.DefaultAlphabet);
+			SetAlphabet(alphabet);
 		}
 	}
 }

@@ -13,10 +13,10 @@ namespace SIMSA.Pages
 		void SetCode(MorseCode newMorse, int position)
 		{
 			morse = newMorse;
-			output.Text = morse.ToLetters();
+			output.Text = morse.ToString();
 
 			input.TextChanged -= TextChangedHandler;
-			input.SetText(morse.ToString(), position);
+			input.SetText(morse.Text, position);
 			input.TextChanged += TextChangedHandler;
 		}
 		void TextChangedHandler(object o, EventArgs a) => SetCode(MorseCode.Parse(input.Text), input.CursorPosition);

@@ -29,16 +29,16 @@ namespace SIMSA.Pages
 		public Numeric(Config config, NumericCode initCode)
 		{
 			InitializeComponent();
-
 			Config = config;
 			code = initCode;
+			alphabet = config.DefaultAlphabet;
 
 			alphabetBtn.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
 			input.TextChanged += (o, a) => SetCode(NumericCode.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
 			radix.Unfocused += (o, a) => SetCode(code.WithRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix), true);
 			invert.Clicked += (o, a) => SetCode(code.Invert(), true);
 
-			SetAlphabet(config.DefaultAlphabet);
+			SetAlphabet(alphabet);
 		}
 	}
 }

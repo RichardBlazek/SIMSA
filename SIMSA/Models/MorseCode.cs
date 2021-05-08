@@ -59,16 +59,15 @@ namespace SIMSA.Models
         }.ToImmutableDictionary();
         readonly static ImmutableDictionary<string, char> MorseToLetter = LetterToMorse.ToImmutableDictionary(kv => kv.Value, kv => kv.Key);
 
-        readonly string text;
+        public string Text { get; }
         public MorseCode() : this(string.Empty) { }
-		MorseCode(string text) => this.text = text;
+		MorseCode(string text) => Text = text;
         public static MorseCode Parse(string text) => new MorseCode(text.Where(c => c == '\u2022' || c == '\u2013' || c == '/').Cat());
-        public MorseCode Add(char c, int i) => c == '\u2022' || c == '\u2013' || c == '/' ? new MorseCode(text[..i] + c + text[i..]) : this;
-        public MorseCode Remove(int i) => text.Length > i && i >= 0 ? new MorseCode(text[..i] + text[(i + 1)..]) : this;
-        public MorseCode Invert() => new MorseCode(text.Replace('\u2022', '%').Replace('\u2013', '\u2022').Replace('%', '\u2013'));
+        public MorseCode Add(char c, int i) => c == '\u2022' || c == '\u2013' || c == '/' ? new MorseCode(Text[..i] + c + Text[i..]) : this;
+        public MorseCode Remove(int i) => Text.Length > i && i >= 0 ? new MorseCode(Text[..i] + Text[(i + 1)..]) : this;
+        public MorseCode Invert() => new MorseCode(Text.Replace('\u2022', '%').Replace('\u2013', '\u2022').Replace('%', '\u2013'));
 
-        public int Length => text.Length;
-        public override string ToString() => text;
-        public string ToLetters() => text.Split('/').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();
+        public int Length => Text.Length;
+        public override string ToString() => Text.Split('/').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();
     }
 }

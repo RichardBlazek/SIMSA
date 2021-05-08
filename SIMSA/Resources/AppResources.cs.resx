@@ -135,11 +135,17 @@
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>
+  <data name="Decryption" xml:space="preserve">
+    <value>Dešifrování</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Smazat</value>
   </data>
   <data name="EditAlphabetPageTitle" xml:space="preserve">
     <value>Upravit abecedu</value>
+  </data>
+  <data name="Encryption" xml:space="preserve">
+    <value>Šifrování</value>
   </data>
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>Anglická abeceda</value>
@@ -173,6 +179,12 @@
   </data>
   <data name="NumersSeparatedBySlash" xml:space="preserve">
     <value>Čísla oddělená lomítkem</value>
+  </data>
+  <data name="OmittedLetter" xml:space="preserve">
+    <value>Vynechané písmeno</value>
+  </data>
+  <data name="PlayfairPageTitle" xml:space="preserve">
+    <value>Playfairova šifra</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>

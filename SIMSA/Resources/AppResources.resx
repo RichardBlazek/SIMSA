@@ -135,11 +135,17 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="Decryption" xml:space="preserve">
+    <value>Decryption</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="EditAlphabetPageTitle" xml:space="preserve">
     <value>Edit alphabet</value>
+  </data>
+  <data name="Encryption" xml:space="preserve">
+    <value>Encryption</value>
   </data>
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>English alphabet</value>
@@ -173,6 +179,12 @@
   </data>
   <data name="NumersSeparatedBySlash" xml:space="preserve">
     <value>Numers separated by slash</value>
+  </data>
+  <data name="OmittedLetter" xml:space="preserve">
+    <value>Omitted letter</value>
+  </data>
+  <data name="PlayfairPageTitle" xml:space="preserve">
+    <value>Playfair cipher</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Radix</value>
