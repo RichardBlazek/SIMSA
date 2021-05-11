@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Xamarin.Forms;
 
@@ -60,5 +61,28 @@ namespace SIMSA
 			}
 		}
 		public static IEnumerable<(T First, U Second)> Zip<T, U>(this IEnumerable<T> f, IEnumerable<U> s) => f.Zip(s, (a, b) => (a, b));
+		public static ImmutableArray<int> GetPrimes(this int limit)
+		{
+			bool[] compound = new bool[limit - 1];
+			for (int number = 2; number * number <= limit; ++number)
+			{
+				if (!compound[number - 2])
+				{
+					for (int i = number * number; i <= limit; i += number)
+					{
+						compound[i - 2] = true;
+					}
+				}
+			}
+			var primes = ImmutableArray.CreateBuilder<int>();
+			for (int i = 0, len = compound.Length; i < len; ++i)
+			{
+				if (!compound[i])
+				{
+					primes.Add(i + 2);
+				}
+			}
+			return primes.ToImmutable();
+		}
 	}
 }

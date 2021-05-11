@@ -150,6 +150,9 @@
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>English alphabet</value>
   </data>
+  <data name="FindPrimesUpTo" xml:space="preserve">
+    <value>Find primes up to</value>
+  </data>
   <data name="FlagSemaphorePageTitle" xml:space="preserve">
     <value>Flag semaphore</value>
   </data>
@@ -185,6 +188,12 @@
   </data>
   <data name="PlayfairPageTitle" xml:space="preserve">
     <value>Playfair cipher</value>
+  </data>
+  <data name="PrimeCount" xml:space="preserve">
+    <value>Prime count:</value>
+  </data>
+  <data name="PrimesPageTitle" xml:space="preserve">
+    <value>Primes</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Radix</value>

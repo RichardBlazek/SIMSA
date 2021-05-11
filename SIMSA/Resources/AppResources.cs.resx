@@ -150,6 +150,9 @@
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>Anglická abeceda</value>
   </data>
+  <data name="FindPrimesUpTo" xml:space="preserve">
+    <value>Hledat prvočísla do</value>
+  </data>
   <data name="FlagSemaphorePageTitle" xml:space="preserve">
     <value>Vlajková abeceda</value>
   </data>
@@ -185,6 +188,12 @@
   </data>
   <data name="PlayfairPageTitle" xml:space="preserve">
     <value>Playfairova šifra</value>
+  </data>
+  <data name="PrimeCount" xml:space="preserve">
+    <value>Počet prvočísel:</value>
+  </data>
+  <data name="PrimesPageTitle" xml:space="preserve">
+    <value>Prvočísla</value>
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>

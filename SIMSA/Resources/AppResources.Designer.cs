@@ -160,6 +160,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Find primes up to.
+        /// </summary>
+        public static string FindPrimesUpTo {
+            get {
+                return ResourceManager.GetString("FindPrimesUpTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flag semaphore.
         /// </summary>
         public static string FlagSemaphorePageTitle {
@@ -264,6 +273,24 @@ namespace SIMSA.Resources {
         public static string PlayfairPageTitle {
             get {
                 return ResourceManager.GetString("PlayfairPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prime count:.
+        /// </summary>
+        public static string PrimeCount {
+            get {
+                return ResourceManager.GetString("PrimeCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primes.
+        /// </summary>
+        public static string PrimesPageTitle {
+            get {
+                return ResourceManager.GetString("PrimesPageTitle", resourceCulture);
             }
         }
         

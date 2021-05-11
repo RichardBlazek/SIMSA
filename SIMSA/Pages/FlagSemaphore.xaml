@@ -8,7 +8,7 @@
 			 Title="{x:Static resources:AppResources.FlagSemaphorePageTitle}">
 	<StackLayout>
 		<ScrollView>
-			<Grid>
+			<Grid Style="{StaticResource Content}">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="200"/>

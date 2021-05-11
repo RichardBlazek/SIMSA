@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:resources="clr-namespace:SIMSA.Resources"
+             x:Class="SIMSA.Pages.Primes"
+             Title="{x:Static resources:AppResources.PrimesPageTitle}">
+    <StackLayout>
+		<ScrollView>
+			<StackLayout Style="{StaticResource Content}">
+				<Label Text="{x:Static resources:AppResources.FindPrimesUpTo}" Style="{StaticResource Caption}"/>
+				<Entry x:Name="upperBound" TextChanged="FindPrimesUpTo"/>
+				<Label x:Name="primeCount" Style="{StaticResource Caption}"/>
+				<Label x:Name="output" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+			</StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
