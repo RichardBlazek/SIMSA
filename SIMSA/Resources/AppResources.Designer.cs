@@ -88,6 +88,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Numeric base converter.
+        /// </summary>
+        public static string BaseConverterPageTitle {
+            get {
+                return ResourceManager.GetString("BaseConverterPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Braille alphabet.
         /// </summary>
         public static string BraillePageTitle {
@@ -174,6 +183,15 @@ namespace SIMSA.Resources {
         public static string FlagSemaphorePageTitle {
             get {
                 return ResourceManager.GetString("FlagSemaphorePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From radix.
+        /// </summary>
+        public static string FromRadix {
+            get {
+                return ResourceManager.GetString("FromRadix", resourceCulture);
             }
         }
         
@@ -336,6 +354,15 @@ namespace SIMSA.Resources {
         public static string Text {
             get {
                 return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To radix.
+        /// </summary>
+        public static string ToRadix {
+            get {
+                return ResourceManager.GetString("ToRadix", resourceCulture);
             }
         }
         

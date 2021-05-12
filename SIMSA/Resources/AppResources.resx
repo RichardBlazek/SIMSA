@@ -126,6 +126,9 @@
   <data name="Alphabets" xml:space="preserve">
     <value>Alphabets</value>
   </data>
+  <data name="BaseConverterPageTitle" xml:space="preserve">
+    <value>Numeric base converter</value>
+  </data>
   <data name="BraillePageTitle" xml:space="preserve">
     <value>Braille alphabet</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="FlagSemaphorePageTitle" xml:space="preserve">
     <value>Flag semaphore</value>
+  </data>
+  <data name="FromRadix" xml:space="preserve">
+    <value>From radix</value>
   </data>
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>
@@ -209,6 +215,9 @@
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="ToRadix" xml:space="preserve">
+    <value>To radix</value>
   </data>
   <data name="Turn" xml:space="preserve">
     <value>Turn</value>

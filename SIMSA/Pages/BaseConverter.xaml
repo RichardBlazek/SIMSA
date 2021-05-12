@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:SIMSA.Resources"
+             x:Class="SIMSA.Pages.BaseConverter"
+             Title="{x:Static resources:AppResources.BaseConverterPageTitle}">
+    <StackLayout>
+		<ScrollView>
+			<Grid Style="{StaticResource Content}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="50"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="output" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+				<Entry x:Name="input" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="2"/>
+				<Label Text="{x:Static resources:AppResources.FromRadix}" Style="{StaticResource Caption}" Grid.Row="2" Grid.Column="0"/>
+				<Entry x:Name="fromRadix" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+				<Label Text="{x:Static resources:AppResources.ToRadix}" Style="{StaticResource Caption}" Grid.Row="3" Grid.Column="0"/>
+				<Entry x:Name="toRadix" TextChanged="Handler" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+			</Grid>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

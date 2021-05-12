@@ -84,5 +84,56 @@ namespace SIMSA
 			}
 			return primes.ToImmutable();
 		}
+		static readonly string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		static string Digit(long i) => i >= 36 ? $"({i})" : Digits[(int)i].ToString();
+		static long DigitValue(char c) => c >= '0' && c <= '9' ? c - '0' : c >= 'A' && c <= 'Z' ? c - 'A' + 10 : int.MaxValue;
+		public static string ToString(this long num, long radix)
+		{
+			if (num == 0)
+			{
+				return "0";
+			}
+			bool negative = num < 0;
+			num = negative ? -num : num;
+			string result = "";
+			while (num > 0)
+			{
+				result = Digit(num % radix) + result;
+				num /= radix;
+			}
+			return (negative ? "-" : "") + result;
+		}
+		public static bool TryParse(this string str, long radix, out long value)
+		{
+			value = 0;
+			bool negative = str.Length > 0 && str[0] == '-';
+			bool correct = str.Length >= (negative ? 2 : 1);
+			for (int i = negative ? 1 : 0; i < str.Length && correct; ++i)
+			{
+				long digit = DigitValue(str[i]);
+				correct &= digit < radix && value < (long.MaxValue - digit) / radix;
+				value = digit + value * radix;
+			}
+			value = negative ? -value : value;
+			return correct;
+		}
+		public static void Clamp(this Entry e, long min = long.MinValue, long max = long.MaxValue, long radix = 10)
+		{
+			if (e.Text.TryParse(radix, out long value))
+			{
+				if (value > max)
+				{
+					e.Text = max.ToString();
+				}
+				else if (value < min && value <= 0)
+				{
+					e.Text = min.ToString();
+				}
+			}
+			else if (e.Text.Length > 0 && (min >= 0 || e.Text != "-"))
+			{
+				e.Text = e.Text.Where(c => DigitValue(c) < radix).Cat();
+			}
+		}
 	}
 }
