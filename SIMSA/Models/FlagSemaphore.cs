@@ -5,11 +5,12 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class SemaphoreText
+	public class FlagSemaphore
 	{
 		static byte MakeValue(int flag1, int flag2) => (byte)(flag1.Mod(8) << 3 | flag2.Mod(8));
 		static byte ExtractFlag(byte value, bool second) => (byte)(second ? value & 7 : value >> 3);
 		static byte Turn(byte value, int turn) => MakeValue(ExtractFlag(value, false) + turn, ExtractFlag(value, true) + turn);
+
 		static readonly ImmutableDictionary<byte, char> SemaphoreToLetters = new Dictionary<byte, char>
 		{
 			{MakeValue(4,5),'A'}, {MakeValue(5,4),'A'},
@@ -41,14 +42,13 @@ namespace SIMSA.Models
 			{MakeValue(1,3),'X'}, {MakeValue(3,1),'X'},
 			{MakeValue(2,3),'Z'}, {MakeValue(3,2),'Z'}
 		}.ToImmutableDictionary();
-		
 		readonly ImmutableList<byte> letters;
-		public SemaphoreText() => letters = ImmutableList.Create(MakeValue(4,5));
-		SemaphoreText(ImmutableList<byte> letters) => this.letters = letters;
-		public SemaphoreText SetFlag(int value) => this[^1, false] == value ? this : new SemaphoreText(letters.SetItem(letters.Count - 1, MakeValue(value, ExtractFlag(letters[^1], false))));
-		public SemaphoreText Turn(int turn) => new SemaphoreText(letters.Select(v => Turn(v, turn)).ToImmutableList());
-		public SemaphoreText Add() => new SemaphoreText(letters.Add(MakeValue(4,5)));
-		public SemaphoreText Pop() => letters.Count > 1 ? new SemaphoreText(letters.RemoveAt(letters.Count - 1)) : this;
+		public FlagSemaphore() => letters = ImmutableList.Create(MakeValue(4, 5));
+		FlagSemaphore(ImmutableList<byte> letters) => this.letters = letters;
+		public FlagSemaphore SetFlag(int value) => this[^1, false] == value ? this : new FlagSemaphore(letters.SetItem(letters.Count - 1, MakeValue(value, ExtractFlag(letters[^1], false))));
+		public FlagSemaphore Turn(int turn) => new FlagSemaphore(letters.Select(v => Turn(v, turn)).ToImmutableList());
+		public FlagSemaphore Add() => new FlagSemaphore(letters.Add(MakeValue(4, 5)));
+		public FlagSemaphore Pop() => letters.Count > 1 ? new FlagSemaphore(letters.RemoveAt(letters.Count - 1)) : this;
 		public byte this[Index i, bool second] => ExtractFlag(letters[i], second);
 		public override string ToString() => letters.Select(v => SemaphoreToLetters.GetValueOrDefault(v, '?')).Cat();
 	}

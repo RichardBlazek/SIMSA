@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Linq;
 using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;

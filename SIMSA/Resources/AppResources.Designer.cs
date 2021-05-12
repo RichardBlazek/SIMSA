@@ -24,9 +24,9 @@ namespace SIMSA.Resources {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
         
-        private static global::System.Resources.ResourceManager resourceMan;
+        static global::System.Resources.ResourceManager resourceMan;
         
-        private static global::System.Globalization.CultureInfo resourceCulture;
+        static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AppResources() {
@@ -124,6 +124,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Czech.
+        /// </summary>
+        public static string Czech {
+            get {
+                return ResourceManager.GetString("Czech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decryption.
         /// </summary>
         public static string Decryption {
@@ -160,6 +169,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English alphabet.
         /// </summary>
         public static string EnglishAlphabet {
@@ -183,6 +201,15 @@ namespace SIMSA.Resources {
         public static string FlagSemaphorePageTitle {
             get {
                 return ResourceManager.GetString("FlagSemaphorePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frequency analysis.
+        /// </summary>
+        public static string FrequencyAnalysisPageTitle {
+            get {
+                return ResourceManager.GetString("FrequencyAnalysisPageTitle", resourceCulture);
             }
         }
         

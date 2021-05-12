@@ -14,6 +14,7 @@ namespace SIMSA.Pages
 			onSelected(alphabet);
 			return Navigation.PopAsync(false);
 		}
+
 		Button AlphabetSelector(IAlphabet alphabet, Action<IAlphabet> onSelected) => new Button
 		{
 			Text = alphabet.Name,

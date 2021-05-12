@@ -18,11 +18,11 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Label x:Name="output" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
-				<Entry x:Name="input" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="2"/>
+				<Entry x:Name="input" Text="0" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="2"/>
 				<Label Text="{x:Static resources:AppResources.FromRadix}" Style="{StaticResource Caption}" Grid.Row="2" Grid.Column="0"/>
-				<Entry x:Name="fromRadix" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+				<Entry x:Name="fromRadix" Text="10" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
 				<Label Text="{x:Static resources:AppResources.ToRadix}" Style="{StaticResource Caption}" Grid.Row="3" Grid.Column="0"/>
-				<Entry x:Name="toRadix" TextChanged="Handler" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+				<Entry x:Name="toRadix" Text="2" TextChanged="Handler" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
 			</Grid>
         </ScrollView>
     </StackLayout>

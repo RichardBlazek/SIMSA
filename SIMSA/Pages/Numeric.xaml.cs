@@ -8,9 +8,11 @@ namespace SIMSA.Pages
 	public partial class Numeric : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		NumericCode code;
+
+		Models.Numeric code;
 		IAlphabet alphabet;
-		void SetCode(NumericCode newCode, bool changeEntry)
+
+		void SetCode(Models.Numeric newCode, bool changeEntry)
 		{
 			code = newCode;
 			radix.Text = code.Radix.ToString();
@@ -20,13 +22,14 @@ namespace SIMSA.Pages
 				input.Text = code.ToString();
 			}
 		}
+
 		void SetAlphabet(IAlphabet newAlphabet)
 		{
 			alphabet = newAlphabet;
 			alphabetBtn.Text = newAlphabet.Name;
 			SetCode(code, false);
 		}
-		public Numeric(Config config, NumericCode initCode)
+		public Numeric(Config config, Models.Numeric initCode)
 		{
 			InitializeComponent();
 			Config = config;
@@ -34,7 +37,7 @@ namespace SIMSA.Pages
 			alphabet = config.DefaultAlphabet;
 
 			alphabetBtn.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
-			input.TextChanged += (o, a) => SetCode(NumericCode.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
+			input.TextChanged += (o, a) => SetCode(Models.Numeric.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
 			radix.Unfocused += (o, a) => SetCode(code.WithRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix), true);
 			invert.Clicked += (o, a) => SetCode(code.Invert(), true);
 

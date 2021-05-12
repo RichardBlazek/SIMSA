@@ -4,12 +4,15 @@ using System.Text;
 
 namespace SIMSA.Models
 {
-	public class PlayfairCipher
+	public class Playfair
 	{
 		readonly string text, key;
 		public char Replaced { get; }
+
 		string Filter(string s) => s.ToUpper().Where(c => c >= 'A' && c <= 'Z' && c != Replaced).Cat();
+
 		string FilteredKey => Filter(key).Distinct().Cat();
+
 		static ImmutableArray<int> Lookup(string s, string alphabet) => s.Select(c => alphabet.IndexOf(c)).ToImmutableArray();
 		public override string ToString()
 		{
@@ -27,15 +30,16 @@ namespace SIMSA.Models
 			}
 			return result.ToString();
 		}
-		PlayfairCipher(string text, string key, char replaced)
+
+		Playfair(string text, string key, char replaced)
 		{
 			this.text = text;
 			this.key = key;
 			Replaced = replaced;
 		}
-		public PlayfairCipher() : this("", "", 'Q') { }
-		public PlayfairCipher WithText(string new_text) => new PlayfairCipher(new_text, key, Replaced);
-		public PlayfairCipher WithKey(string new_key) => new PlayfairCipher(text, new_key, Replaced);
-		public PlayfairCipher WithReplaced(char new_replaced) => new PlayfairCipher(text, key, new_replaced);
+		public Playfair() : this("", "", 'Q') { }
+		public Playfair WithText(string new_text) => new Playfair(new_text, key, Replaced);
+		public Playfair WithKey(string new_key) => new Playfair(text, new_key, Replaced);
+		public Playfair WithReplaced(char new_replaced) => new Playfair(text, key, new_replaced);
 	}
 }

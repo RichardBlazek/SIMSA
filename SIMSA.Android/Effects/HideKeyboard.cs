@@ -6,21 +6,21 @@ using Xamarin.Forms.Platform.Android;
 namespace SIMSA.Droid.Effects
 {
 	public class HideKeyboard : PlatformEffect
-    {
-        protected override void OnAttached()
-        {
-            try
-            {
-                if (Control is Android.Widget.EditText editText)
-                {
-                    editText.ShowSoftInputOnFocus = false;
-                }
-            }
-            catch (System.Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(nameof(HideKeyboard) + " failed to attached: " + ex.Message);
-            }
-        }
-        protected override void OnDetached() { }
-    }
+	{
+		protected override void OnAttached()
+		{
+			try
+			{
+				if (Control is Android.Widget.EditText editText)
+				{
+					editText.ShowSoftInputOnFocus = false;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine(nameof(HideKeyboard) + " failed to attached: " + ex.Message);
+			}
+		}
+		protected override void OnDetached() { }
+	}
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using SIMSA.Models;
 using SIMSA.Resources;
@@ -14,6 +11,7 @@ namespace SIMSA.Pages
 	public partial class Settings : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
+
 		readonly Action<Config> save;
 
 		Task OpenEditAsync(int i)
@@ -21,16 +19,19 @@ namespace SIMSA.Pages
 			var page = new EditAlphabet(Config.Alphabets, alphabets => Save(Config.With(alphabets)), i);
 			return Navigation.PushAsync(page, false);
 		}
+
 		Task NewAlphabetAsync()
 		{
 			Save(Config.Add(CustomAlphabet.Empty));
 			return OpenEditAsync(Config.Alphabets.Custom.Count - 1);
 		}
+
 		Button EditOpener(int i) => new Button
 		{
 			Text = Config.Alphabets.Custom[i].Name,
 			Command = new Command(async () => await OpenEditAsync(i))
 		};
+
 		void ReloadContent()
 		{
 			stack.Children.Clear();
@@ -43,6 +44,7 @@ namespace SIMSA.Pages
 				Command = new Command(async () => await NewAlphabetAsync())
 			});
 		}
+
 		void Save(Config config)
 		{
 			Config = config;

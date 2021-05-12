@@ -11,6 +11,7 @@ namespace SIMSA.Models
 	{
 		static readonly IAlphabet zero = new UnicodeAlphabet();
 		public ImmutableList<CustomAlphabet> Custom { get; }
+
 		Alphabets(ImmutableList<CustomAlphabet> custom) => Custom = custom;
 
 		public IAlphabet this[int i] => i == Custom.Count ? zero : Custom[i];

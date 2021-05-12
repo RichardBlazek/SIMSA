@@ -3,7 +3,7 @@
 namespace SIMSA.Effects
 {
 	public class HideKeyboard : RoutingEffect
-    {
-        public HideKeyboard() : base("SIMSA.Effects.HideKeyboard") { }
+	{
+		public HideKeyboard() : base("SIMSA.Effects.HideKeyboard") { }
 	}
 }

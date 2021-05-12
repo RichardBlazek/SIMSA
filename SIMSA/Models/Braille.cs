@@ -6,10 +6,11 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class BrailleText : IReadOnlyList<byte>
+	public class Braille : IReadOnlyList<byte>
 	{
 		static bool IsSet(byte value, int bit) => ((value >> (5 - bit)) & 1) == 1;
 		static byte Negate(byte value, int bit) => (byte)((1 << (5 - bit)) ^ value);
+
 		static readonly ImmutableDictionary<byte, char> BrailleToLetter = new Dictionary<byte, char>
 		{
 			{0b10_00_00, 'A'},
@@ -40,17 +41,16 @@ namespace SIMSA.Models
 			{0b01_11_01, 'W'},
 			{0b10_11_11, 'W'}
 		}.ToImmutableDictionary();
-
 		readonly ImmutableArray<byte> letters;
-		public BrailleText() => letters = ImmutableArray.Create((byte)0);
-		BrailleText(ImmutableArray<byte> letters) => this.letters = letters;
+		public Braille() => letters = ImmutableArray.Create((byte)0);
+		Braille(ImmutableArray<byte> letters) => this.letters = letters;
 
 		public override string ToString() => letters.Select(b => BrailleToLetter.GetValueOrDefault(b, '?')).Cat();
 		public bool this[Index index, int bit] => IsSet(letters[index], bit);
-		public BrailleText InvertAt(int bit) => new BrailleText(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
-		public BrailleText Invert() => new BrailleText(letters.Select(c => (byte)(~c & 0b111111)).ToImmutableArray());
-		public BrailleText Pop() => new BrailleText(letters.Length > 1 ? letters.RemoveAt(letters.Length - 1) : letters.SetItem(0, 0));
-		public BrailleText Add(byte b) => new BrailleText(letters.Add(b));
+		public Braille InvertAt(int bit) => new Braille(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
+		public Braille Invert() => new Braille(letters.Select(c => (byte)(~c & 0b111111)).ToImmutableArray());
+		public Braille Pop() => new Braille(letters.Length > 1 ? letters.RemoveAt(letters.Length - 1) : letters.SetItem(0, 0));
+		public Braille Add(byte b) => new Braille(letters.Add(b));
 
 		public int Count => letters.Length;
 		public byte this[int index] => letters[index];

@@ -13,11 +13,8 @@ namespace SIMSA.Pages
 			InitializeComponent();
 			Config = config;
 			input.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
-
-			fromRadix.Text = "10";
-			toRadix.Text = "2";
-			input.Text = "0";
 		}
+
 		void WriteOutput()
 		{
 			fromRadix.Clamp(2, long.MaxValue);
@@ -33,6 +30,7 @@ namespace SIMSA.Pages
 				}
 			}
 		}
+
 		void Handler(object sender, TextChangedEventArgs e)
 		{
 			if (input.Text != null && fromRadix.Text != null && toRadix.Text != null)

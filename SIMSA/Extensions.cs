@@ -84,7 +84,9 @@ namespace SIMSA
 			}
 			return primes.ToImmutable();
 		}
+
 		static readonly string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 		static string Digit(long i) => i >= 36 ? $"({i})" : Digits[(int)i].ToString();
 		static long DigitValue(char c) => c >= '0' && c <= '9' ? c - '0' : c >= 'A' && c <= 'Z' ? c - 'A' + 10 : int.MaxValue;
 		public static string ToString(this long num, long radix)

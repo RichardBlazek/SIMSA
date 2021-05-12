@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using SIMSA.Models;
 using Xamarin.Forms;
@@ -18,6 +16,7 @@ namespace SIMSA.Pages
 			saveAlphabets(alphabets.Update(i, new CustomAlphabet(newLetters, name.Text)));
 			return Navigation.PopAsync(false);
 		}
+
 		Task RemoveAndQuit(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
 		{
 			saveAlphabets(alphabets.Remove(i));

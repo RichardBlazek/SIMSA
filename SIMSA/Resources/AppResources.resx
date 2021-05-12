@@ -138,6 +138,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="Czech" xml:space="preserve">
+    <value>Czech</value>
+  </data>
   <data name="Decryption" xml:space="preserve">
     <value>Decryption</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="Encryption" xml:space="preserve">
     <value>Encryption</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>English alphabet</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="FlagSemaphorePageTitle" xml:space="preserve">
     <value>Flag semaphore</value>
+  </data>
+  <data name="FrequencyAnalysisPageTitle" xml:space="preserve">
+    <value>Frequency analysis</value>
   </data>
   <data name="FromRadix" xml:space="preserve">
     <value>From radix</value>

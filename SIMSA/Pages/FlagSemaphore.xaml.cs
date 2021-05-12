@@ -12,16 +12,20 @@ namespace SIMSA.Pages
 	public partial class FlagSemaphore : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		SemaphoreText text;
-		void SetText(SemaphoreText newText)
+
+		Models.FlagSemaphore text;
+
+		void SetText(Models.FlagSemaphore newText)
 		{
 			text = newText;
 			output.Text = text.ToString();
 			canvas.InvalidateSurface();
 		}
+
 		static int ToDirection(double x, double y) => ((int)Math.Round(Math.Atan2(y, x) * 4 / Math.PI + 2)).Mod(8);
 		static float ToCoordX(int direction) => MathF.Cos((direction - 2) * MathF.PI / 4);
 		static float ToCoordY(int direction) => MathF.Sin((direction - 2) * MathF.PI / 4);
+
 		void SemaphoreTouchHandler(object sender, TouchActionEventArgs args)
 		{
 			if (args.Type == TouchActionType.Pressed)
@@ -29,6 +33,7 @@ namespace SIMSA.Pages
 				SetText(text.SetFlag(ToDirection(args.Location.X - canvas.Width / 2, args.Location.Y - canvas.Height / 2)));
 			}
 		}
+
 		void SemaphorePaintSurfaceHandler(object sender, SKPaintSurfaceEventArgs args)
 		{
 			var info = args.Info;
@@ -44,7 +49,7 @@ namespace SIMSA.Pages
 			canvas.DrawLine(info.Width / 2f, info.Height / 2f, ToCoordX(text[^1, true]) * radius + info.Width / 2, ToCoordY(text[^1, true]) * radius + info.Height / 2, blackLine);
 		}
 
-		public FlagSemaphore(Config config, SemaphoreText initText)
+		public FlagSemaphore(Config config, Models.FlagSemaphore initText)
 		{
 			InitializeComponent();
 

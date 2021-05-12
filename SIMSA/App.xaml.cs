@@ -1,5 +1,5 @@
-﻿using Xamarin.Forms;
-using SIMSA.Models;
+﻿using SIMSA.Models;
+using Xamarin.Forms;
 
 namespace SIMSA
 {
@@ -10,6 +10,7 @@ namespace SIMSA
 			InitializeComponent();
 			MainPage = new NavigationPage(new Pages.Menu(Config.Load(Properties, "Config"), SaveConfig));
 		}
+
 		async void SaveConfig(Config cfg)
 		{
 			cfg.Save(Properties, "Config");

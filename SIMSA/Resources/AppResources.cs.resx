@@ -138,6 +138,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>
+  <data name="Czech" xml:space="preserve">
+    <value>Čeština</value>
+  </data>
   <data name="Decryption" xml:space="preserve">
     <value>Dešifrování</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="Encryption" xml:space="preserve">
     <value>Šifrování</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Angličtina</value>
+  </data>
   <data name="EnglishAlphabet" xml:space="preserve">
     <value>Anglická abeceda</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="FlagSemaphorePageTitle" xml:space="preserve">
     <value>Vlajková abeceda</value>
+  </data>
+  <data name="FrequencyAnalysisPageTitle" xml:space="preserve">
+    <value>Frekvenční analýza</value>
   </data>
   <data name="FromRadix" xml:space="preserve">
     <value>Ze základu</value>

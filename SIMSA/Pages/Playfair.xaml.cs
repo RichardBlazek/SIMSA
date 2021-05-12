@@ -8,13 +8,16 @@ namespace SIMSA.Pages
 	public partial class Playfair : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		PlayfairCipher text;
-		void Set(PlayfairCipher newText)
+
+		Models.Playfair text;
+
+		void Set(Models.Playfair newText)
 		{
 			text = newText;
 			output.Text = text.ToString();
 			replaced.Text = newText.Replaced.ToString();
 		}
+
 		void SetReplaced(char new_replaced)
 		{
 			if (new_replaced != text.Replaced)
@@ -22,7 +25,7 @@ namespace SIMSA.Pages
 				Set(text.WithReplaced(new_replaced));
 			}
 		}
-		public Playfair(Config config, PlayfairCipher initText)
+		public Playfair(Config config, Models.Playfair initText)
 		{
 			InitializeComponent();
 			Config = config;

@@ -1,6 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using SIMSA.Models;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SIMSA.Models;
 
 namespace SIMSA.Pages
 {
@@ -8,21 +8,24 @@ namespace SIMSA.Pages
 	public partial class Vigenere : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		VigenereText text;
+
+		Models.Vigenere text;
 		IAlphabet alphabet;
-		void SetText(VigenereText newText)
+
+		void SetText(Models.Vigenere newText)
 		{
 			text = newText;
 			sign.Text = text.Minus ? "\u2212" : "+";
 			output.Text = text.DecipheredIn(alphabet);
 		}
+
 		void SetAlphabet(IAlphabet newAlphabet)
 		{
 			alphabet = newAlphabet;
 			alphabetBtn.Text = newAlphabet.Name;
 			output.Text = text.DecipheredIn(alphabet);
 		}
-		public Vigenere(Config config, VigenereText initText)
+		public Vigenere(Config config, Models.Vigenere initText)
 		{
 			InitializeComponent();
 			Config = config;

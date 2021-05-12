@@ -1,7 +1,7 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using System;
 using SIMSA.Models;
-using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace SIMSA.Pages
 {
@@ -9,8 +9,10 @@ namespace SIMSA.Pages
 	public partial class Morse : ContentPage, IConfigurable
 	{
 		public Config Config { get; set; }
-		MorseCode morse;
-		void SetCode(MorseCode newMorse, int position)
+
+		Models.Morse morse;
+
+		void SetCode(Models.Morse newMorse, int position)
 		{
 			morse = newMorse;
 			output.Text = morse.ToString();
@@ -19,8 +21,9 @@ namespace SIMSA.Pages
 			input.SetText(morse.Text, position);
 			input.TextChanged += TextChangedHandler;
 		}
-		void TextChangedHandler(object o, EventArgs a) => SetCode(MorseCode.Parse(input.Text), input.CursorPosition);
-		public Morse(Config config, MorseCode morseCode)
+
+		void TextChangedHandler(object o, EventArgs a) => SetCode(Models.Morse.Parse(input.Text), input.CursorPosition);
+		public Morse(Config config, Models.Morse morseCode)
 		{
 			InitializeComponent();
 			Config = config;
@@ -30,7 +33,7 @@ namespace SIMSA.Pages
 			add1.Clicked += (o, a) => SetCode(morse.Add('\u2013', input.CursorPosition), input.CursorPosition + 1);
 			backspace.Clicked += (o, a) => SetCode(morse.Remove(input.CursorPosition - 1), input.CursorPosition - 1);
 			separate.Clicked += (o, a) => SetCode(morse.Add('/', input.CursorPosition), input.CursorPosition + 1);
-			clear.Clicked += (o, a) => SetCode(new MorseCode(), 0);
+			clear.Clicked += (o, a) => SetCode(new Models.Morse(), 0);
 			invert.Clicked += (o, a) => SetCode(morse.Invert(), input.CursorPosition);
 			input.TextChanged += TextChangedHandler;
 		}

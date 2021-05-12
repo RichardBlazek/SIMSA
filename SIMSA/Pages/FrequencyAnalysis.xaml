@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:SIMSA.Resources"
+             x:Class="SIMSA.Pages.FrequencyAnalysis"
+             Title="{x:Static resources:AppResources.FrequencyAnalysisPageTitle}">
+	<StackLayout>
+		<ScrollView>
+			<StackLayout Style="{StaticResource Content}">
+				<Editor x:Name="input" IsSpellCheckEnabled="False" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"/>
+				<Button HorizontalOptions="FillAndExpand"/>
+			</StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
