@@ -10111,7 +10111,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Animation()
+			private Animation()
 			{
 			}
 		}
@@ -10169,7 +10169,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Animator()
+			private Animator()
 			{
 			}
 		}
@@ -12156,7 +12156,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Attribute()
+			private Attribute()
 			{
 			}
 		}
@@ -12181,7 +12181,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Boolean()
+			private Boolean()
 			{
 			}
 		}
@@ -12821,7 +12821,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Color()
+			private Color()
 			{
 			}
 		}
@@ -13875,7 +13875,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Dimension()
+			private Dimension()
 			{
 			}
 		}
@@ -14302,7 +14302,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Drawable()
+			private Drawable()
 			{
 			}
 		}
@@ -15266,7 +15266,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Id()
+			private Id()
 			{
 			}
 		}
@@ -15342,7 +15342,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Integer()
+			private Integer()
 			{
 			}
 		}
@@ -15388,7 +15388,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Interpolator()
+			private Interpolator()
 			{
 			}
 		}
@@ -15746,7 +15746,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Layout()
+			private Layout()
 			{
 			}
 		}
@@ -15768,7 +15768,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Mipmap()
+			private Mipmap()
 			{
 			}
 		}
@@ -15784,7 +15784,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Plurals()
+			private Plurals()
 			{
 			}
 		}
@@ -16067,7 +16067,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			String()
+			private String()
 			{
 			}
 		}
@@ -18189,7 +18189,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Style()
+			private Style()
 			{
 			}
 		}
@@ -21983,7 +21983,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Styleable()
+			private Styleable()
 			{
 			}
 		}
@@ -22017,7 +22017,7 @@ namespace SIMSA.Droid
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			Xml()
+			private Xml()
 			{
 			}
 		}

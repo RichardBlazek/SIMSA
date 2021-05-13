@@ -24,9 +24,9 @@ namespace SIMSA.Resources {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
         
-        static global::System.Resources.ResourceManager resourceMan;
+        private static global::System.Resources.ResourceManager resourceMan;
         
-        static global::System.Globalization.CultureInfo resourceCulture;
+        private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AppResources() {
@@ -88,6 +88,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analyse.
+        /// </summary>
+        public static string Analyse {
+            get {
+                return ResourceManager.GetString("Analyse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Numeric base converter.
         /// </summary>
         public static string BaseConverterPageTitle {
@@ -129,6 +138,15 @@ namespace SIMSA.Resources {
         public static string Czech {
             get {
                 return ResourceManager.GetString("Czech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czech (including diacritics).
+        /// </summary>
+        public static string CzechDiacritics {
+            get {
+                return ResourceManager.GetString("CzechDiacritics", resourceCulture);
             }
         }
         
@@ -345,6 +363,15 @@ namespace SIMSA.Resources {
         public static string Radix {
             get {
                 return ResourceManager.GetString("Radix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
             }
         }
         

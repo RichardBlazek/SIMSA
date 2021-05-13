@@ -8,7 +8,20 @@
 		<ScrollView>
 			<StackLayout Style="{StaticResource Content}">
 				<Editor x:Name="input" IsSpellCheckEnabled="False" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"/>
-				<Button HorizontalOptions="FillAndExpand"/>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Button Text="{x:Static resources:AppResources.Analyse}" Clicked="RunAnalysis" Grid.Row="0" Grid.Column="0"/>
+					<Button x:Name="languageSwitch" Clicked="SwitchLanguage" Grid.Row="0" Grid.Column="1"/>
+					<StackLayout x:Name="inputStats" Grid.Row="1" Grid.Column="0"/>
+					<StackLayout x:Name="languageStats" Grid.Row="1" Grid.Column="1"/>
+				</Grid>
 			</StackLayout>
         </ScrollView>
     </StackLayout>

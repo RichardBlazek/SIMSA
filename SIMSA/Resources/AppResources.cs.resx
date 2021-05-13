@@ -126,6 +126,9 @@
   <data name="Alphabets" xml:space="preserve">
     <value>Abecedy</value>
   </data>
+  <data name="Analyse" xml:space="preserve">
+    <value>Analyzovat</value>
+  </data>
   <data name="BaseConverterPageTitle" xml:space="preserve">
     <value>Převod číselných soustav</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Czech" xml:space="preserve">
     <value>Čeština</value>
+  </data>
+  <data name="CzechDiacritics" xml:space="preserve">
+    <value>Čeština (s diakritikou)</value>
   </data>
   <data name="Decryption" xml:space="preserve">
     <value>Dešifrování</value>
@@ -212,6 +218,9 @@
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Výsledek</value>
   </data>
   <data name="SelectAlphabetPageTitle" xml:space="preserve">
     <value>Vybrat abecedu</value>
