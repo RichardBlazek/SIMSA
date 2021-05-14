@@ -177,6 +177,9 @@
   <data name="FromRadix" xml:space="preserve">
     <value>From radix</value>
   </data>
+  <data name="GreekAlphabet" xml:space="preserve">
+    <value>Greek alphabet</value>
+  </data>
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>
   </data>

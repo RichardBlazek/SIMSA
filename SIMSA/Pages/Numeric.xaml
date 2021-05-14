@@ -21,7 +21,7 @@
 				</Grid.RowDefinitions>
 
 				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
-				<Label Text="{x:Static resources:AppResources.NumersSeparatedBySlash}" Style="{StaticResource Caption}" Grid.Row="1"/>
+				<Label Text="{x:Static resources:AppResources.NumersSeparatedBySlash}" Style="{StaticResource Caption}" Grid.Row="1" Grid.ColumnSpan="2"/>
 				<Entry x:Name="input" Keyboard="Url" Grid.Row="2" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
 				
 				<Button x:Name="alphabetBtn" Grid.Row="3"/>

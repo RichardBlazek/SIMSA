@@ -25,7 +25,7 @@ namespace SIMSA.Models
 			var tuples = JsonSerializer.Deserialize<IEnumerable<Tuple<ImmutableArray<string>, string>>>(text);
 			return new Alphabets(tuples.Select(pair => new CustomAlphabet(pair.Item1, pair.Item2)).ToImmutableList());
 		}
-		public static readonly Alphabets Initial = new Alphabets(ImmutableList.Create(CustomAlphabet.English));
+		public static readonly Alphabets Initial = new Alphabets(ImmutableList.Create(CustomAlphabet.English, CustomAlphabet.Greek));
 		public Alphabets Add(CustomAlphabet alphabet) => new Alphabets(Custom.Add(alphabet));
 		public Alphabets Update(int index, CustomAlphabet newAlphabet) => new Alphabets(Custom.SetItem(index, newAlphabet));
 		public Alphabets Remove(int index) => new Alphabets(Custom.RemoveAt(index));

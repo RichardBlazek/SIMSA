@@ -23,8 +23,9 @@ namespace SIMSA.Models
 		public int Count => Letters.Length;
 		public IEnumerator<string> GetEnumerator() => (Letters as IEnumerable<string>).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => (Letters as IEnumerable).GetEnumerator();
-
+		
 		public static readonly CustomAlphabet English = new CustomAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Select(c => c.ToString()).ToImmutableArray(), AppResources.EnglishAlphabet);
+		public static readonly CustomAlphabet Greek = new CustomAlphabet("ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ".Select(c => c.ToString()).ToImmutableArray(), AppResources.GreekAlphabet);
 		public static readonly CustomAlphabet Empty = new CustomAlphabet(English.Letters, AppResources.NewAlphabet);
 	}
 }

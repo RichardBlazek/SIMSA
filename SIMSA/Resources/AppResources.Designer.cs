@@ -241,6 +241,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Greek alphabet.
+        /// </summary>
+        public static string GreekAlphabet {
+            get {
+                return ResourceManager.GetString("GreekAlphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invert.
         /// </summary>
         public static string Invert {

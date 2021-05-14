@@ -29,7 +29,6 @@ namespace SIMSA.Pages
 			}
 			return layout;
 		}
-		static FlexLayout flex_empty = Flex();
 		static void DrawOutput(StackLayout layout, ImmutableDictionary<char, double> frequencies)
 		{
 			int i = 0;
