@@ -12,10 +12,13 @@ namespace SIMSA.Pages
 		Models.Numeric code;
 		IAlphabet alphabet;
 
-		void SetCode(Models.Numeric newCode, bool changeEntry)
+		void SetCode(Models.Numeric newCode, bool changeEntry, bool changeRadix = true)
 		{
 			code = newCode;
-			radix.Text = code.Radix.ToString();
+			if (changeRadix)
+			{
+				radix.Text = code.Radix.ToString();
+			}
 			output.Text = code.ToLetters(alphabet);
 			if (changeEntry)
 			{
@@ -29,6 +32,13 @@ namespace SIMSA.Pages
 			alphabetBtn.Text = newAlphabet.Name;
 			SetCode(code, false);
 		}
+		void SetRadix(byte radix)
+		{
+			if (radix >= 2 && radix <= 36 && radix != code.Radix)
+			{
+				SetCode(code.WithRadix(radix), true, false);
+			}
+		}
 		public Numeric(Config config, Models.Numeric initCode)
 		{
 			InitializeComponent();
@@ -38,9 +48,10 @@ namespace SIMSA.Pages
 
 			alphabetBtn.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
 			input.TextChanged += (o, a) => SetCode(Models.Numeric.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
-			radix.Unfocused += (o, a) => SetCode(code.WithRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix), true);
+			radix.TextChanged += (o, a) => SetRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix);
 			invert.Clicked += (o, a) => SetCode(code.Invert(), true);
 
+			input.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
 			SetAlphabet(alphabet);
 		}
 	}

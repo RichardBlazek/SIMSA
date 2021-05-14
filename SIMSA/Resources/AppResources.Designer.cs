@@ -277,7 +277,7 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ICE.
+        ///   Looks up a localized string similar to Cipher App.
         /// </summary>
         public static string MenuPageTitle {
             get {
@@ -322,11 +322,11 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numers separated by slash.
+        ///   Looks up a localized string similar to Numbers separated by comma.
         /// </summary>
-        public static string NumersSeparatedBySlash {
+        public static string NumersSeparatedByComma {
             get {
-                return ResourceManager.GetString("NumersSeparatedBySlash", resourceCulture);
+                return ResourceManager.GetString("NumersSeparatedByComma", resourceCulture);
             }
         }
         

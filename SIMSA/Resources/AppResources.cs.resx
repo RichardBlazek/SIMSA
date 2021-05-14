@@ -205,7 +205,7 @@
     <value>Číselný kód</value>
   </data>
   <data name="NumersSeparatedBySlash" xml:space="preserve">
-    <value>Čísla oddělená lomítkem</value>
+    <value>Čísla oddělená čárkou</value>
   </data>
   <data name="OmittedLetter" xml:space="preserve">
     <value>Vynechané písmeno</value>

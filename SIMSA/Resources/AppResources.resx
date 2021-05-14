@@ -190,7 +190,7 @@
     <value>Letters of the alphabet</value>
   </data>
   <data name="MenuPageTitle" xml:space="preserve">
-    <value>ICE</value>
+    <value>Cipher App</value>
   </data>
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morse code</value>
@@ -204,8 +204,8 @@
   <data name="NumericPageTitle" xml:space="preserve">
     <value>Number code</value>
   </data>
-  <data name="NumersSeparatedBySlash" xml:space="preserve">
-    <value>Numers separated by slash</value>
+  <data name="NumersSeparatedByComma" xml:space="preserve">
+    <value>Numbers separated by comma</value>
   </data>
   <data name="OmittedLetter" xml:space="preserve">
     <value>Omitted letter</value>

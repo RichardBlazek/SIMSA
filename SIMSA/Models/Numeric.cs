@@ -38,16 +38,16 @@ namespace SIMSA.Models
 			Radix = radix;
 		}
 		public Numeric() : this(string.Empty, 10) { }
-		public static Numeric Parse(string text, int radix) => new Numeric(text.Where(c => c == '/' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
+		public static Numeric Parse(string text, int radix) => new Numeric(text.Where(c => c == ',' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
 
-		public Numeric Add(char c, int i) => c == '/' || DigitValue(c) < Radix ? new Numeric(text[..i] + c + text[i..], Radix) : this;
+		public Numeric Add(char c, int i) => c == ',' || DigitValue(c) < Radix ? new Numeric(text[..i] + c + text[i..], Radix) : this;
 		public Numeric Remove(int i) => i >= 0 && i < text.Length ? new Numeric(text[..i] + text[(i + 1)..], Radix) : this;
-		public Numeric WithRadix(byte r) => r >= 2 && r <= 36 ? new Numeric(text.Where(c => c == '/' || DigitValue(c) < r).Cat(), r) : this;
-		public Numeric Invert() => new Numeric(text.Select(c => c == '/' ? '/' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
+		public Numeric WithRadix(byte r) => r >= 2 && r <= 36 ? new Numeric(text.Where(c => c == ',' || DigitValue(c) < r).Cat(), r) : this;
+		public Numeric Invert() => new Numeric(text.Select(c => c == ',' ? ',' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
 
 		public int Length => text.Length;
 		public override string ToString() => text;
-		public string ToLetters(IAlphabet alphabet) => text.Split('/').Select(code => CodeToText(code, alphabet)).Cat();
-		public bool IsTextValid(string text) => text.All(c => c == '/' || DigitValue(c) < Radix);
+		public string ToLetters(IAlphabet alphabet) => text.Split(',').Select(code => CodeToText(code, alphabet)).Cat();
+		public bool IsTextValid(string text) => text.All(c => c == ',' || DigitValue(c) < Radix);
 	}
 }
