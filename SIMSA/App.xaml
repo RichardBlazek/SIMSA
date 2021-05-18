@@ -20,5 +20,19 @@
 			<Setter Property="VerticalOptions" Value="Center"/>
 			<Setter Property="VerticalTextAlignment" Value="Center"/>
 		</Style>
+		<Style TargetType="Button">
+			<Setter Property="CornerRadius" Value="0"/>
+			<Setter Property="BorderWidth" Value="0"/>
+			<Setter Property="TextColor" Value="#000"/>
+			<Setter Property="BackgroundColor" Value="#EEE"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="HeightRequest" Value="60"/>
+		</Style>
+		<Style TargetType="ContentPage">
+			<Setter Property="BackgroundColor" Value="#222"/>
+		</Style>
+		<Style TargetType="Label">
+			<Setter Property="TextColor" Value="#FFF"/>
+		</Style>
 	</Application.Resources>
 </Application>

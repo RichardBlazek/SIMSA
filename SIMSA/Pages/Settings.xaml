@@ -4,9 +4,9 @@
              xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Settings"
              Title="{x:Static resources:AppResources.SettingsPageTitle}">
-	<StackLayout Style="{StaticResource Content}">
+	<StackLayout>
 		<ScrollView>
-			<StackLayout x:Name="stack"/>
+			<StackLayout x:Name="stack" Style="{StaticResource Content}"/>
 		</ScrollView>
     </StackLayout>
 </ContentPage>

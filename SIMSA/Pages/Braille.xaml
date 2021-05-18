@@ -4,36 +4,47 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Braille"
 			 Title="{x:Static resources:AppResources.BraillePageTitle}">
-	<ContentPage.Resources>
-		<Style x:Key="CircleButton" TargetType="Button">
-			<Setter Property="WidthRequest" Value="60"/>
-			<Setter Property="HeightRequest" Value="60"/>
-			<Setter Property="CornerRadius" Value="30"/>
-			<Setter Property="BorderColor" Value="#333"/>
-			<Setter Property="BorderWidth" Value="2"/>
-		</Style>
-	</ContentPage.Resources>
-	<Grid x:Name="grid" Style="{StaticResource Content}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="60"/>
-			<ColumnDefinition Width="60"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
-		<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="6" Style="{StaticResource Output}"/>
-		<Button x:Name="clear" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Clear}"/>
-		<Button x:Name="backspace" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Text="⌫" FontSize="20"/>
-		<Button x:Name="invert" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Invert}"/>
-		<Button x:Name="confirm" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Text="{x:Static resources:AppResources.Confirm}"/>
-	</Grid>
+	<StackLayout>
+		<ScrollView>
+			<Grid Style="{StaticResource Content}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="240"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
+				<Grid x:Name="grid" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Center">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="60"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+					</Grid.ColumnDefinitions>
+					<Grid.Resources>
+						<Style TargetType="Button">
+							<Setter Property="WidthRequest" Value="60"/>
+							<Setter Property="HeightRequest" Value="60"/>
+							<Setter Property="CornerRadius" Value="30"/>
+							<Setter Property="BorderWidth" Value="0"/>
+						</Style>
+					</Grid.Resources>
+				</Grid>
+				<Button x:Name="clear" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Clear}"/>
+				<Button x:Name="backspace" Grid.Row="2" Grid.Column="1" Text="⌫" FontSize="20"/>
+				<Button x:Name="confirm" Grid.Row="2" Grid.Column="2" Text="{x:Static resources:AppResources.Confirm}"/>
+				<Button x:Name="invert" Grid.Row="3" Grid.Column="0" Text="{x:Static resources:AppResources.Invert}"/>
+				<Button x:Name="mirror" Grid.Row="3" Grid.Column="1" Text="{x:Static resources:AppResources.Mirror}"/>
+				<Button x:Name="turn" Grid.Row="3" Grid.Column="2" Text="{x:Static resources:AppResources.Turn}"/>
+			</Grid>
+		</ScrollView>
+	</StackLayout>
 </ContentPage>

@@ -61,6 +61,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add an alphabet.
         /// </summary>
         public static string AddAlphabet {
@@ -286,6 +295,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mirror.
+        /// </summary>
+        public static string Mirror {
+            get {
+                return ResourceManager.GetString("Mirror", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Morse code.
         /// </summary>
         public static string MorsePageTitle {
@@ -408,6 +426,15 @@ namespace SIMSA.Resources {
         public static string SettingsPageTitle {
             get {
                 return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subtract.
+        /// </summary>
+        public static string Subtract {
+            get {
+                return ResourceManager.GetString("Subtract", resourceCulture);
             }
         }
         

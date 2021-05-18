@@ -8,8 +8,13 @@ namespace SIMSA.Models
 {
 	public class Braille : IReadOnlyList<byte>
 	{
-		static bool IsSet(byte value, int bit) => ((value >> (5 - bit)) & 1) == 1;
+		static byte ValueAt(byte value, int bit) => (byte)((value >> (5 - bit)) & 1);
+		static bool IsSet(byte value, int bit) => ValueAt(value, bit) == 1;
+		static byte Shuffle(byte value, Func<int, int> position) => (byte)(ValueAt(value, 0) << (5 - position(0)) | ValueAt(value, 1) << (5 - position(1)) | ValueAt(value, 2) << (5 - position(2)) | ValueAt(value, 3) << (5 - position(3)) | ValueAt(value, 4) << (5 - position(4)) | ValueAt(value, 5) << (5 - position(5)));
 		static byte Negate(byte value, int bit) => (byte)((1 << (5 - bit)) ^ value);
+		static byte NegateAll(byte value) => (byte)(~value & 0b111111);
+		static byte Mirror(byte value) => Shuffle(value, i => i ^ 1);
+		static byte Turn(byte value) => Shuffle(value, i => 5 - i);
 
 		static readonly ImmutableDictionary<byte, char> BrailleToLetter = new Dictionary<byte, char>
 		{
@@ -48,7 +53,9 @@ namespace SIMSA.Models
 		public override string ToString() => letters.Select(b => BrailleToLetter.GetValueOrDefault(b, '?')).Cat();
 		public bool this[Index index, int bit] => IsSet(letters[index], bit);
 		public Braille InvertAt(int bit) => new Braille(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
-		public Braille Invert() => new Braille(letters.Select(c => (byte)(~c & 0b111111)).ToImmutableArray());
+		public Braille Inverted => new Braille(letters.Select(NegateAll).ToImmutableArray());
+		public Braille Mirrored => new Braille(letters.Select(Mirror).ToImmutableArray());
+		public Braille Turned => new Braille(letters.Select(Turn).ToImmutableArray());
 		public Braille Pop() => new Braille(letters.Length > 1 ? letters.RemoveAt(letters.Length - 1) : letters.SetItem(0, 0));
 		public Braille Add(byte b) => new Braille(letters.Add(b));
 

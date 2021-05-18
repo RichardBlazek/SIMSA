@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Sečíst</value>
+  </data>
   <data name="AddAlphabet" xml:space="preserve">
     <value>Přidat abecedu</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="MenuPageTitle" xml:space="preserve">
     <value>ŠIMŠA</value>
   </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Překlopit</value>
+  </data>
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morseova abeceda</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>Nastavení</value>
+  </data>
+  <data name="Subtract" xml:space="preserve">
+    <value>Odečíst</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>

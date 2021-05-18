@@ -1,4 +1,5 @@
 ﻿using SIMSA.Models;
+using SIMSA.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +16,7 @@ namespace SIMSA.Pages
 		void SetText(Models.Vigenere newText)
 		{
 			text = newText;
-			sign.Text = text.Minus ? "\u2212" : "+";
+			sign.Text = text.Minus ? AppResources.Subtract : AppResources.Add;
 			output.Text = text.DecipheredIn(alphabet);
 		}
 

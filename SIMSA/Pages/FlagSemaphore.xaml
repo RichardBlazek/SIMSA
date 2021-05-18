@@ -13,15 +13,13 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="200"/>
 					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Grid.ColumnSpan="3"/>
+				<Label x:Name="output" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
 				<Grid Grid.Row="1" Grid.ColumnSpan="3">
 					<skia:SKCanvasView x:Name="canvas" PaintSurface="SemaphorePaintSurfaceHandler"/>
 					<Grid.Effects>
