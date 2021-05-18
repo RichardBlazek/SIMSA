@@ -50,7 +50,7 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
-    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidLinkTool>r8</AndroidLinkTool>
@@ -63,6 +63,7 @@
     <AndroidSigningKeyStore>C:\Users\Risa\AppData\Local\Xamarin\Mono for Android\Keystore\MyFirstAndroidKeystore\MyFirstAndroidKeystore.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>
     </AndroidSigningStorePass>
+    <AndroidLinkMode>Full</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
