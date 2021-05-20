@@ -2,8 +2,8 @@
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ResolutionGroupName("SIMSA.Effects")]
-[assembly: ExportEffect(typeof(SIMSA.iOS.Effects.HideKeyboard), nameof(SIMSA.Effects.HideKeyboard))]
-namespace SIMSA.iOS.Effects
+[assembly: ExportEffect(typeof(SIMSA.iOS.Code.HideKeyboard), nameof(SIMSA.Effects.HideKeyboard))]
+namespace SIMSA.iOS.Code
 {
 	public class HideKeyboard : PlatformEffect
 	{

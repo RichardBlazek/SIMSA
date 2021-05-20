@@ -2,8 +2,8 @@
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ResolutionGroupName("SIMSA.Effects")]
-[assembly: ExportEffect(typeof(SIMSA.Droid.Effects.HideKeyboard), nameof(SIMSA.Effects.HideKeyboard))]
-namespace SIMSA.Droid.Effects
+[assembly: ExportEffect(typeof(SIMSA.Droid.Code.HideKeyboard), nameof(SIMSA.Effects.HideKeyboard))]
+namespace SIMSA.Droid.Code
 {
 	public class HideKeyboard : PlatformEffect
 	{

@@ -7,7 +7,7 @@
 	<StackLayout>
 		<ScrollView>
 			<StackLayout Style="{StaticResource Content}">
-				<Editor x:Name="input" IsSpellCheckEnabled="False" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"/>
+				<Editor x:Name="input" Placeholder="{x:Static resources:AppResources.Text}" IsSpellCheckEnabled="False" AutoSize="TextChanges"/>
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="60"/>

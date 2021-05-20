@@ -14,20 +14,16 @@
                 </Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="30"/>
 					<RowDefinition Height="60"/>
-					<RowDefinition Height="30"/>
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="3"/>
-				<Label Text="{x:Static resources:AppResources.Text}" Style="{StaticResource Caption}" Grid.Row="1" Grid.ColumnSpan="3"/>
-				<Entry x:Name="input" Grid.Row="2" Grid.ColumnSpan="3"/>
-				<Label Text="{x:Static resources:AppResources.Key}" Style="{StaticResource Caption}" Grid.Row="3" Grid.ColumnSpan="3"/>
-				<Entry x:Name="key" Grid.Row="4" Grid.ColumnSpan="3"/>
-				<Label Text="{x:Static resources:AppResources.OmittedLetter}" Style="{StaticResource Caption}" Grid.Row="5" Grid.ColumnSpan="2"/>
-				<Entry x:Name="replaced" Grid.Row="5" Grid.Column="2"/>
+				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="3"/>
+				<Entry x:Name="key" Placeholder="{x:Static resources:AppResources.Key}" Grid.Row="2" Grid.ColumnSpan="3"/>
+				<Label Text="{x:Static resources:AppResources.OmittedLetter}" Style="{StaticResource Caption}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Entry x:Name="replaced" Placeholder="{x:Static resources:AppResources.OmittedLetter}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </StackLayout>

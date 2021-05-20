@@ -6,9 +6,7 @@
 			 Title="{x:Static resources:AppResources.EditAlphabetPageTitle}">
 	<Grid Style="{StaticResource Content}">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="30"/>
 			<RowDefinition Height="60"/>
-			<RowDefinition Height="30"/>
 			<RowDefinition Height="60"/>
 			<RowDefinition Height="60"/>
 		</Grid.RowDefinitions>
@@ -16,11 +14,9 @@
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<Label Text="{x:Static resources:AppResources.AlphabetName}" Style="{StaticResource Caption}" Grid.Row="0" Grid.ColumnSpan="2"/>
-		<Entry x:Name="name" Grid.Row="1" Grid.ColumnSpan="2"/>
-		<Label Text="{x:Static resources:AppResources.LettersOfTheAlphabet}" Style="{StaticResource Caption}" Grid.Row="2" Grid.ColumnSpan="2"/>
-		<Entry x:Name="letters" IsSpellCheckEnabled="false" Grid.Row="3" Grid.ColumnSpan="2"/>
-		<Button x:Name="confirm" Grid.Row="4" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
-		<Button x:Name="delete" Grid.Row="4" Grid.Column="1" Text="{x:Static resources:AppResources.Delete}"/>
+		<Entry x:Name="name" Placeholder="{x:Static resources:AppResources.AlphabetName}" Grid.Row="0" Grid.ColumnSpan="2"/>
+		<Entry x:Name="letters" Placeholder="{x:Static resources:AppResources.LettersOfTheAlphabet}" IsSpellCheckEnabled="false" Grid.Row="1" Grid.ColumnSpan="2"/>
+		<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
+		<Button x:Name="delete" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Delete}"/>
 	</Grid>
 </ContentPage>

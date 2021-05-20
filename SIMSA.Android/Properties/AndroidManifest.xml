@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="400005" android:versionName="1.0" package="com.mrkevvzime.simsa" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="400008" android:versionName="1.2" package="com.mrkevvzime.simsa" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="30" />
 	<application android:label="SIMSA.Android" android:theme="@style/MainTheme" android:icon="@mipmap/icon"></application>
 </manifest>

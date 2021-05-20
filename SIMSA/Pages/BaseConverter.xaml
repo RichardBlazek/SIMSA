@@ -16,13 +16,13 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
-				<Entry x:Name="input" Text="0" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="2"/>
-				<Label Text="{x:Static resources:AppResources.FromRadix}" Style="{StaticResource Caption}" Grid.Row="2" Grid.Column="0"/>
-				<Entry x:Name="fromRadix" Text="10" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
-				<Label Text="{x:Static resources:AppResources.ToRadix}" Style="{StaticResource Caption}" Grid.Row="3" Grid.Column="0"/>
-				<Entry x:Name="toRadix" Text="2" TextChanged="Handler" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+				<Label x:Name="output" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"/>
+				<Entry x:Name="input" Text="0" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="3"/>
+				<Entry x:Name="fromRadix" Placeholder="{x:Static resources:AppResources.FromRadix}" Text="10" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="0"/>
+				<Label Text="→" FontSize="30" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center"/>
+				<Entry x:Name="toRadix" Placeholder="{x:Static resources:AppResources.ToRadix}" Text="2" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </StackLayout>

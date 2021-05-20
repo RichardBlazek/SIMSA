@@ -475,6 +475,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upper bound.
+        /// </summary>
+        public static string UpperBound {
+            get {
+                return ResourceManager.GetString("UpperBound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alphabet shift.
         /// </summary>
         public static string VigenerePageTitle {

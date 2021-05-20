@@ -5,29 +5,33 @@
 			 xmlns:effects="clr-namespace:SIMSA.Effects"
              x:Class="SIMSA.Pages.Morse"
 			 Title="{x:Static resources:AppResources.MorsePageTitle}">
-	<Grid Style="{StaticResource Content}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
-		<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
-		<Entry x:Name="input" Grid.Row="1" Grid.ColumnSpan="3">
-			<Entry.Effects>
-				<effects:HideKeyboard/>
-			</Entry.Effects>
-		</Entry>
-		<Button x:Name="add0" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
-		<Button x:Name="add1" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
-		<Button x:Name="separate" Text="/" Grid.Row="2" Grid.Column="2"/>
-		<Button x:Name="backspace" Text="⌫" FontSize="20" Grid.Row="3" Grid.Column="0"/>
-		<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
-		<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
-	</Grid>
+	<StackLayout>
+		<ScrollView>
+			<Grid Style="{StaticResource Content}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
+				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="3">
+					<Entry.Effects>
+						<effects:HideKeyboard/>
+					</Entry.Effects>
+				</Entry>
+				<Button x:Name="add0" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
+				<Button x:Name="add1" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
+				<Button x:Name="separate" Text="/" Grid.Row="2" Grid.Column="2"/>
+				<Button x:Name="backspace" Text="⌫" FontSize="20" Grid.Row="3" Grid.Column="0"/>
+				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
+			</Grid>
+		</ScrollView>
+	</StackLayout>
 </ContentPage>

@@ -252,6 +252,9 @@
   <data name="Turn" xml:space="preserve">
     <value>Otočit</value>
   </data>
+  <data name="UpperBound" xml:space="preserve">
+    <value>Horní mez</value>
+  </data>
   <data name="VigenerePageTitle" xml:space="preserve">
     <value>Posun abecedy</value>
   </data>

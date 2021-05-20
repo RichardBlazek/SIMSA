@@ -13,20 +13,18 @@
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="30"/>
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 
 				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
-				<Label Text="{x:Static resources:AppResources.NumersSeparatedByComma}" Style="{StaticResource Caption}" Grid.Row="1" Grid.ColumnSpan="2"/>
-				<Entry x:Name="input" Grid.Row="2" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
-				
-				<Button x:Name="alphabetBtn" Grid.Row="3"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
-				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="4"/>
-				<Entry x:Name="radix" HorizontalTextAlignment="Center" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"/>
+				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.NumersSeparatedByComma}" Grid.Row="1" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
+
+				<Button x:Name="alphabetBtn" Grid.Row="2"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="2" Grid.Column="1"/>
+				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="3"/>
+				<Entry x:Name="radix" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</StackLayout>

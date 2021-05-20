@@ -256,6 +256,9 @@
     <value>Unicode</value>
     <comment>Not translated</comment>
   </data>
+  <data name="UpperBound" xml:space="preserve">
+    <value>Upper bound</value>
+  </data>
   <data name="VigenerePageTitle" xml:space="preserve">
     <value>Alphabet shift</value>
   </data>

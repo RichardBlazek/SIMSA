@@ -8,9 +8,9 @@
 		<ScrollView>
 			<StackLayout Style="{StaticResource Content}">
 				<Label Text="{x:Static resources:AppResources.FindPrimesUpTo}" Style="{StaticResource Caption}"/>
-				<Entry x:Name="upperBound" TextChanged="FindPrimesUpTo" Keyboard="Numeric"/>
+				<Entry x:Name="upperBound" Placeholder="{x:Static resources:AppResources.UpperBound}" TextChanged="FindPrimesUpTo" Keyboard="Numeric"/>
 				<Label x:Name="primeCount" Style="{StaticResource Caption}"/>
-				<Label x:Name="output" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+				<Label x:Name="output"/>
 			</StackLayout>
         </ScrollView>
     </StackLayout>
