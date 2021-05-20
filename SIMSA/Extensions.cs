@@ -105,6 +105,7 @@ namespace SIMSA
 			}
 			return (negative ? "-" : "") + result;
 		}
+		public static string ToString(this int num, int radix) => ToString(num, radix);
 		public static bool TryParse(this string str, long radix, out long value)
 		{
 			value = 0;

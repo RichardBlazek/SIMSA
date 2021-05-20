@@ -63,7 +63,10 @@
     <AndroidSigningKeyStore>C:\Users\Risa\AppData\Local\Xamarin\Mono for Android\Keystore\MyFirstAndroidKeystore\MyFirstAndroidKeystore.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>
     </AndroidSigningStorePass>
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

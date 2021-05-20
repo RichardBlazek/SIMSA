@@ -64,6 +64,6 @@ namespace SIMSA.Pages
 			});
 		}
 		void SwitchLanguage(object sender, EventArgs e) => SetLanguage((Language)(((int)language + 1) % 3));
-		void RunAnalysis(object sender, EventArgs e) => DrawOutput(inputStats, Models.FrequencyAnalysis.Analyse(input.Text));
+		void RunAnalysis(object sender, EventArgs e) => DrawOutput(inputStats, Models.FrequencyAnalysis.Analyse(input?.Text ?? ""));
 	}
 }

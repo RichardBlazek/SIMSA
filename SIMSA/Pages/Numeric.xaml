@@ -14,9 +14,9 @@
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="30"/>
-					<RowDefinition Height="50"/>
 					<RowDefinition Height="60"/>
-					<RowDefinition Height="50"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 
 				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
