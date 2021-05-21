@@ -1,10 +1,10 @@
 ﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Entry), typeof(SIMSA.Droid.Code.EntryCustomRenderer))]
 namespace SIMSA.Droid.Code
 {
-	public class EntryCustomRenderer : Xamarin.Forms.Platform.Android.EntryRenderer
+    public class EntryCustomRenderer : Xamarin.Forms.Platform.Android.EntryRenderer
     {
         public EntryCustomRenderer(Android.Content.Context ctx) : base(ctx) { }
-		protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.Entry> e)
+        protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.Entry> e)
         {
             base.OnElementChanged(e);
 
@@ -16,8 +16,10 @@ namespace SIMSA.Droid.Code
                 }
                 else
                 {
+#pragma warning disable CS0618 // Type or member is obsolete
 					Control.Background.SetColorFilter(Android.Graphics.Color.White, Android.Graphics.PorterDuff.Mode.SrcAtop);
-                }
+#pragma warning restore CS0618 // Type or member is obsolete
+				}
             }
         }
     }

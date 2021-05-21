@@ -31,7 +31,7 @@ namespace SIMSA.Pages
 			InitializeComponent();
 
 			this.save = save;
-			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new Models.Braille()), new Morse(config, new Models.Morse()), new Numeric(config, new Models.Numeric()), new Vigenere(config, new Models.Vigenere()), new FlagSemaphore(config, new Models.FlagSemaphore()), new Playfair(config, new Models.Playfair()), new Primes(config), new BaseConverter(config), new FrequencyAnalysis(config), new Settings(config, Save));
+			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseText()), new Numeric(config, new NumericText()), new Vigenere(config, new VigenereText()), new FlagSemaphore(config, new FlagSemaphoreText()), new Playfair(config, new PlayfairText()), new Primes(config), new BaseConverter(config), new FrequencyAnalysis(config), new Settings(config, Save));
 			foreach (var page in pages.OfType<Page>())
 			{
 				stack.Children.Add(ButtonFor(page));

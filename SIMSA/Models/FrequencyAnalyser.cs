@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public static class FrequencyAnalysis
+	public static class FrequencyAnalyser
 	{
 		public enum Language { English, CzechDiacritics, Czech }
 		public static readonly ImmutableDictionary<Language, ImmutableDictionary<char, double>> Statistics = new Dictionary<Language, ImmutableDictionary<char, double>>

@@ -10,10 +10,10 @@ namespace SIMSA.Pages
 	{
 		public Config Config { get; set; }
 
-		Models.Vigenere text;
+		VigenereText text;
 		IAlphabet alphabet;
 
-		void SetText(Models.Vigenere newText)
+		void SetText(VigenereText newText)
 		{
 			text = newText;
 			sign.Text = text.Minus ? AppResources.Subtract : AppResources.Add;
@@ -26,7 +26,7 @@ namespace SIMSA.Pages
 			alphabetBtn.Text = newAlphabet.Name;
 			output.Text = text.DecipheredIn(alphabet);
 		}
-		public Vigenere(Config config, Models.Vigenere initText)
+		public Vigenere(Config config, VigenereText initText)
 		{
 			InitializeComponent();
 			Config = config;

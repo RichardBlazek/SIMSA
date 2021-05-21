@@ -13,9 +13,9 @@ namespace SIMSA.Pages
 	{
 		public Config Config { get; set; }
 
-		Models.FlagSemaphore text;
+		FlagSemaphoreText text;
 
-		void SetText(Models.FlagSemaphore newText)
+		void SetText(FlagSemaphoreText newText)
 		{
 			text = newText;
 			output.Text = text.ToString();
@@ -49,7 +49,7 @@ namespace SIMSA.Pages
 			canvas.DrawLine(info.Width / 2f, info.Height / 2f, ToCoordX(text[^1, true]) * radius + info.Width / 2, ToCoordY(text[^1, true]) * radius + info.Height / 2, blackLine);
 		}
 
-		public FlagSemaphore(Config config, Models.FlagSemaphore initText)
+		public FlagSemaphore(Config config, FlagSemaphoreText initText)
 		{
 			InitializeComponent();
 

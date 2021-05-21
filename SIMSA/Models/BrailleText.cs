@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class Braille : IReadOnlyList<byte>
+	public class BrailleText : IReadOnlyList<byte>
 	{
 		static byte ValueAt(byte value, int bit) => (byte)((value >> (5 - bit)) & 1);
 		static bool IsSet(byte value, int bit) => ValueAt(value, bit) == 1;
@@ -47,17 +47,17 @@ namespace SIMSA.Models
 			{0b10_11_11, 'W'}
 		}.ToImmutableDictionary();
 		readonly ImmutableArray<byte> letters;
-		public Braille() => letters = ImmutableArray.Create((byte)0);
-		Braille(ImmutableArray<byte> letters) => this.letters = letters;
+		public BrailleText() => letters = ImmutableArray.Create((byte)0);
+		BrailleText(ImmutableArray<byte> letters) => this.letters = letters;
 
 		public override string ToString() => letters.Select(b => BrailleToLetter.GetValueOrDefault(b, '?')).Cat();
 		public bool this[Index index, int bit] => IsSet(letters[index], bit);
-		public Braille InvertAt(int bit) => new Braille(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
-		public Braille Inverted => new Braille(letters.Select(NegateAll).ToImmutableArray());
-		public Braille Mirrored => new Braille(letters.Select(Mirror).ToImmutableArray());
-		public Braille Turned => new Braille(letters.Select(Turn).ToImmutableArray());
-		public Braille Pop() => new Braille(letters.Length > 1 ? letters.RemoveAt(letters.Length - 1) : letters.SetItem(0, 0));
-		public Braille Add(byte b) => new Braille(letters.Add(b));
+		public BrailleText InvertAt(int bit) => new BrailleText(letters.SetItem(letters.Length - 1, Negate(letters[^1], bit)));
+		public BrailleText Inverted => new BrailleText(letters.Select(NegateAll).ToImmutableArray());
+		public BrailleText Mirrored => new BrailleText(letters.Select(Mirror).ToImmutableArray());
+		public BrailleText Turned => new BrailleText(letters.Select(Turn).ToImmutableArray());
+		public BrailleText Pop() => new BrailleText(letters.Length > 1 ? letters.RemoveAt(letters.Length - 1) : letters.SetItem(0, 0));
+		public BrailleText Add(byte b) => new BrailleText(letters.Add(b));
 
 		public int Count => letters.Length;
 		public byte this[int index] => letters[index];

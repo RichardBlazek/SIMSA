@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SIMSA.Models
 {
-	public class Playfair
+	public class PlayfairText
 	{
 		readonly string text, key;
 		public char Replaced { get; }
@@ -31,15 +31,15 @@ namespace SIMSA.Models
 			return result.ToString();
 		}
 
-		Playfair(string text, string key, char replaced)
+		PlayfairText(string text, string key, char replaced)
 		{
 			this.text = text;
 			this.key = key;
 			Replaced = replaced;
 		}
-		public Playfair() : this("", "", 'Q') { }
-		public Playfair WithText(string new_text) => new Playfair(new_text, key, Replaced);
-		public Playfair WithKey(string new_key) => new Playfair(text, new_key, Replaced);
-		public Playfair WithReplaced(char new_replaced) => new Playfair(text, key, new_replaced);
+		public PlayfairText() : this("", "", 'Q') { }
+		public PlayfairText WithText(string new_text) => new PlayfairText(new_text, key, Replaced);
+		public PlayfairText WithKey(string new_key) => new PlayfairText(text, new_key, Replaced);
+		public PlayfairText WithReplaced(char new_replaced) => new PlayfairText(text, key, new_replaced);
 	}
 }

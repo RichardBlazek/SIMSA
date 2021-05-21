@@ -16,8 +16,10 @@ namespace SIMSA.Droid.Code
                 }
                 else
                 {
-                    Control.Background.SetColorFilter(Android.Graphics.Color.White, Android.Graphics.PorterDuff.Mode.SrcAtop);
-                }
+#pragma warning disable CS0618 // Type or member is obsolete
+					Control.Background.SetColorFilter(Android.Graphics.Color.White, Android.Graphics.PorterDuff.Mode.SrcAtop);
+#pragma warning restore CS0618 // Type or member is obsolete
+				}
             }
         }
     }

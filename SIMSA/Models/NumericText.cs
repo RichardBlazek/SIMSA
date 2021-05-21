@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class Numeric
+	public class NumericText
 	{
 		public static readonly string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -32,18 +32,18 @@ namespace SIMSA.Models
 		readonly string text;
 		public readonly byte Radix;
 
-		Numeric(string txt, byte radix)
+		NumericText(string txt, byte radix)
 		{
 			text = txt;
 			Radix = radix;
 		}
-		public Numeric() : this(string.Empty, 10) { }
-		public static Numeric Parse(string text, int radix) => new Numeric(text.Where(c => c == ',' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
+		public NumericText() : this(string.Empty, 10) { }
+		public static NumericText Parse(string text, int radix) => new NumericText(text.Where(c => c == ',' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
 
-		public Numeric Add(char c, int i) => c == ',' || DigitValue(c) < Radix ? new Numeric(text[..i] + c + text[i..], Radix) : this;
-		public Numeric Remove(int i) => i >= 0 && i < text.Length ? new Numeric(text[..i] + text[(i + 1)..], Radix) : this;
-		public Numeric WithRadix(byte r) => r >= 2 && r <= 36 ? new Numeric(text.Where(c => c == ',' || DigitValue(c) < r).Cat(), r) : this;
-		public Numeric Invert() => new Numeric(text.Select(c => c == ',' ? ',' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
+		public NumericText Add(char c, int i) => c == ',' || DigitValue(c) < Radix ? new NumericText(text[..i] + c + text[i..], Radix) : this;
+		public NumericText Remove(int i) => i >= 0 && i < text.Length ? new NumericText(text[..i] + text[(i + 1)..], Radix) : this;
+		public NumericText WithRadix(byte r) => r >= 2 && r <= 36 ? new NumericText(text.Where(c => c == ',' || DigitValue(c) < r).Cat(), r) : this;
+		public NumericText Invert() => new NumericText(text.Select(c => c == ',' ? ',' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
 
 		public int Length => text.Length;
 		public override string ToString() => text;

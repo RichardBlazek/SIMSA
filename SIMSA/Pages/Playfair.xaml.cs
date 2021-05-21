@@ -9,9 +9,9 @@ namespace SIMSA.Pages
 	{
 		public Config Config { get; set; }
 
-		Models.Playfair text;
+		PlayfairText text;
 
-		void Set(Models.Playfair newText)
+		void Set(PlayfairText newText)
 		{
 			text = newText;
 			output.Text = text.ToString();
@@ -25,7 +25,7 @@ namespace SIMSA.Pages
 				Set(text.WithReplaced(new_replaced));
 			}
 		}
-		public Playfair(Config config, Models.Playfair initText)
+		public Playfair(Config config, PlayfairText initText)
 		{
 			InitializeComponent();
 			Config = config;

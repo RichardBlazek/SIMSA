@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class Morse
+	public class MorseText
 	{
 		static readonly ImmutableDictionary<char, string> LetterToMorse = new Dictionary<char, string>
 		{
@@ -60,13 +60,13 @@ namespace SIMSA.Models
 		static readonly ImmutableDictionary<string, char> MorseToLetter = LetterToMorse.ToImmutableDictionary(kv => kv.Value, kv => kv.Key);
 
 		public string Text { get; }
-		public Morse() : this(string.Empty) { }
+		public MorseText() : this(string.Empty) { }
 
-		Morse(string text) => Text = text;
-		public static Morse Parse(string text) => new Morse(text.Where(c => c == '\u2022' || c == '\u2013' || c == '/').Cat());
-		public Morse Add(char c, int i) => c == '\u2022' || c == '\u2013' || c == '/' ? new Morse(Text[..i] + c + Text[i..]) : this;
-		public Morse Remove(int i) => Text.Length > i && i >= 0 ? new Morse(Text[..i] + Text[(i + 1)..]) : this;
-		public Morse Invert() => new Morse(Text.Replace('\u2022', '%').Replace('\u2013', '\u2022').Replace('%', '\u2013'));
+		MorseText(string text) => Text = text;
+		public static MorseText Parse(string text) => new MorseText(text.Where(c => c == '\u2022' || c == '\u2013' || c == '/').Cat());
+		public MorseText Add(char c, int i) => c == '\u2022' || c == '\u2013' || c == '/' ? new MorseText(Text[..i] + c + Text[i..]) : this;
+		public MorseText Remove(int i) => Text.Length > i && i >= 0 ? new MorseText(Text[..i] + Text[(i + 1)..]) : this;
+		public MorseText Invert() => new MorseText(Text.Replace('\u2022', '%').Replace('\u2013', '\u2022').Replace('%', '\u2013'));
 
 		public int Length => Text.Length;
 		public override string ToString() => Text.Split('/').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();

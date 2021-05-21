@@ -2,12 +2,12 @@
 
 namespace SIMSA.Models
 {
-	public class Vigenere
+	public class VigenereText
 	{
 		public string Text { get; }
 		public string Key { get; }
 		public bool Minus { get; }
-		public Vigenere(string text = "", string key = "", bool minus = false)
+		public VigenereText(string text = "", string key = "", bool minus = false)
 		{
 			Text = text;
 			Key = key;
@@ -28,8 +28,8 @@ namespace SIMSA.Models
 			}
 			return result.ToString();
 		}
-		public Vigenere InvertSign() => new Vigenere(Text, Key, !Minus);
-		public Vigenere WithText(string text) => new Vigenere(text, Key, Minus);
-		public Vigenere WithKey(string key) => new Vigenere(Text, key, Minus);
+		public VigenereText InvertSign() => new VigenereText(Text, Key, !Minus);
+		public VigenereText WithText(string text) => new VigenereText(text, Key, Minus);
+		public VigenereText WithKey(string key) => new VigenereText(Text, key, Minus);
 	}
 }

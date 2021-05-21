@@ -11,9 +11,9 @@ namespace SIMSA.Pages
 		public Config Config { get; set; }
 
 		readonly ImmutableArray<Button> buttons;
-		Models.Braille braille;
+		BrailleText braille;
 
-		void SetText(Models.Braille bt)
+		void SetText(BrailleText bt)
 		{
 			braille = bt;
 			output.Text = braille.ToString();
@@ -24,7 +24,7 @@ namespace SIMSA.Pages
 		}
 
 		Button MakeBraile(int value) => new Button { Command = new Command(() => SetText(braille.InvertAt(value))) };
-		public Braille(Config config, Models.Braille brailleText)
+		public Braille(Config config, BrailleText brailleText)
 		{
 			InitializeComponent();
 			Config = config;
@@ -37,7 +37,7 @@ namespace SIMSA.Pages
 			}
 
 			backspace.Clicked += (o, a) => SetText(braille.Pop());
-			clear.Clicked += (o, a) => SetText(new Models.Braille());
+			clear.Clicked += (o, a) => SetText(new BrailleText());
 			confirm.Clicked += (o, a) => SetText(braille.Add(0));
 			invert.Clicked += (o, a) => SetText(braille.Inverted);
 			mirror.Clicked += (o, a) => SetText(braille.Mirrored);

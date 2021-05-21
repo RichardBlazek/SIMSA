@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SIMSA.Models
 {
-	public class FlagSemaphore
+	public class FlagSemaphoreText
 	{
 		static byte MakeValue(int flag1, int flag2) => (byte)(flag1.Mod(8) << 3 | flag2.Mod(8));
 		static byte ExtractFlag(byte value, bool second) => (byte)(second ? value & 7 : value >> 3);
@@ -43,12 +43,12 @@ namespace SIMSA.Models
 			{MakeValue(2,3),'Z'}, {MakeValue(3,2),'Z'}
 		}.ToImmutableDictionary();
 		readonly ImmutableList<byte> letters;
-		public FlagSemaphore() => letters = ImmutableList.Create(MakeValue(4, 5));
-		FlagSemaphore(ImmutableList<byte> letters) => this.letters = letters;
-		public FlagSemaphore SetFlag(int value) => this[^1, false] == value ? this : new FlagSemaphore(letters.SetItem(letters.Count - 1, MakeValue(value, ExtractFlag(letters[^1], false))));
-		public FlagSemaphore Turn(int turn) => new FlagSemaphore(letters.Select(v => Turn(v, turn)).ToImmutableList());
-		public FlagSemaphore Add() => new FlagSemaphore(letters.Add(MakeValue(4, 5)));
-		public FlagSemaphore Pop() => letters.Count > 1 ? new FlagSemaphore(letters.RemoveAt(letters.Count - 1)) : this;
+		public FlagSemaphoreText() => letters = ImmutableList.Create(MakeValue(4, 5));
+		FlagSemaphoreText(ImmutableList<byte> letters) => this.letters = letters;
+		public FlagSemaphoreText SetFlag(int value) => this[^1, false] == value ? this : new FlagSemaphoreText(letters.SetItem(letters.Count - 1, MakeValue(value, ExtractFlag(letters[^1], false))));
+		public FlagSemaphoreText Turn(int turn) => new FlagSemaphoreText(letters.Select(v => Turn(v, turn)).ToImmutableList());
+		public FlagSemaphoreText Add() => new FlagSemaphoreText(letters.Add(MakeValue(4, 5)));
+		public FlagSemaphoreText Pop() => letters.Count > 1 ? new FlagSemaphoreText(letters.RemoveAt(letters.Count - 1)) : this;
 		public byte this[Index i, bool second] => ExtractFlag(letters[i], second);
 		public override string ToString() => letters.Select(v => SemaphoreToLetters.GetValueOrDefault(v, '?')).Cat();
 	}

@@ -9,10 +9,10 @@ namespace SIMSA.Pages
 	{
 		public Config Config { get; set; }
 
-		Models.Numeric code;
+		NumericText code;
 		IAlphabet alphabet;
 
-		void SetCode(Models.Numeric newCode, bool changeEntry, bool changeRadix = true)
+		void SetCode(NumericText newCode, bool changeEntry, bool changeRadix = true)
 		{
 			code = newCode;
 			if (changeRadix)
@@ -39,7 +39,7 @@ namespace SIMSA.Pages
 				SetCode(code.WithRadix(radix), true, false);
 			}
 		}
-		public Numeric(Config config, Models.Numeric initCode)
+		public Numeric(Config config, NumericText initCode)
 		{
 			InitializeComponent();
 			Config = config;
@@ -47,7 +47,7 @@ namespace SIMSA.Pages
 			alphabet = config.DefaultAlphabet;
 
 			alphabetBtn.Clicked += async (o, a) => await Navigation.PushAsync(new SelectAlphabet(Config.Alphabets, SetAlphabet), false);
-			input.TextChanged += (o, a) => SetCode(Models.Numeric.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
+			input.TextChanged += (o, a) => SetCode(NumericText.Parse(input.Text, code.Radix), !code.IsTextValid(input.Text));
 			radix.TextChanged += (o, a) => SetRadix(byte.TryParse(radix.Text, out byte r) ? r : code.Radix);
 			invert.Clicked += (o, a) => SetCode(code.Invert(), true);
 

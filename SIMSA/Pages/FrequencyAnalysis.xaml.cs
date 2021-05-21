@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 using System.Linq;
+using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,24 +11,21 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FrequencyAnalysis : ContentPage, IConfigurable
 	{
-		public Models.Config Config { get; set; }
-		Models.FrequencyAnalysis.Language language;
-		public FrequencyAnalysis(Models.Config config)
+		public Config Config { get; set; }
+		FrequencyAnalyser.Language language;
+		public FrequencyAnalysis(Config config)
 		{
 			InitializeComponent();
 			Config = config;
 			input.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
-			SetLanguage(Models.FrequencyAnalysis.Language.English);
+			SetLanguage(FrequencyAnalyser.Language.English);
 		}
-		static FlexLayout Flex(params View[] children)
+		static FlexLayout Flex(View first, View second) => new FlexLayout
 		{
-			var layout = new FlexLayout { JustifyContent = FlexJustify.SpaceBetween, Margin = new Thickness(10, 0) };
-			foreach (var child in children)
-			{
-				layout.Children.Add(child);
-			}
-			return layout;
-		}
+			JustifyContent = FlexJustify.SpaceBetween,
+			Margin = new Thickness(10, 0),
+			Children = { first, second }
+		};
 		static void DrawOutput(StackLayout layout, ImmutableDictionary<char, double> frequencies)
 		{
 			int i = 0;
@@ -51,13 +49,13 @@ namespace SIMSA.Pages
 				layout.Children.RemoveAt(layout.Children.Count - 1);
 			}
 		}
-		void SetLanguage(Models.FrequencyAnalysis.Language lang)
+		void SetLanguage(FrequencyAnalyser.Language lang)
 		{
 			language = lang;
-			languageSwitch.Text = lang switch { Models.FrequencyAnalysis.Language.English => AppResources.English, Models.FrequencyAnalysis.Language.Czech => AppResources.Czech, _ => AppResources.CzechDiacritics };
-			DrawOutput(languageStats, Models.FrequencyAnalysis.Statistics[lang]);
+			languageSwitch.Text = lang switch { FrequencyAnalyser.Language.English => AppResources.English, FrequencyAnalyser.Language.Czech => AppResources.Czech, _ => AppResources.CzechDiacritics };
+			DrawOutput(languageStats, FrequencyAnalyser.Statistics[lang]);
 		}
-		void SwitchLanguage(object sender, EventArgs e) => SetLanguage((Models.FrequencyAnalysis.Language)(((int)language + 1) % 3));
-		void RunAnalysis(object sender, EventArgs e) => DrawOutput(inputStats, Models.FrequencyAnalysis.Analyse(input?.Text ?? ""));
+		void SwitchLanguage(object sender, EventArgs e) => SetLanguage((FrequencyAnalyser.Language)(((int)language + 1) % 3));
+		void RunAnalysis(object sender, EventArgs e) => DrawOutput(inputStats, FrequencyAnalyser.Analyse(input?.Text ?? ""));
 	}
 }

@@ -10,9 +10,9 @@ namespace SIMSA.Pages
 	{
 		public Config Config { get; set; }
 
-		Models.Morse morse;
+		MorseText morse;
 
-		void SetCode(Models.Morse newMorse, int position)
+		void SetCode(MorseText newMorse, int position)
 		{
 			morse = newMorse;
 			output.Text = morse.ToString();
@@ -22,8 +22,8 @@ namespace SIMSA.Pages
 			input.TextChanged += TextChangedHandler;
 		}
 
-		void TextChangedHandler(object o, EventArgs a) => SetCode(Models.Morse.Parse(input.Text), input.CursorPosition);
-		public Morse(Config config, Models.Morse morseCode)
+		void TextChangedHandler(object o, EventArgs a) => SetCode(MorseText.Parse(input.Text), input.CursorPosition);
+		public Morse(Config config, MorseText morseCode)
 		{
 			InitializeComponent();
 			Config = config;
@@ -33,7 +33,7 @@ namespace SIMSA.Pages
 			add1.Clicked += (o, a) => SetCode(morse.Add('\u2013', input.CursorPosition), input.CursorPosition + 1);
 			backspace.Clicked += (o, a) => SetCode(morse.Remove(input.CursorPosition - 1), input.CursorPosition - 1);
 			separate.Clicked += (o, a) => SetCode(morse.Add('/', input.CursorPosition), input.CursorPosition + 1);
-			clear.Clicked += (o, a) => SetCode(new Models.Morse(), 0);
+			clear.Clicked += (o, a) => SetCode(new MorseText(), 0);
 			invert.Clicked += (o, a) => SetCode(morse.Invert(), input.CursorPosition);
 			input.TextChanged += TextChangedHandler;
 		}
