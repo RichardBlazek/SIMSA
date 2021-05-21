@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Braille"
 			 Title="{x:Static resources:AppResources.BraillePageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.RowDefinitions>
@@ -34,7 +34,8 @@
 							<Setter Property="WidthRequest" Value="60"/>
 							<Setter Property="HeightRequest" Value="60"/>
 							<Setter Property="CornerRadius" Value="30"/>
-							<Setter Property="BorderWidth" Value="0"/>
+							<Setter Property="BorderWidth" Value="2"/>
+							<Setter Property="BorderColor" Value="#FFF"/>
 						</Style>
 					</Grid.Resources>
 				</Grid>
@@ -46,5 +47,5 @@
 				<Button x:Name="turn" Grid.Row="3" Grid.Column="2" Text="{x:Static resources:AppResources.Turn}"/>
 			</Grid>
 		</ScrollView>
-	</StackLayout>
+	</ContentView>
 </ContentPage>

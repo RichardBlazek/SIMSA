@@ -10,15 +10,14 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FrequencyAnalysis : ContentPage, IConfigurable
 	{
-		enum Language { English, CzechDiacritics, Czech }
 		public Models.Config Config { get; set; }
-		Language language;
+		Models.FrequencyAnalysis.Language language;
 		public FrequencyAnalysis(Models.Config config)
 		{
 			InitializeComponent();
 			Config = config;
 			input.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
-			SetLanguage(Language.English);
+			SetLanguage(Models.FrequencyAnalysis.Language.English);
 		}
 		static FlexLayout Flex(params View[] children)
 		{
@@ -52,18 +51,13 @@ namespace SIMSA.Pages
 				layout.Children.RemoveAt(layout.Children.Count - 1);
 			}
 		}
-		void SetLanguage(Language lang)
+		void SetLanguage(Models.FrequencyAnalysis.Language lang)
 		{
 			language = lang;
-			languageSwitch.Text = lang switch { Language.English => AppResources.English, Language.Czech => AppResources.Czech, _ => AppResources.CzechDiacritics };
-			DrawOutput(languageStats, lang switch
-			{
-				Language.English => Models.FrequencyAnalysis.English,
-				Language.CzechDiacritics => Models.FrequencyAnalysis.CzechDiacritics,
-				_ => Models.FrequencyAnalysis.Czech,
-			});
+			languageSwitch.Text = lang switch { Models.FrequencyAnalysis.Language.English => AppResources.English, Models.FrequencyAnalysis.Language.Czech => AppResources.Czech, _ => AppResources.CzechDiacritics };
+			DrawOutput(languageStats, Models.FrequencyAnalysis.Statistics[lang]);
 		}
-		void SwitchLanguage(object sender, EventArgs e) => SetLanguage((Language)(((int)language + 1) % 3));
+		void SwitchLanguage(object sender, EventArgs e) => SetLanguage((Models.FrequencyAnalysis.Language)(((int)language + 1) % 3));
 		void RunAnalysis(object sender, EventArgs e) => DrawOutput(inputStats, Models.FrequencyAnalysis.Analyse(input?.Text ?? ""));
 	}
 }

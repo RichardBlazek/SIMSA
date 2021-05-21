@@ -4,19 +4,23 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.EditAlphabet"
 			 Title="{x:Static resources:AppResources.EditAlphabetPageTitle}">
-	<Grid Style="{StaticResource Content}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-			<RowDefinition Height="60"/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
-		<Entry x:Name="name" Placeholder="{x:Static resources:AppResources.AlphabetName}" Grid.Row="0" Grid.ColumnSpan="2"/>
-		<Entry x:Name="letters" Placeholder="{x:Static resources:AppResources.LettersOfTheAlphabet}" IsSpellCheckEnabled="false" Grid.Row="1" Grid.ColumnSpan="2"/>
-		<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
-		<Button x:Name="delete" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Delete}"/>
-	</Grid>
+	<ContentView>
+		<ScrollView>
+			<Grid Style="{StaticResource Content}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+					<RowDefinition Height="60"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Entry x:Name="name" Placeholder="{x:Static resources:AppResources.AlphabetName}" Grid.Row="0" Grid.ColumnSpan="2"/>
+				<Entry x:Name="letters" Placeholder="{x:Static resources:AppResources.LettersOfTheAlphabet}" IsSpellCheckEnabled="false" Grid.Row="1" Grid.ColumnSpan="2"/>
+				<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
+				<Button x:Name="delete" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Delete}"/>
+			</Grid>
+		</ScrollView>
+	</ContentView>
 </ContentPage>

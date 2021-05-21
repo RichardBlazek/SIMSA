@@ -4,9 +4,9 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.SelectAlphabet"
 			 Title="{x:Static resources:AppResources.SelectAlphabetPageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<StackLayout x:Name="buttons" Style="{StaticResource Content}"/>
 		</ScrollView>
-	</StackLayout>
+	</ContentView>
 </ContentPage>

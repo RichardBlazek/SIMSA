@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Primes"
              Title="{x:Static resources:AppResources.PrimesPageTitle}">
-    <StackLayout>
+	<ContentView>
 		<ScrollView>
 			<StackLayout Style="{StaticResource Content}">
 				<Label Text="{x:Static resources:AppResources.FindPrimesUpTo}" Style="{StaticResource Caption}"/>
@@ -13,5 +13,5 @@
 				<Label x:Name="output"/>
 			</StackLayout>
         </ScrollView>
-    </StackLayout>
+    </ContentView>
 </ContentPage>

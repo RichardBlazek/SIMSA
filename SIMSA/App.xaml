@@ -36,10 +36,7 @@
 			<Setter Property="TextColor" Value="#FFF"/>
 			<Setter Property="PlaceholderColor" Value="#DDD"/>
 		</Style>
-		<Style TargetType="StackLayout">
-			<Setter Property="BackgroundColor" Value="#222"/>
-		</Style>
-		<Style TargetType="Grid">
+		<Style TargetType="ContentView">
 			<Setter Property="BackgroundColor" Value="#222"/>
 		</Style>
 	</Application.Resources>

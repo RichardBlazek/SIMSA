@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Code\EditorCustomRenderer.cs" />
     <Compile Include="Code\EntryCustomRenderer.cs" />
     <Compile Include="Code\HideKeyboard.cs" />
     <Compile Include="Main.cs" />

@@ -6,7 +6,7 @@
 			 xmlns:touch="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
              x:Class="SIMSA.Pages.FlagSemaphore"
 			 Title="{x:Static resources:AppResources.FlagSemaphorePageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.RowDefinitions>
@@ -31,5 +31,5 @@
 				<Button x:Name="backspace" Grid.Row="2" Grid.Column="2" Text="⌫" FontSize="20"/>
 			</Grid>
 		</ScrollView>
-    </StackLayout>
+    </ContentView>
 </ContentPage>

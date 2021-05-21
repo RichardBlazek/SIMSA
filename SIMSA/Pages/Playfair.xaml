@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Playfair"
 			 Title="{x:Static resources:AppResources.PlayfairPageTitle}">
-    <StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.ColumnDefinitions>
@@ -26,5 +26,5 @@
 				<Entry x:Name="replaced" Placeholder="{x:Static resources:AppResources.OmittedLetter}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
-    </StackLayout>
+    </ContentView>
 </ContentPage>

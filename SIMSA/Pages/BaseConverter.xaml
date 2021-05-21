@@ -4,7 +4,7 @@
              xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.BaseConverter"
              Title="{x:Static resources:AppResources.BaseConverterPageTitle}">
-    <StackLayout>
+    <ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.RowDefinitions>
@@ -25,5 +25,5 @@
 				<Entry x:Name="toRadix" Placeholder="{x:Static resources:AppResources.ToRadix}" Text="2" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
-    </StackLayout>
+    </ContentView>
 </ContentPage>

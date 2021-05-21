@@ -5,7 +5,7 @@
 			 xmlns:effects="clr-namespace:SIMSA.Effects"
              x:Class="SIMSA.Pages.Morse"
 			 Title="{x:Static resources:AppResources.MorsePageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.RowDefinitions>
@@ -33,5 +33,5 @@
 				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
 		</ScrollView>
-	</StackLayout>
+	</ContentView>
 </ContentPage>

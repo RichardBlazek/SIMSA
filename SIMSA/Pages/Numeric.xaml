@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
 			 x:Class="SIMSA.Pages.Numeric"
 			 Title="{x:Static resources:AppResources.NumericPageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid x:Name="grid" Style="{StaticResource Content}">
 				<Grid.ColumnDefinitions>
@@ -21,11 +21,11 @@
 				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
 				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.NumersSeparatedByComma}" Grid.Row="1" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
 
-				<Button x:Name="alphabetBtn" Grid.Row="2"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="2" Grid.Column="1"/>
-				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="3"/>
-				<Entry x:Name="radix" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="2"/>
+				<Entry x:Name="radix" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+				<Button x:Name="alphabetBtn" Grid.Row="3"/>
+				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
-	</StackLayout>
+	</ContentView>
 </ContentPage>

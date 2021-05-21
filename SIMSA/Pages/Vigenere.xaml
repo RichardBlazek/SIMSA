@@ -4,7 +4,7 @@
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
              x:Class="SIMSA.Pages.Vigenere"
 			 Title="{x:Static resources:AppResources.VigenerePageTitle}">
-	<StackLayout>
+	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
 				<Grid.ColumnDefinitions>
@@ -25,5 +25,5 @@
 				<Button x:Name="sign" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
-    </StackLayout>
+    </ContentView>
 </ContentPage>
