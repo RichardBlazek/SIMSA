@@ -12,6 +12,7 @@ namespace SIMSA.Models
 		public Config Add(CustomAlphabet alphabet) => With(Alphabets.Add(alphabet));
 
 		public override string ToString() => Alphabets.ToString();
+		public override bool Equals(object obj) => obj is Config c && Alphabets.Equals(c.Alphabets);
 		public static Config Parse(string from) => new Config(Alphabets.Parse(from));
 		public void Save(IDictionary<string, object> dict, string key) => dict[key] = ToString();
 		public static Config Load(IDictionary<string, object> dict, string key)

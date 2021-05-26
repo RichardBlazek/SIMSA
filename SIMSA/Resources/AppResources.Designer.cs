@@ -142,6 +142,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert to binary.
+        /// </summary>
+        public static string ConvertToBinary {
+            get {
+                return ResourceManager.GetString("ConvertToBinary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         public static string Czech {
@@ -286,6 +295,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage alphabets.
+        /// </summary>
+        public static string ManageAlphabetsPageTitle {
+            get {
+                return ResourceManager.GetString("ManageAlphabetsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cipher App.
         /// </summary>
         public static string MenuPageTitle {
@@ -367,11 +385,11 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prime count:.
+        ///   Looks up a localized string similar to Prime count: {0}.
         /// </summary>
-        public static string PrimeCount {
+        public static string PrimeCountFormat {
             get {
-                return ResourceManager.GetString("PrimeCount", resourceCulture);
+                return ResourceManager.GetString("PrimeCountFormat", resourceCulture);
             }
         }
         
@@ -417,15 +435,6 @@ namespace SIMSA.Resources {
         public static string Separator {
             get {
                 return ResourceManager.GetString("Separator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        public static string SettingsPageTitle {
-            get {
-                return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
             }
         }
         

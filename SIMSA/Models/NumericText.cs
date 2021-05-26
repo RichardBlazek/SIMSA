@@ -28,26 +28,29 @@ namespace SIMSA.Models
 			}
 			return alphabet[value];
 		}
+		static bool IsValidChar(char c, byte radix) => c == ',' || DigitValue(c) < radix;
 
-		readonly string text;
-		public readonly byte Radix;
+		public string Text { get; }
+		public byte Radix { get; }
+		readonly IAlphabet alphabet;
 
-		NumericText(string txt, byte radix)
+		NumericText(string text, byte radix, IAlphabet abc) => (Text, Radix, alphabet) = (text, radix, abc);
+		public NumericText(IAlphabet alphabet) : this(string.Empty, 10, alphabet) { }
+		public NumericText WithAlphabet(IAlphabet abc) => new NumericText(Text, Radix, abc);
+		public NumericText WithRadix(byte radix)
 		{
-			text = txt;
-			Radix = radix;
+			radix = Math.Clamp(radix, (byte)2, (byte)36);
+			return new NumericText(Text.Where(c => IsValidChar(c, radix)).Cat(), radix, alphabet);
 		}
-		public NumericText() : this(string.Empty, 10) { }
-		public static NumericText Parse(string text, int radix) => new NumericText(text.Where(c => c == ',' || DigitValue(c) < radix).Cat(), (byte)Math.Clamp(radix, 2, 36));
+		public NumericText WithText(string text) => new NumericText(text.Where(c => IsValidChar(c, Radix)).Cat(), Radix, alphabet);
 
-		public NumericText Add(char c, int i) => c == ',' || DigitValue(c) < Radix ? new NumericText(text[..i] + c + text[i..], Radix) : this;
-		public NumericText Remove(int i) => i >= 0 && i < text.Length ? new NumericText(text[..i] + text[(i + 1)..], Radix) : this;
-		public NumericText WithRadix(byte r) => r >= 2 && r <= 36 ? new NumericText(text.Where(c => c == ',' || DigitValue(c) < r).Cat(), r) : this;
-		public NumericText Invert() => new NumericText(text.Select(c => c == ',' ? ',' : Digits[Radix - 1 - DigitValue(c)]).Cat(), Radix);
+		public NumericText Add(char c, int i) => c == ',' || DigitValue(c) < Radix ? WithText(Text[..i] + c + Text[i..]) : this;
+		public NumericText Remove(int i) => i >= 0 && i < Text.Length ? WithText(Text[..i] + Text[(i + 1)..]) : this;
+		public NumericText Invert() => WithText(Text.Select(c => c == ',' ? ',' : Digits[Radix - 1 - DigitValue(c)]).Cat());
 
-		public int Length => text.Length;
-		public override string ToString() => text;
-		public string ToLetters(IAlphabet alphabet) => text.Split(',').Select(code => CodeToText(code, alphabet)).Cat();
+		public int Length => Text.Length;
+		public override string ToString() => Text.Split(',').Select(code => CodeToText(code, alphabet)).Cat();
+		public override bool Equals(object obj) => obj is NumericText n && n.Text == Text && n.Radix == Radix;
 		public bool IsTextValid(string text) => text.All(c => c == ',' || DigitValue(c) < Radix);
 	}
 }

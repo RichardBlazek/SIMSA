@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
-			 xmlns:effects="clr-namespace:SIMSA.Effects"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
              x:Class="SIMSA.Pages.Morse"
+			 x:DataType="viewmodels:MorseVM"
 			 Title="{x:Static resources:AppResources.MorsePageTitle}">
 	<ContentView>
 		<ScrollView>
@@ -12,25 +13,15 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
-					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
-				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="3">
-					<Entry.Effects>
-						<effects:HideKeyboard/>
-					</Entry.Effects>
-				</Entry>
-				<Button x:Name="add0" Text="⬤" FontSize="20" Grid.Row="2" Grid.Column="0"/>
-				<Button x:Name="add1" Text="—" FontSize="20" Grid.Row="2" Grid.Column="1"/>
-				<Button x:Name="separate" Text="/" Grid.Row="2" Grid.Column="2"/>
-				<Button x:Name="backspace" Text="⌫" FontSize="20" Grid.Row="3" Grid.Column="0"/>
-				<Button x:Name="clear" Text="{x:Static resources:AppResources.Clear}" Grid.Row="3" Grid.Column="1"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="2"/>
+				<Label Text="{Binding Output}" Style="{StaticResource Output}" Grid.Row="0" Grid.ColumnSpan="2"/>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" Keyboard="Numeric" Grid.Row="1" Grid.ColumnSpan="2"/>
+				<Button Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="2" Grid.Column="0"/>
+				<Button Command="{Binding ToBinary}" Text="{x:Static resources:AppResources.ConvertToBinary}" Grid.Row="2" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</ContentView>

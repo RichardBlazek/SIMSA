@@ -6,19 +6,20 @@ namespace SIMSA.Models
 {
 	public class PlayfairText
 	{
-		readonly string text, key;
+		public string Text { get; }
+		public string Key { get; }
 		public char Replaced { get; }
 
 		string Filter(string s) => s.ToUpper().Where(c => c >= 'A' && c <= 'Z' && c != Replaced).Cat();
 
-		string FilteredKey => Filter(key).Distinct().Cat();
+		string FilteredKey => Filter(Key).Distinct().Cat();
 
 		static ImmutableArray<int> Lookup(string s, string alphabet) => s.Select(c => alphabet.IndexOf(c)).ToImmutableArray();
 		public override string ToString()
 		{
 			string f_key = FilteredKey;
 			string alphabet = f_key + Filter("ABCDEFGHIJKMLNOPQRSTUVWXYZ").Where(c => !f_key.Contains(c)).Cat();
-			var indices = Lookup(Filter(text), alphabet);
+			var indices = Lookup(Filter(Text), alphabet);
 			var result = new StringBuilder(indices.Length);
 
 			char Letter(int x, int y) => alphabet[x.Mod(5) + 5 * y.Mod(5)];
@@ -33,13 +34,14 @@ namespace SIMSA.Models
 
 		PlayfairText(string text, string key, char replaced)
 		{
-			this.text = text;
-			this.key = key;
+			Text = text;
+			Key = key;
 			Replaced = replaced;
 		}
 		public PlayfairText() : this("", "", 'Q') { }
-		public PlayfairText WithText(string new_text) => new PlayfairText(new_text, key, Replaced);
-		public PlayfairText WithKey(string new_key) => new PlayfairText(text, new_key, Replaced);
-		public PlayfairText WithReplaced(char new_replaced) => new PlayfairText(text, key, new_replaced);
+		public PlayfairText WithText(string new_text) => new PlayfairText(new_text, Key, Replaced);
+		public PlayfairText WithKey(string new_key) => new PlayfairText(Text, new_key, Replaced);
+		public PlayfairText WithReplaced(char new_replaced) => new PlayfairText(Text, Key, new_replaced);
+		public override bool Equals(object obj) => obj is PlayfairText p && p.Key == Key && p.Text == Text && p.Replaced == Replaced;
 	}
 }

@@ -87,9 +87,8 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\EditorCustomRenderer.cs" />
-    <Compile Include="Code\EntryCustomRenderer.cs" />
-    <Compile Include="Code\HideKeyboard.cs" />
+    <Compile Include="Customization\EditorCustomRenderer.cs" />
+    <Compile Include="Customization\EntryCustomRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,5 @@
-﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Entry), typeof(SIMSA.iOS.Code.EntryCustomRenderer))]
-namespace SIMSA.iOS.Code
+﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Entry), typeof(SIMSA.iOS.Customization.EntryCustomRenderer))]
+namespace SIMSA.iOS.Customization
 {
 	public class EntryCustomRenderer : Xamarin.Forms.Platform.iOS.EntryRenderer
     {

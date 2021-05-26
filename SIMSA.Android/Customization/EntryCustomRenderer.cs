@@ -1,10 +1,10 @@
-﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Editor), typeof(SIMSA.Droid.Code.EditorCustomRenderer))]
-namespace SIMSA.Droid.Code
+﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Entry), typeof(SIMSA.Droid.Customization.EntryCustomRenderer))]
+namespace SIMSA.Droid.Customization
 {
-    public class EditorCustomRenderer : Xamarin.Forms.Platform.Android.EditorRenderer
+    public class EntryCustomRenderer : Xamarin.Forms.Platform.Android.EntryRenderer
     {
-        public EditorCustomRenderer(Android.Content.Context ctx) : base(ctx) { }
-        protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.Editor> e)
+        public EntryCustomRenderer(Android.Content.Context ctx) : base(ctx) { }
+        protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.Entry> e)
         {
             base.OnElementChanged(e);
 

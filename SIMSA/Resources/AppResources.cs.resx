@@ -144,6 +144,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>
+  <data name="ConvertToBinary" xml:space="preserve">
+    <value>Převést do dvojkové soustavy</value>
+  </data>
   <data name="Czech" xml:space="preserve">
     <value>Čeština</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="LettersOfTheAlphabet" xml:space="preserve">
     <value>Písmena abecedy</value>
   </data>
+  <data name="ManageAlphabetsPageTitle" xml:space="preserve">
+    <value>Spravovat abecedy</value>
+  </data>
   <data name="MenuPageTitle" xml:space="preserve">
     <value>ŠIMŠA</value>
   </data>
@@ -219,8 +225,8 @@
   <data name="PlayfairPageTitle" xml:space="preserve">
     <value>Playfairova šifra</value>
   </data>
-  <data name="PrimeCount" xml:space="preserve">
-    <value>Počet prvočísel:</value>
+  <data name="PrimeCountFormat" xml:space="preserve">
+    <value>Počet prvočísel: {0}</value>
   </data>
   <data name="PrimesPageTitle" xml:space="preserve">
     <value>Prvočísla</value>
@@ -236,9 +242,6 @@
   </data>
   <data name="Separator" xml:space="preserve">
     <value>Oddělovač</value>
-  </data>
-  <data name="SettingsPageTitle" xml:space="preserve">
-    <value>Nastavení</value>
   </data>
   <data name="Subtract" xml:space="preserve">
     <value>Odečíst</value>

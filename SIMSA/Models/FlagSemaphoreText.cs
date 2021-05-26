@@ -10,6 +10,7 @@ namespace SIMSA.Models
 		static byte MakeValue(int flag1, int flag2) => (byte)(flag1.Mod(8) << 3 | flag2.Mod(8));
 		static byte ExtractFlag(byte value, bool second) => (byte)(second ? value & 7 : value >> 3);
 		static byte Turn(byte value, int turn) => MakeValue(ExtractFlag(value, false) + turn, ExtractFlag(value, true) + turn);
+		static byte Mirror(byte value) => MakeValue(7 - ExtractFlag(value, false), 7 - ExtractFlag(value, true));
 
 		static readonly ImmutableDictionary<byte, char> SemaphoreToLetters = new Dictionary<byte, char>
 		{
@@ -47,9 +48,11 @@ namespace SIMSA.Models
 		FlagSemaphoreText(ImmutableList<byte> letters) => this.letters = letters;
 		public FlagSemaphoreText SetFlag(int value) => this[^1, false] == value ? this : new FlagSemaphoreText(letters.SetItem(letters.Count - 1, MakeValue(value, ExtractFlag(letters[^1], false))));
 		public FlagSemaphoreText Turn(int turn) => new FlagSemaphoreText(letters.Select(v => Turn(v, turn)).ToImmutableList());
+		public FlagSemaphoreText Mirror() => new FlagSemaphoreText(letters.Select(Mirror).ToImmutableList());
 		public FlagSemaphoreText Add() => new FlagSemaphoreText(letters.Add(MakeValue(4, 5)));
 		public FlagSemaphoreText Pop() => letters.Count > 1 ? new FlagSemaphoreText(letters.RemoveAt(letters.Count - 1)) : this;
 		public byte this[Index i, bool second] => ExtractFlag(letters[i], second);
 		public override string ToString() => letters.Select(v => SemaphoreToLetters.GetValueOrDefault(v, '?')).Cat();
+		public override bool Equals(object obj) => obj is FlagSemaphoreText f && letters.SequenceEqual(f.letters);
 	}
 }

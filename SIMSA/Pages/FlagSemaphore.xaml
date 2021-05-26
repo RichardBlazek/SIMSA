@@ -4,8 +4,13 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:resources="clr-namespace:SIMSA.Resources"
 			 xmlns:touch="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
+			 x:DataType="viewmodels:FlagSemaphoreVM"
              x:Class="SIMSA.Pages.FlagSemaphore"
 			 Title="{x:Static resources:AppResources.FlagSemaphorePageTitle}">
+	<ContentPage.BindingContext>
+		<viewmodels:FlagSemaphoreVM/>
+	</ContentPage.BindingContext>
 	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
@@ -19,16 +24,16 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
+				<Label Text="{Binding Output}" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
 				<Grid Grid.Row="1" Grid.ColumnSpan="3">
-					<skia:SKCanvasView x:Name="canvas" PaintSurface="SemaphorePaintSurfaceHandler"/>
+					<skia:SKCanvasView x:Name="canvas" PaintSurface="OnPaint"/>
 					<Grid.Effects>
-						<touch:TouchEffect Capture="True" TouchAction="SemaphoreTouchHandler"/>
+						<touch:TouchEffect Capture="True" TouchAction="OnTouch"/>
 					</Grid.Effects>
 				</Grid>
-				<Button x:Name="confirm" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
-				<Button x:Name="turn" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Turn}"/>
-				<Button x:Name="backspace" Grid.Row="2" Grid.Column="2" Text="⌫" FontSize="20"/>
+				<Button Command="{Binding Confirm}" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Confirm}"/>
+				<Button Command="{Binding Turn}" Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Turn}"/>
+				<Button Command="{Binding Backspace}" Grid.Row="2" Grid.Column="2" Text="⌫" FontSize="20"/>
 			</Grid>
 		</ScrollView>
     </ContentView>

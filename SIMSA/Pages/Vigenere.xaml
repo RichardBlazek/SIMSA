@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
-             x:Class="SIMSA.Pages.Vigenere"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
+			 x:Class="SIMSA.Pages.Vigenere"
+			 x:DataType="viewmodels:VigenereVM"
 			 Title="{x:Static resources:AppResources.VigenerePageTitle}">
 	<ContentView>
 		<ScrollView>
@@ -18,11 +20,11 @@
 					<RowDefinition Height="60"/>
 					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
-				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="3"/>
-				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="3"/>
-				<Entry x:Name="key" Placeholder="{x:Static resources:AppResources.Key}" Grid.Row="2" Grid.ColumnSpan="3"/>
-				<Button x:Name="alphabetBtn" Grid.Row="3" Grid.ColumnSpan="2"/>
-				<Button x:Name="sign" Grid.Row="3" Grid.Column="2"/>
+				<Label Text="{Binding Output}" Style="{StaticResource Output}" Grid.ColumnSpan="3"/>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="3"/>
+				<Entry Text="{Binding Key, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Key}" Grid.Row="2" Grid.ColumnSpan="3"/>
+				<Button Command="{Binding SelectAlphabet}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Button Command="{Binding InvertSign}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </ContentView>

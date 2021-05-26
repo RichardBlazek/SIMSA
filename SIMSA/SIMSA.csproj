@@ -37,8 +37,8 @@
     <Compile Update="Pages\FlagSemaphore.xaml.cs">
       <DependentUpon>FlagSemaphore.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\Primes.xaml.cs">
-      <DependentUpon>Primes.xaml</DependentUpon>
+    <Compile Update="Pages\ManageAlphabets.xaml.cs">
+      <DependentUpon>ManageAlphabets.xaml</DependentUpon>
     </Compile>
     <Compile Update="Resources\AppResources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -72,7 +72,7 @@
     <EmbeddedResource Update="Pages\SelectAlphabet.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Settings.xaml">
+    <EmbeddedResource Update="Pages\ManageAlphabets.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Vigenere.xaml">

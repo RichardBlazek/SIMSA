@@ -144,6 +144,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="ConvertToBinary" xml:space="preserve">
+    <value>Convert to binary</value>
+  </data>
   <data name="Czech" xml:space="preserve">
     <value>Czech</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="LettersOfTheAlphabet" xml:space="preserve">
     <value>Letters of the alphabet</value>
   </data>
+  <data name="ManageAlphabetsPageTitle" xml:space="preserve">
+    <value>Manage alphabets</value>
+  </data>
   <data name="MenuPageTitle" xml:space="preserve">
     <value>Cipher App</value>
   </data>
@@ -219,8 +225,8 @@
   <data name="PlayfairPageTitle" xml:space="preserve">
     <value>Playfair cipher</value>
   </data>
-  <data name="PrimeCount" xml:space="preserve">
-    <value>Prime count:</value>
+  <data name="PrimeCountFormat" xml:space="preserve">
+    <value>Prime count: {0}</value>
   </data>
   <data name="PrimesPageTitle" xml:space="preserve">
     <value>Primes</value>
@@ -236,9 +242,6 @@
   </data>
   <data name="Separator" xml:space="preserve">
     <value>Separator</value>
-  </data>
-  <data name="SettingsPageTitle" xml:space="preserve">
-    <value>Settings</value>
   </data>
   <data name="Subtract" xml:space="preserve">
     <value>Subtract</value>

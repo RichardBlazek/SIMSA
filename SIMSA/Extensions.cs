@@ -61,7 +61,7 @@ namespace SIMSA
 			}
 		}
 		public static IEnumerable<(T First, U Second)> Zip<T, U>(this IEnumerable<T> f, IEnumerable<U> s) => f.Zip(s, (a, b) => (a, b));
-		public static ImmutableArray<int> GetPrimes(this int limit)
+		public static ImmutableArray<int> AllLowerPrimes(this int limit)
 		{
 			bool[] compound = new bool[limit - 1];
 			for (int number = 2; number * number <= limit; ++number)

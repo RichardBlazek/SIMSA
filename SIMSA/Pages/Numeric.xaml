@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
 			 x:Class="SIMSA.Pages.Numeric"
+			 x:DataType="viewmodels:NumericVM"
 			 Title="{x:Static resources:AppResources.NumericPageTitle}">
 	<ContentView>
 		<ScrollView>
-			<Grid x:Name="grid" Style="{StaticResource Content}">
+			<Grid Style="{StaticResource Content}">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="2*"/>
 					<ColumnDefinition Width="*"/>
@@ -18,13 +20,21 @@
 					<RowDefinition Height="60"/>
 				</Grid.RowDefinitions>
 
-				<Label x:Name="output" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
-				<Entry x:Name="input" Placeholder="{x:Static resources:AppResources.NumersSeparatedByComma}" Grid.Row="1" Grid.ColumnSpan="2" IsSpellCheckEnabled="False"/>
+				<Label Text="{Binding Output}" Style="{StaticResource Output}" Grid.ColumnSpan="2"/>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.NumersSeparatedByComma}" Grid.Row="1" Grid.ColumnSpan="2" IsSpellCheckEnabled="False">
+					<Entry.Keyboard>
+						<Keyboard x:FactoryMethod="Create">
+							<x:Arguments>
+								<KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+							</x:Arguments>
+						</Keyboard>
+					</Entry.Keyboard>
+				</Entry>
 
 				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="2"/>
-				<Entry x:Name="radix" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
-				<Button x:Name="alphabetBtn" Grid.Row="3"/>
-				<Button x:Name="invert" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
+				<Entry Text="{Binding Radix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+				<Button Command="{Binding SelectAlphabet}" Grid.Row="3"/>
+				<Button Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</ContentView>

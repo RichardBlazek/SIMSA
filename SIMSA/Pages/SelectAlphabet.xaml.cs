@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using SIMSA.Models;
+using SIMSA.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,24 +9,14 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SelectAlphabet : ContentPage
 	{
-		Task Selected(IAlphabet alphabet, Action<IAlphabet> onSelected)
-		{
-			onSelected(alphabet);
-			return Navigation.PopAsync(false);
-		}
-
-		Button AlphabetSelector(IAlphabet alphabet, Action<IAlphabet> onSelected) => new Button
-		{
-			Text = alphabet.Name,
-			Command = new Command(async () => await Selected(alphabet, onSelected))
-		};
-		public SelectAlphabet(Alphabets alphabets, Action<IAlphabet> onSelected)
+		public SelectAlphabet(Config config, Action<IAlphabet> onSelected)
 		{
 			InitializeComponent();
-			foreach (var alphabet in alphabets)
+			BindingContext = new SelectAlphabetVM(config, async alphabet =>
 			{
-				buttons.Children.Add(AlphabetSelector(alphabet, onSelected));
-			}
+				onSelected(alphabet);
+				_ = await Navigation.PopAsync(false);
+			});
 		}
 	}
 }

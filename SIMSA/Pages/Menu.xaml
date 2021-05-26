@@ -2,11 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:SIMSA.Resources"
-             x:Class="SIMSA.Pages.Menu"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
+			 x:Class="SIMSA.Pages.Menu"
+			 x:DataType="viewmodels:MenuVM"
              Title="{x:Static resources:AppResources.MenuPageTitle}">
 	<ContentView>
 		<ScrollView>
-			<StackLayout x:Name="stack" Style="{StaticResource Content}"/>
+			<ListView ItemsSource="{Binding Buttons}" Style="{StaticResource Content}">
+				<ListView.ItemTemplate>
+					<DataTemplate x:DataType="viewmodels:ButtonVM">
+						<TextCell Text="{Binding Title}" Command="{Binding Command}"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
 		</ScrollView>
     </ContentView>
 </ContentPage>

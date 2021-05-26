@@ -8,54 +8,54 @@ namespace SIMSA.Models
 	{
 		static readonly ImmutableDictionary<char, string> LetterToMorse = new Dictionary<char, string>
 		{
-			{'A', "\u2022\u2013"},
-			{'B', "\u2013\u2022\u2022\u2022"},
-			{'C', "\u2013\u2022\u2013\u2022"},
-			{'D', "\u2013\u2022\u2022"},
-			{'E', "\u2022"},
-			{'F', "\u2022\u2022\u2013\u2022"},
-			{'G', "\u2013\u2013\u2022"},
-			{'H', "\u2022\u2022\u2022\u2022"},
-			{'I', "\u2022\u2022"},
-			{'J', "\u2022\u2013\u2013\u2013"},
-			{'K', "\u2013\u2022\u2013"},
-			{'L', "\u2022\u2013\u2022\u2022"},
-			{'M', "\u2013\u2013"},
-			{'N', "\u2013\u2022"},
-			{'O', "\u2013\u2013\u2013"},
-			{'P', "\u2022\u2013\u2013\u2022"},
-			{'Q', "\u2013\u2013\u2022\u2013"},
-			{'R', "\u2022\u2013\u2022"},
-			{'S', "\u2022\u2022\u2022"},
-			{'T', "\u2013"},
-			{'U', "\u2022\u2022\u2013"},
-			{'V', "\u2022\u2022\u2022\u2013"},
-			{'W', "\u2022\u2013\u2013"},
-			{'X', "\u2013\u2022\u2022\u2013"},
-			{'Y', "\u2013\u2022\u2013\u2013"},
-			{'Z', "\u2013\u2013\u2022\u2022"},
-			{'0', "\u2013\u2013\u2013\u2013\u2013"},
-			{'1', "\u2022\u2013\u2013\u2013\u2013"},
-			{'2', "\u2022\u2022\u2013\u2013\u2013"},
-			{'3', "\u2022\u2022\u2022\u2013\u2013"},
-			{'4', "\u2022\u2022\u2022\u2022\u2013"},
-			{'5', "\u2022\u2022\u2022\u2022\u2022"},
-			{'6', "\u2013\u2022\u2022\u2022\u2022"},
-			{'7', "\u2013\u2013\u2022\u2022\u2022"},
-			{'8', "\u2013\u2013\u2013\u2022\u2022"},
-			{'9', "\u2013\u2013\u2013\u2013\u2022"},
-			{'.', "\u2022\u2013\u2022\u2013\u2022\u2013"},
-			{',', "\u2013\u2013\u2022\u2022\u2013\u2013"},
-			{'?', "\u2022\u2022\u2013\u2013\u2022\u2022"},
-			{'\'', "\u2022\u2013\u2013\u2013\u2013\u2022"},
-			{'/', "\u2013\u2022\u2022\u2013\u2022"},
-			{'(', "\u2013\u2022\u2013\u2013\u2022"},
-			{')', "\u2013\u2022\u2013\u2013\u2022\u2013"},
-			{':', "\u2013\u2013\u2013\u2022\u2022\u2022"},
-			{'=', "\u2013\u2022\u2022\u2022\u2013"},
-			{'+', "\u2022\u2013\u2022\u2013\u2022"},
-			{'-', "\u2013\u2022\u2022\u2022\u2022\u2013"},
-			{'"', "\u2022\u2013\u2022\u2022\u2013\u2022"}
+			{'A', ".-"},
+			{'B', "-..."},
+			{'C', "-.-."},
+			{'D', "-.."},
+			{'E', "."},
+			{'F', "..-."},
+			{'G', "--."},
+			{'H', "...."},
+			{'I', ".."},
+			{'J', ".---"},
+			{'K', "-.-"},
+			{'L', ".-.."},
+			{'M', "--"},
+			{'N', "-."},
+			{'O', "---"},
+			{'P', ".--."},
+			{'Q', "--.-"},
+			{'R', ".-."},
+			{'S', "..."},
+			{'T', "-"},
+			{'U', "..-"},
+			{'V', "...-"},
+			{'W', ".--"},
+			{'X', "-..-"},
+			{'Y', "-.--"},
+			{'Z', "--.."},
+			{'0', "-----"},
+			{'1', ".----"},
+			{'2', "..---"},
+			{'3', "...--"},
+			{'4', "....-"},
+			{'5', "....."},
+			{'6', "-...."},
+			{'7', "--..."},
+			{'8', "---.."},
+			{'9', "----."},
+			{'.', ".-.-.-"},
+			{',', "--..--"},
+			{'?', "..--.."},
+			{'\'', ".----."},
+			{'/', "-..-."},
+			{'(', "-.--."},
+			{')', "-.--.-"},
+			{':', "---..."},
+			{'=', "-...-"},
+			{'+', ".-.-."},
+			{'-', "-....-"},
+			{'"', ".-..-."}
 		}.ToImmutableDictionary();
 		static readonly ImmutableDictionary<string, char> MorseToLetter = LetterToMorse.ToImmutableDictionary(kv => kv.Value, kv => kv.Key);
 
@@ -63,12 +63,14 @@ namespace SIMSA.Models
 		public MorseText() : this(string.Empty) { }
 
 		MorseText(string text) => Text = text;
-		public static MorseText Parse(string text) => new MorseText(text.Where(c => c == '\u2022' || c == '\u2013' || c == '/').Cat());
-		public MorseText Add(char c, int i) => c == '\u2022' || c == '\u2013' || c == '/' ? new MorseText(Text[..i] + c + Text[i..]) : this;
+		public static MorseText Parse(string text) => new MorseText(text.Where(c => c == '.' || c == '-' || c == ',').Cat());
+		public MorseText Add(char c, int i) => c == '.' || c == '-' || c == ',' ? new MorseText(Text[..i] + c + Text[i..]) : this;
 		public MorseText Remove(int i) => Text.Length > i && i >= 0 ? new MorseText(Text[..i] + Text[(i + 1)..]) : this;
-		public MorseText Invert() => new MorseText(Text.Replace('\u2022', '%').Replace('\u2013', '\u2022').Replace('%', '\u2013'));
+		public MorseText Invert() => new MorseText(Text.Replace('.', '$').Replace('-', '.').Replace('$', '-'));
+		public static MorseText Parse(IEnumerable<char> text) => new MorseText(text.Where(c => c == '.' || c == '-' || c == ',').Cat());
 
 		public int Length => Text.Length;
-		public override string ToString() => Text.Split('/').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();
+		public override string ToString() => Text.Split(',').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();
+		public override bool Equals(object obj) => obj is MorseText m && m.Text == Text;
 	}
 }

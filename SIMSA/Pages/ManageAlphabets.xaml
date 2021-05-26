@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:resources="clr-namespace:SIMSA.Resources"
+             xmlns:resources="clr-namespace:SIMSA.Resources"
 			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
-			 x:Class="SIMSA.Pages.SelectAlphabet"
-			 x:DataType="viewmodels:SelectAlphabetVM"
-			 Title="{x:Static resources:AppResources.SelectAlphabetPageTitle}">
+			 x:Class="SIMSA.Pages.ManageAlphabets"
+			 x:DataType="viewmodels:ManageAlphabetsVM"
+             Title="{x:Static resources:AppResources.ManageAlphabetsPageTitle}">
 	<ContentView>
 		<ScrollView>
 			<ListView ItemsSource="{Binding Buttons}" Style="{StaticResource Content}">
@@ -16,5 +16,5 @@
 				</ListView.ItemTemplate>
 			</ListView>
 		</ScrollView>
-	</ContentView>
+    </ContentView>
 </ContentPage>

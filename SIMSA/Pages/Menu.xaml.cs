@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Linq;
+using System.Windows.Input;
 using SIMSA.Models;
+using SIMSA.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,33 +12,39 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Menu : ContentPage
 	{
-		readonly Action<Config> save;
-		readonly ImmutableArray<IConfigurable> pages;
-
-		void Save(Config config)
+		void Execute(Action<ViewModelBase> modifier)
 		{
-			foreach (var page in pages)
+			foreach (var vm in (BindingContext as MenuVM)!.ViewModels)
 			{
-				page.Config = config;
+				modifier(vm);
 			}
-			save(config);
 		}
-
-		Button ButtonFor<T>(T page) where T : Page => new Button
+		void Save(Config config) => (BindingContext as MenuVM)!.Config = config;
+		ICommand CommandFor(ContentPage page) => new Command(async () => await Navigation.PushAsync(page, false));
+		MenuVM MakeViewModel(Config config, Action<Config> save)
 		{
-			Text = page.Title,
-			Command = new Command(async () => await Navigation.PushAsync(page, false))
-		};
+			var contentPages = new ContentPage[]
+			{
+				new Braille(),
+				new Morse(),
+				new Numeric(config),
+				new Vigenere(config),
+				new FlagSemaphore(),
+				new Playfair(),
+				new Primes(),
+				new BaseConverter(),
+				new FrequencyAnalysis(),
+				new ManageAlphabets(config, Save)
+			};
+
+			var buttons = contentPages.Select(page => new ButtonVM(page.Title, CommandFor(page))).ToImmutableArray();
+			var viewModels = contentPages.Select(page => (page.BindingContext as ViewModelBase)!).ToImmutableArray();
+			return new MenuVM(config, save, buttons, viewModels);
+		}
 		public Menu(Config config, Action<Config> save)
 		{
 			InitializeComponent();
-
-			this.save = save;
-			pages = ImmutableArray.Create<IConfigurable>(new Braille(config, new BrailleText()), new Morse(config, new MorseText()), new Numeric(config, new NumericText()), new Vigenere(config, new VigenereText()), new FlagSemaphore(config, new FlagSemaphoreText()), new Playfair(config, new PlayfairText()), new Primes(config), new BaseConverter(config), new FrequencyAnalysis(config), new Settings(config, Save));
-			foreach (var page in pages.OfType<Page>())
-			{
-				stack.Children.Add(ButtonFor(page));
-			}
+			BindingContext = MakeViewModel(config, save);
 		}
 	}
 }

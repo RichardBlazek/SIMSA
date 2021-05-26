@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Immutable;
-using System.Threading.Tasks;
 using SIMSA.Models;
+using SIMSA.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,28 +9,12 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditAlphabet : ContentPage
 	{
-		Task EditAndQuit(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
-		{
-			var newLetters = letters.Text.DivideToUnicodeChars().ToImmutableArray();
-			saveAlphabets(alphabets.Update(i, new CustomAlphabet(newLetters, name.Text)));
-			return Navigation.PopAsync(false);
-		}
-
-		Task RemoveAndQuit(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
-		{
-			saveAlphabets(alphabets.Remove(i));
-			return Navigation.PopAsync(false);
-		}
-		public EditAlphabet(Alphabets alphabets, Action<Alphabets> saveAlphabets, int i)
+		public EditAlphabet(Config config, Action<Config> save, int i)
 		{
 			InitializeComponent();
-			letters.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
-
-			name.Text = alphabets.Custom[i].Name;
-			letters.Text = alphabets.Custom[i].Cat();
-
-			confirm.Clicked += async (o, a) => await EditAndQuit(alphabets, saveAlphabets, i);
-			delete.Clicked += async (o, a) => await RemoveAndQuit(alphabets, saveAlphabets, i);
+			BindingContext = new EditAlphabetVM(config, save, i);
 		}
+
+		void Close(object sender, EventArgs e) => Navigation.PopAsync(false);
 	}
 }

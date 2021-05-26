@@ -1,5 +1,5 @@
-﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Editor), typeof(SIMSA.iOS.Code.EditorCustomRenderer))]
-namespace SIMSA.iOS.Code
+﻿[assembly: Xamarin.Forms.ExportRenderer(typeof(Xamarin.Forms.Editor), typeof(SIMSA.iOS.Customization.EditorCustomRenderer))]
+namespace SIMSA.iOS.Customization
 {
     public class EditorCustomRenderer : Xamarin.Forms.Platform.iOS.EditorRenderer
     {

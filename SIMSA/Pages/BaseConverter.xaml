@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:SIMSA.Resources"
-             x:Class="SIMSA.Pages.BaseConverter"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
+			 x:DataType="viewmodels:BaseConverterVM"
+			 x:Class="SIMSA.Pages.BaseConverter"
              Title="{x:Static resources:AppResources.BaseConverterPageTitle}">
+	<ContentPage.BindingContext>
+		<viewmodels:BaseConverterVM FromRadix="10" ToRadix="2" Input="0"/>
+	</ContentPage.BindingContext>
     <ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
@@ -18,11 +23,19 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"/>
-				<Entry x:Name="input" Text="0" TextChanged="Handler" Grid.Row="1" Grid.ColumnSpan="3"/>
-				<Entry x:Name="fromRadix" Placeholder="{x:Static resources:AppResources.FromRadix}" Text="10" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="0"/>
+				<Label Text="{Binding Output}" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"/>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="3">
+					<Entry.Keyboard>
+						<Keyboard x:FactoryMethod="Create">
+							<x:Arguments>
+								<KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+							</x:Arguments>
+						</Keyboard>
+					</Entry.Keyboard>
+				</Entry>
+				<Entry Text="{Binding FromRadix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.FromRadix}" Keyboard="Numeric" Grid.Row="2" Grid.Column="0"/>
 				<Label Text="→" FontSize="30" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center"/>
-				<Entry x:Name="toRadix" Placeholder="{x:Static resources:AppResources.ToRadix}" Text="2" TextChanged="Handler" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"/>
+				<Entry Text="{Binding ToRadix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.ToRadix}" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </ContentView>

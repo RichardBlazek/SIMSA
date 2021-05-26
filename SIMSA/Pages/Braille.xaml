@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:resources="clr-namespace:SIMSA.Resources"
+			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
+			 x:DataType="viewmodels:BrailleVM"
              x:Class="SIMSA.Pages.Braille"
 			 Title="{x:Static resources:AppResources.BraillePageTitle}">
+	<ContentPage.BindingContext>
+		<viewmodels:BrailleVM/>
+	</ContentPage.BindingContext>
 	<ContentView>
 		<ScrollView>
 			<Grid Style="{StaticResource Content}">
@@ -18,8 +23,8 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="output" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Output}"/>
-				<Grid x:Name="grid" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Center">
+				<Label Text="{Binding Output}" Style="{StaticResource Output}" Grid.Row="0" Grid.ColumnSpan="3"/>
+				<Grid Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Center">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="60"/>
 						<RowDefinition Height="60"/>
@@ -38,13 +43,19 @@
 							<Setter Property="BorderColor" Value="#FFF"/>
 						</Style>
 					</Grid.Resources>
+					<Button BackgroundColor="{Binding ColorAt0}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="0" Grid.Column="0"/>
+					<Button BackgroundColor="{Binding ColorAt1}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="0" Grid.Column="1"/>
+					<Button BackgroundColor="{Binding ColorAt2}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="1" Grid.Column="0"/>
+					<Button BackgroundColor="{Binding ColorAt3}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="1" Grid.Column="1"/>
+					<Button BackgroundColor="{Binding ColorAt4}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="2" Grid.Column="0"/>
+					<Button BackgroundColor="{Binding ColorAt5}" Command="{Binding InvertAt}" CommandParameter="0" Grid.Row="2" Grid.Column="1"/>
 				</Grid>
-				<Button x:Name="clear" Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Clear}"/>
-				<Button x:Name="backspace" Grid.Row="2" Grid.Column="1" Text="⌫" FontSize="20"/>
-				<Button x:Name="confirm" Grid.Row="2" Grid.Column="2" Text="{x:Static resources:AppResources.Confirm}"/>
-				<Button x:Name="invert" Grid.Row="3" Grid.Column="0" Text="{x:Static resources:AppResources.Invert}"/>
-				<Button x:Name="mirror" Grid.Row="3" Grid.Column="1" Text="{x:Static resources:AppResources.Mirror}"/>
-				<Button x:Name="turn" Grid.Row="3" Grid.Column="2" Text="{x:Static resources:AppResources.Turn}"/>
+				<Button Command="{Binding Clear}" Text="{x:Static resources:AppResources.Clear}" Grid.Row="2" Grid.Column="0"/>
+				<Button Command="{Binding Backspace}" Text="⌫" FontSize="20" Grid.Row="2" Grid.Column="1"/>
+				<Button Command="{Binding Config}" Text="{x:Static resources:AppResources.Confirm}" Grid.Row="2" Grid.Column="2"/>
+				<Button Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="0"/>
+				<Button Command="{Binding Mirror}" Text="{x:Static resources:AppResources.Mirror}" Grid.Row="3" Grid.Column="1"/>
+				<Button Command="{Binding Turn}" Text="{x:Static resources:AppResources.Turn}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
 		</ScrollView>
 	</ContentView>
