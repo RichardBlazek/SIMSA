@@ -50,7 +50,8 @@ namespace SIMSA.Models
 
 		public int Length => Text.Length;
 		public override string ToString() => Text.Split(',').Select(code => CodeToText(code, alphabet)).Cat();
-		public override bool Equals(object obj) => obj is NumericText n && n.Text == Text && n.Radix == Radix;
+		public override bool Equals(object obj) => obj is NumericText n && (n.Text, n.Radix, n.alphabet) == (Text, Radix, alphabet);
+		public override int GetHashCode() => (Text, Radix, alphabet).GetHashCode();
 		public bool IsTextValid(string text) => text.All(c => c == ',' || DigitValue(c) < Radix);
 	}
 }

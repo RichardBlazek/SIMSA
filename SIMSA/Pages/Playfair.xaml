@@ -9,8 +9,8 @@
 		<viewmodels:PlayfairVM Replaced="Q"/>
 	</ContentPage.BindingContext>
 	<ContentView>
-		<ScrollView>
-			<Grid Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>

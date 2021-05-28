@@ -10,8 +10,8 @@
 		<viewmodels:BrailleVM/>
 	</ContentPage.BindingContext>
 	<ContentView>
-		<ScrollView>
-			<Grid Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="240"/>

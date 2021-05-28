@@ -54,5 +54,6 @@ namespace SIMSA.Models
 		public byte this[Index i, bool second] => ExtractFlag(letters[i], second);
 		public override string ToString() => letters.Select(v => SemaphoreToLetters.GetValueOrDefault(v, '?')).Cat();
 		public override bool Equals(object obj) => obj is FlagSemaphoreText f && letters.SequenceEqual(f.letters);
+		public override int GetHashCode() => letters.HashSequence();
 	}
 }

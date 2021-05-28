@@ -27,6 +27,7 @@ namespace SIMSA.Models
 		public IEnumerator<string> GetEnumerator() => (Letters as IEnumerable<string>).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => (Letters as IEnumerable).GetEnumerator();
 		public override bool Equals(object obj) => obj is CustomAlphabet c && c.Name == Name && c.Letters.SequenceEqual(Letters);
+		public override int GetHashCode() => (Name, Letters.HashSequence()).GetHashCode();
 
 		public static readonly CustomAlphabet English = new CustomAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Select(c => c.ToString()).ToImmutableArray(), AppResources.EnglishAlphabet);
 		public static readonly CustomAlphabet Greek = new CustomAlphabet("ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ".Select(c => c.ToString()).ToImmutableArray(), AppResources.GreekAlphabet);

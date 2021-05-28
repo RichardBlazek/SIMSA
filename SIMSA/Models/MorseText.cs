@@ -72,5 +72,6 @@ namespace SIMSA.Models
 		public int Length => Text.Length;
 		public override string ToString() => Text.Split(',').Where(word => word.Length > 0).Select(word => MorseToLetter.GetValueOrDefault(word, '?')).Cat();
 		public override bool Equals(object obj) => obj is MorseText m && m.Text == Text;
+		public override int GetHashCode() => Text.GetHashCode();
 	}
 }

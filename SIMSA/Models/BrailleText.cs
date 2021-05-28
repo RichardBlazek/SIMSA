@@ -64,5 +64,6 @@ namespace SIMSA.Models
 		public IEnumerator<byte> GetEnumerator() => (letters as IEnumerable<byte>).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => (letters as IEnumerable).GetEnumerator();
 		public override bool Equals(object obj) => obj is BrailleText b && letters.SequenceEqual(b.letters);
+		public override int GetHashCode() => letters.HashSequence();
 	}
 }

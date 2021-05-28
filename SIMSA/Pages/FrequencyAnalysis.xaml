@@ -11,8 +11,8 @@
 		<viewmodels:FrequencyAnalysisVM/>
 	</ContentPage.BindingContext>
 	<ContentView>
-		<ScrollView>
-			<Grid Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="190"/>
 					<RowDefinition Height="60"/>

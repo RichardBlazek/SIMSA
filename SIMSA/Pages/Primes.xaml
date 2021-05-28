@@ -10,8 +10,8 @@
 		<viewmodels:PrimesVM UpperBound="20"/>
 	</ContentPage.BindingContext>
 	<ContentView>
-		<ScrollView>
-			<StackLayout Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<StackLayout>
 				<Label Text="{x:Static resources:AppResources.FindPrimesUpTo}" Style="{StaticResource Caption}"/>
 				<Entry Text="{Binding UpperBound, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.UpperBound}" Keyboard="Numeric"/>
 				<Label Text="{Binding Count, StringFormat={x:Static resources:AppResources.PrimeCountFormat}}" Style="{StaticResource Caption}"/>

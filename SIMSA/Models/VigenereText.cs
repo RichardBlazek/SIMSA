@@ -34,6 +34,7 @@ namespace SIMSA.Models
 		public VigenereText WithText(string text) => new VigenereText(alphabet, text, Key, Minus);
 		public VigenereText WithKey(string key) => new VigenereText(alphabet, Text, key, Minus);
 		public VigenereText WithAlphabet(IAlphabet newAlphabet) => new VigenereText(newAlphabet, Text, Key, Minus);
-		public override bool Equals(object obj) => obj is VigenereText v && v.Text == Text && v.Key == Key && v.Minus == Minus;
+		public override bool Equals(object obj) => obj is VigenereText v && (v.Text, v.Key, v.Minus) == (Text, Key, Minus);
+		public override int GetHashCode() => (Text, Key, Minus).GetHashCode();
 	}
 }

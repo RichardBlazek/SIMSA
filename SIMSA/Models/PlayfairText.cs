@@ -42,6 +42,7 @@ namespace SIMSA.Models
 		public PlayfairText WithText(string new_text) => new PlayfairText(new_text, Key, Replaced);
 		public PlayfairText WithKey(string new_key) => new PlayfairText(Text, new_key, Replaced);
 		public PlayfairText WithReplaced(char new_replaced) => new PlayfairText(Text, Key, new_replaced);
-		public override bool Equals(object obj) => obj is PlayfairText p && p.Key == Key && p.Text == Text && p.Replaced == Replaced;
+		public override bool Equals(object obj) => obj is PlayfairText p && (p.Key, p.Text, p.Replaced) == (Key, Text, Replaced);
+		public override int GetHashCode() => (Key, Text, Replaced).GetHashCode();
 	}
 }

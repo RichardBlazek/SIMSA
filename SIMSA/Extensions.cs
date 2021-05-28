@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -137,6 +138,16 @@ namespace SIMSA
 			{
 				e.Text = e.Text.Where(c => DigitValue(c) < radix).Cat();
 			}
+		}
+		static int CombineHashCodes(int h1, int h2) => ((h1 << 5) + h1) ^ h2;
+		public static int HashSequence(this IEnumerable seq)
+		{
+			int result = 0;
+			foreach (var item in seq)
+			{
+				result = CombineHashCodes(result, item.GetHashCode());
+			}
+			return result;
 		}
 	}
 }

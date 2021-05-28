@@ -7,8 +7,8 @@
 			 x:DataType="viewmodels:VigenereVM"
 			 Title="{x:Static resources:AppResources.VigenerePageTitle}">
 	<ContentView>
-		<ScrollView>
-			<Grid Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>

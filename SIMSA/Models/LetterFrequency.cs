@@ -9,6 +9,7 @@
 			Letter = letter;
 			Frequency = frequency;
 		}
-		public override bool Equals(object obj) => obj is LetterFrequency l && l.Letter == Letter && l.Frequency == Frequency;
+		public override bool Equals(object obj) => obj is LetterFrequency l && (l.Letter, l.Frequency) == (Letter, Frequency);
+		public override int GetHashCode() => (Letter, Frequency).GetHashCode();
 	}
 }

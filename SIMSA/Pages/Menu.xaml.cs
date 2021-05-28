@@ -12,13 +12,6 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Menu : ContentPage
 	{
-		void Execute(Action<ViewModelBase> modifier)
-		{
-			foreach (var vm in (BindingContext as MenuVM)!.ViewModels)
-			{
-				modifier(vm);
-			}
-		}
 		void Save(Config config) => (BindingContext as MenuVM)!.Config = config;
 		ICommand CommandFor(ContentPage page) => new Command(async () => await Navigation.PushAsync(page, false));
 		MenuVM MakeViewModel(Config config, Action<Config> save)

@@ -30,5 +30,6 @@ namespace SIMSA.Models
 		public Alphabets Update(int index, CustomAlphabet newAlphabet) => new Alphabets(Custom.SetItem(index, newAlphabet));
 		public Alphabets Remove(int index) => new Alphabets(Custom.RemoveAt(index));
 		public override bool Equals(object obj) => obj is Alphabets a && Custom.SequenceEqual(a.Custom);
+		public override int GetHashCode() => Custom.HashSequence();
 	}
 }

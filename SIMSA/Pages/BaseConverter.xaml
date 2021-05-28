@@ -10,8 +10,8 @@
 		<viewmodels:BaseConverterVM FromRadix="10" ToRadix="2" Input="0"/>
 	</ContentPage.BindingContext>
     <ContentView>
-		<ScrollView>
-			<Grid Style="{StaticResource Content}">
+		<ScrollView Style="{StaticResource Content}">
+			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="60"/>
