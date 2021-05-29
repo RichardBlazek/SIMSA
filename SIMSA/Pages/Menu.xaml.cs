@@ -18,15 +18,15 @@ namespace SIMSA.Pages
 		{
 			var contentPages = new ContentPage[]
 			{
+				new BaseConverter(),
 				new Braille(),
+				new FlagSemaphore(),
+				new FrequencyAnalysis(),
 				new Morse(),
 				new Numeric(config),
-				new Vigenere(config),
-				new FlagSemaphore(),
 				new Playfair(),
 				new Primes(),
-				new BaseConverter(),
-				new FrequencyAnalysis(),
+				new Vigenere(config),
 				new ManageAlphabets(config, Save)
 			};
 

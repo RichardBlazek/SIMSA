@@ -11,7 +11,7 @@ namespace SIMSA.ViewModels
 	{
 		string input = "";
 		Language language = Language.English;
-		ImmutableArray<LetterFrequency> analysisOutput;
+		ImmutableArray<LetterFrequency> analysisOutput = ImmutableArray<LetterFrequency>.Empty;
 		public ImmutableArray<LetterFrequency> AnalysisOutput => analysisOutput;
 		public ImmutableArray<LetterFrequency> LanguageOutput => FrequencyAnalyser.Statistics[language];
 		public string LanguageName => language switch { Language.English => AppResources.English, Language.CzechDiacritics => AppResources.CzechDiacritics, _ => AppResources.Czech };

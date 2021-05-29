@@ -4,8 +4,8 @@ using Xamarin.Forms.Xaml;
 namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Morse : ContentPage
+	public partial class FrequencyAnalysis : ContentPage
 	{
-		public Morse() => InitializeComponent();
+		public FrequencyAnalysis() => InitializeComponent();
 	}
 }

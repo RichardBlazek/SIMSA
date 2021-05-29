@@ -9,7 +9,7 @@ namespace SIMSA.ViewModels
 		public BaseConverterVM() : base(Config.Initial) { }
 		int fromRadix, toRadix;
 		string input = "";
-		static string Filter(string s, long radix) => s.ToUpper().Where((c, i) => (i == 0 && c == '-') || (c >= '0' && c <= '0' + radix) || (c >= 'A' && c <= 'A' + radix - 10)).Cat();
+		static string Filter(string s, long radix) => s.ToUpper().Where((c, i) => (i == 0 && c == '-') || (c >= '0' && c < '0' + radix) || (c >= 'A' && c < 'A' + radix - 10)).Cat();
 		public int FromRadix
 		{
 			get => fromRadix;

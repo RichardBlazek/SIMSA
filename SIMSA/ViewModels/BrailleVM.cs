@@ -16,6 +16,7 @@ namespace SIMSA.ViewModels
 		public ICommand Turn { get; }
 		public BrailleVM() : base(Config.Initial)
 		{
+			Backspace = new Command(() => ChangeProperty(ref text, text.Pop(), "ColorAt0", "ColorAt1", "ColorAt2", "ColorAt3", "ColorAt4", "ColorAt5", "Output"));
 			Clear = new Command(() => ChangeProperty(ref text, new BrailleText(), "ColorAt0", "ColorAt1", "ColorAt2", "ColorAt3", "ColorAt4", "ColorAt5", "Output"));
 			Confirm = new Command(() => ChangeProperty(ref text, text.Add(0), "ColorAt0", "ColorAt1", "ColorAt2", "ColorAt3", "ColorAt4", "ColorAt5", "Output"));
 			Invert = new Command(() => ChangeProperty(ref text, text.Inverted, "ColorAt0", "ColorAt1", "ColorAt2", "ColorAt3", "ColorAt4", "ColorAt5", "Output"));

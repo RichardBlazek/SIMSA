@@ -4,8 +4,8 @@ using Xamarin.Forms.Xaml;
 namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Morse : ContentPage
+	public partial class Playfair : ContentPage
 	{
-		public Morse() => InitializeComponent();
+		public Playfair() => InitializeComponent();
 	}
 }

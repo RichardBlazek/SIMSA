@@ -6,6 +6,9 @@
              x:Class="SIMSA.Pages.Morse"
 			 x:DataType="viewmodels:MorseVM"
 			 Title="{x:Static resources:AppResources.MorsePageTitle}">
+	<ContentPage.BindingContext>
+		<viewmodels:MorseVM/>
+	</ContentPage.BindingContext>
 	<ContentView>
 		<ScrollView Style="{StaticResource Content}">
 			<Grid>

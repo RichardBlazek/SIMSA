@@ -8,10 +8,12 @@
              Title="{x:Static resources:AppResources.ManageAlphabetsPageTitle}">
 	<ContentView>
 		<ScrollView Style="{StaticResource Content}">
-			<ListView ItemsSource="{Binding Buttons}">
+			<ListView ItemsSource="{Binding Buttons}" HasUnevenRows="True">
 				<ListView.ItemTemplate>
 					<DataTemplate x:DataType="viewmodels:ButtonVM">
-						<TextCell Text="{Binding Title}" Command="{Binding Command}"/>
+						<ViewCell>
+							<Button Text="{Binding Title}" Command="{Binding Command}"/>
+						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
