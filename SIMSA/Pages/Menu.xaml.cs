@@ -12,32 +12,30 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Menu : ContentPage
 	{
+		readonly ImmutableArray<ContentPage> pages;
 		void Save(Config config) => (BindingContext as MenuVM)!.Config = config;
+		void ForEachViewModel(Action<ViewModelBase> modifier) => (BindingContext as MenuVM)!.ForEach(modifier);
+		void ForEachPage(Action<ContentPage> modifier) => pages.ForEach(modifier);
 		ICommand CommandFor(ContentPage page) => new Command(async () => await Navigation.PushAsync(page, false));
-		MenuVM MakeViewModel(Config config, Action<Config> save)
+		public Menu(Config config, Action<Config> save)
 		{
-			var contentPages = new ContentPage[]
+			InitializeComponent();
+			pages = new ContentPage[]
 			{
 				new BaseConverter(),
 				new Braille(),
 				new FlagSemaphore(),
 				new FrequencyAnalysis(),
-				new Morse(),
+				new Morse(ForEachViewModel, ForEachPage),
 				new Numeric(config),
 				new Playfair(),
 				new Primes(),
 				new Vigenere(config),
 				new ManageAlphabets(config, Save)
-			};
-
-			var buttons = contentPages.Select(page => new ButtonVM(page.Title, CommandFor(page))).ToImmutableArray();
-			var viewModels = contentPages.Select(page => (page.BindingContext as ViewModelBase)!).ToImmutableArray();
-			return new MenuVM(config, save, buttons, viewModels);
-		}
-		public Menu(Config config, Action<Config> save)
-		{
-			InitializeComponent();
-			BindingContext = MakeViewModel(config, save);
+			}.ToImmutableArray();
+			var buttons = pages.Select(page => new ButtonVM(page.Title, CommandFor(page))).ToImmutableArray();
+			var viewModels = pages.Select(page => page.BindingContext).OfType<ViewModelBase>().ToImmutableArray();
+			BindingContext = new MenuVM(config, save, buttons, viewModels);
 		}
 	}
 }

@@ -7,6 +7,7 @@ namespace SIMSA.ViewModels
 	public class MorseVM : ViewModelBase
 	{
 		MorseText text = new MorseText();
+		public string AsBinary => text.Text.Replace('.', '0').Replace('-', '1').Replace('/', ',');
 		public string Output => text.ToString();
 		public string Input
 		{
@@ -14,11 +15,7 @@ namespace SIMSA.ViewModels
 			set => ChangePropertyUI(ref text, MorseText.Parse(value), text.Text, value, "Input", "Output");
 		}
 		public ICommand Invert { get; }
-		public ICommand ToBinary { get; }
-		public MorseVM() : base(Config.Initial)
-		{
-			Invert = new Command(() => ChangeProperty(ref text, text.Inverted, "Input", "Output"));
-			ToBinary = new Command(() => { });
-		}
+		void DoInvert() => ChangeProperty(ref text, text.Inverted, "Input", "Output");
+		public MorseVM() : base(Config.Initial) => Invert = new Command(DoInvert);
 	}
 }

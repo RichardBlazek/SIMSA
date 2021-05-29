@@ -322,6 +322,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dash is &quot;-&quot; dot is &quot;.&quot; and separator is &quot;/&quot;.
+        /// </summary>
+        public static string MorseEntryPlaceholder {
+            get {
+                return ResourceManager.GetString("MorseEntryPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Morse code.
         /// </summary>
         public static string MorsePageTitle {

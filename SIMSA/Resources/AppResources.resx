@@ -204,6 +204,9 @@
   <data name="Mirror" xml:space="preserve">
     <value>Mirror</value>
   </data>
+  <data name="MorseEntryPlaceholder" xml:space="preserve">
+    <value>Dash is "-" dot is "." and separator is "/"</value>
+  </data>
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morse code</value>
   </data>

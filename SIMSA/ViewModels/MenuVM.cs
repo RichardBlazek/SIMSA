@@ -16,7 +16,7 @@ namespace SIMSA.ViewModels
 			ViewModels = viewModels;
 			this.save = save;
 		}
-		void Execute(Action<ViewModelBase> modifier)
+		public void ForEach(Action<ViewModelBase> modifier)
 		{
 			foreach (var vm in ViewModels)
 			{
@@ -29,7 +29,7 @@ namespace SIMSA.ViewModels
 			set
 			{
 				base.Config = value;
-				Execute(vm => vm.Config = value);
+				ForEach(vm => vm.Config = value);
 				save(value);
 			}
 		}

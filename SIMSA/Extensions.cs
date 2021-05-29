@@ -153,5 +153,12 @@ namespace SIMSA
 			}
 			return result;
 		}
+		public static void ForEach<T>(this IEnumerable<T> e, Action<T> action)
+		{
+			foreach (var item in e)
+			{
+				action(item);
+			}
+		}
 	}
 }

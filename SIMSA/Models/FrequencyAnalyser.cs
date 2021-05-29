@@ -44,37 +44,6 @@ namespace SIMSA.Models
 			{
 				Language.CzechDiacritics, new[]
 				{
-					new LetterFrequency('A', 8.4548 / 100),
-					new LetterFrequency('B', 1.5582 / 100),
-					new LetterFrequency('C', 3.1411 / 100),
-					new LetterFrequency('D', 3.6241 / 100),
-					new LetterFrequency('E', 10.6751 / 100),
-					new LetterFrequency('F', 0.2732 / 100),
-					new LetterFrequency('G', 0.2729 / 100),
-					new LetterFrequency('H', 1.8566 / 100),
-					new LetterFrequency('I', 7.6227 / 100),
-					new LetterFrequency('J', 2.1194 / 100),
-					new LetterFrequency('K', 3.7367 / 100),
-					new LetterFrequency('L', 3.8424 / 100),
-					new LetterFrequency('M', 3.2267 / 100),
-					new LetterFrequency('N', 6.6167 / 100),
-					new LetterFrequency('O', 8.6977 / 100),
-					new LetterFrequency('P', 3.4127 / 100),
-					new LetterFrequency('Q', 0.0013 / 100),
-					new LetterFrequency('R', 4.9136 / 100),
-					new LetterFrequency('S', 5.3212 / 100),
-					new LetterFrequency('T', 5.7694 / 100),
-					new LetterFrequency('U', 3.9422 / 100),
-					new LetterFrequency('V', 4.6616 / 100),
-					new LetterFrequency('W', 0.0088 / 100),
-					new LetterFrequency('X', 0.0755 / 100),
-					new LetterFrequency('Y', 2.9814 / 100),
-					new LetterFrequency('Z', 3.1939 / 100)
-				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
-			},
-			{
-				Language.Czech, new[]
-				{
 					new LetterFrequency('A', 6.2193 / 100),
 					new LetterFrequency('Á', 2.2355 / 100),
 					new LetterFrequency('B', 1.5582 / 100),
@@ -116,6 +85,37 @@ namespace SIMSA.Models
 					new LetterFrequency('Ý', 1.0721 / 100),
 					new LetterFrequency('Z', 2.1987 / 100),
 					new LetterFrequency('Ž', 0.9952 / 100)
+				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
+			},
+			{
+				Language.Czech, new[]
+				{
+					new LetterFrequency('A', 8.4548 / 100),
+					new LetterFrequency('B', 1.5582 / 100),
+					new LetterFrequency('C', 3.1411 / 100),
+					new LetterFrequency('D', 3.6241 / 100),
+					new LetterFrequency('E', 10.6751 / 100),
+					new LetterFrequency('F', 0.2732 / 100),
+					new LetterFrequency('G', 0.2729 / 100),
+					new LetterFrequency('H', 1.8566 / 100),
+					new LetterFrequency('I', 7.6227 / 100),
+					new LetterFrequency('J', 2.1194 / 100),
+					new LetterFrequency('K', 3.7367 / 100),
+					new LetterFrequency('L', 3.8424 / 100),
+					new LetterFrequency('M', 3.2267 / 100),
+					new LetterFrequency('N', 6.6167 / 100),
+					new LetterFrequency('O', 8.6977 / 100),
+					new LetterFrequency('P', 3.4127 / 100),
+					new LetterFrequency('Q', 0.0013 / 100),
+					new LetterFrequency('R', 4.9136 / 100),
+					new LetterFrequency('S', 5.3212 / 100),
+					new LetterFrequency('T', 5.7694 / 100),
+					new LetterFrequency('U', 3.9422 / 100),
+					new LetterFrequency('V', 4.6616 / 100),
+					new LetterFrequency('W', 0.0088 / 100),
+					new LetterFrequency('X', 0.0755 / 100),
+					new LetterFrequency('Y', 2.9814 / 100),
+					new LetterFrequency('Z', 3.1939 / 100)
 				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
 			}
 		}.ToImmutableDictionary();

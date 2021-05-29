@@ -204,6 +204,9 @@
   <data name="Mirror" xml:space="preserve">
     <value>Překlopit</value>
   </data>
+  <data name="MorseEntryPlaceholder" xml:space="preserve">
+    <value>Čárka je "-" tečka je "." a oddělovač je "/"</value>
+  </data>
   <data name="MorsePageTitle" xml:space="preserve">
     <value>Morseova abeceda</value>
   </data>

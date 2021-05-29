@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SIMSA.Models;
 
 namespace SIMSA.ViewModels
@@ -15,7 +16,7 @@ namespace SIMSA.ViewModels
 			set
 			{
 				ChangeProperty(ref fromRadix, value, "FromRadix");
-				ChangeProperty(ref input, Filter(input, fromRadix), "Input", "Output");
+				ChangeProperty(ref input, Filter(input, Math.Max(2, fromRadix)), "Input", "Output");
 			}
 		}
 		public int ToRadix
@@ -26,7 +27,11 @@ namespace SIMSA.ViewModels
 		public string Input
 		{
 			get => input;
-			set => ChangePropertyUI(ref input, Filter(value, fromRadix), input, value, "Input", "Output");
+			set
+			{
+				ChangeProperty(ref fromRadix, Math.Max(2, fromRadix), "FromRadix");
+				ChangePropertyUI(ref input, Filter(value, fromRadix), input, value, "Input", "Output");
+			}
 		}
 		public string Output => input.TryParse(fromRadix, out long value) ? value.ToString(toRadix) : "";
 	}
