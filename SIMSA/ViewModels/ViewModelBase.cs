@@ -9,14 +9,25 @@ namespace SIMSA.ViewModels
 		protected ViewModelBase(Config config) => Config = config;
 		public event PropertyChangedEventHandler? PropertyChanged;
 		protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-		protected void ChangeProperty<T>(ref T changed, T value, params string[] names)
+		protected void ChangeProperty<T>(ref T variable, T newValue, params string[] effects)
 		{
-			if (!Equals(value, changed))
+			if (!Equals(newValue, variable))
 			{
-				changed = value;
-				for (int i = 0; i < names.Length; ++i)
+				variable = newValue;
+				for (int i = 0; i < effects.Length; ++i)
 				{
-					OnPropertyChanged(names[i]);
+					OnPropertyChanged(effects[i]);
+				}
+			}
+		}
+		protected void ChangePropertyUI<T, U>(ref T variable, T newValue, U oldDisplayed, U newDisplayed, params string[] effects)
+		{
+			if (!Equals(oldDisplayed, newDisplayed) || !Equals(newValue, variable))
+			{
+				variable = newValue;
+				for (int i = 0; i < effects.Length; ++i)
+				{
+					OnPropertyChanged(effects[i]);
 				}
 			}
 		}

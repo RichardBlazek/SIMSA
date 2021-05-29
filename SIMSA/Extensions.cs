@@ -96,6 +96,10 @@ namespace SIMSA
 			{
 				return "0";
 			}
+			if (radix < 2)
+			{
+				return "";
+			}
 			bool negative = num < 0;
 			num = negative ? -num : num;
 			string result = "";
@@ -111,7 +115,7 @@ namespace SIMSA
 		{
 			value = 0;
 			bool negative = str.Length > 0 && str[0] == '-';
-			bool correct = str.Length >= (negative ? 2 : 1);
+			bool correct = str.Length >= (negative ? 2 : 1) && radix >= 2;
 			for (int i = negative ? 1 : 0; i < str.Length && correct; ++i)
 			{
 				long digit = DigitValue(str[i]);

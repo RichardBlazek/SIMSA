@@ -28,8 +28,8 @@
 						</Keyboard>
 					</Entry.Keyboard>
 				</Entry>
-				<Button Clicked="Close" Command="{Binding Save}" Text="{x:Static resources:AppResources.Confirm}" Grid.Row="2" Grid.Column="0"/>
-				<Button Clicked="Close" Command="{Binding Delete}" Text="{x:Static resources:AppResources.Delete}" Grid.Row="2" Grid.Column="1"/>
+				<Button Text="{x:Static resources:AppResources.Confirm}" Command="{Binding Save}" Clicked="Close" Grid.Row="2" Grid.Column="0"/>
+				<Button Text="{x:Static resources:AppResources.Delete}" Command="{Binding Delete}" Clicked="Close" Grid.Row="2" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>
 	</ContentView>

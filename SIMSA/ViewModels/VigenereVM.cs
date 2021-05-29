@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using SIMSA.Models;
+using SIMSA.Resources;
 using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
@@ -19,13 +20,15 @@ namespace SIMSA.ViewModels
 			get => text.Text;
 			set => ChangeProperty(ref text, text.WithKey(value), "Key", "Output");
 		}
+		public string Sign => text.Minus ? AppResources.Subtract : AppResources.Add;
+		public string AlphabetName => text.Alphabet.Name;
 		public ICommand InvertSign { get; }
 		public ICommand SelectAlphabet { get; }
-		void SetAlphabet(IAlphabet alphabet) => ChangeProperty(ref text, text.WithAlphabet(alphabet), "Output");
+		void SetAlphabet(IAlphabet alphabet) => ChangeProperty(ref text, text.WithAlphabet(alphabet), "Output", "AlphabetName");
 		public VigenereVM(Config config, Action<Action<IAlphabet>> selectAlphabet) : base(config)
 		{
 			text = new VigenereText(config.DefaultAlphabet);
-			InvertSign = new Command(() => ChangeProperty(ref text, text.InvertSign(), "Input", "Output"));
+			InvertSign = new Command(() => ChangeProperty(ref text, text.InvertSign(), "Input", "Output", "Sign"));
 			SelectAlphabet = new Command(() => selectAlphabet(SetAlphabet));
 		}
 	}

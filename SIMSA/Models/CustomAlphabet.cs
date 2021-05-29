@@ -22,7 +22,7 @@ namespace SIMSA.Models
 		public int Count => Letters.Length;
 		public CustomAlphabet WithName(string name) => new CustomAlphabet(Letters, name);
 		public CustomAlphabet WithLetters(ImmutableArray<string> letters) => new CustomAlphabet(letters, Name);
-		public CustomAlphabet WithLetters(string letters) => WithLetters(letters.DivideToUnicodeChars().ToImmutableArray());
+		public CustomAlphabet WithLetters(string letters) => WithLetters(letters.DivideToUnicodeChars().Distinct().ToImmutableArray());
 		public override string ToString() => Letters.Cat();
 		public IEnumerator<string> GetEnumerator() => (Letters as IEnumerable<string>).GetEnumerator();
 		IEnumerator IEnumerable.GetEnumerator() => (Letters as IEnumerable).GetEnumerator();

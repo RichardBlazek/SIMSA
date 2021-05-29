@@ -39,8 +39,8 @@
 						</Keyboard>
 					</Entry.Keyboard>
 				</Entry>
-				<Button Command="{Binding SelectAlphabet}" Grid.Row="3" Grid.ColumnSpan="2"/>
-				<Button Command="{Binding InvertSign}" Grid.Row="3" Grid.Column="2"/>
+				<Button Text="{Binding AlphabetName}" Command="{Binding SelectAlphabet}" Grid.Row="3" Grid.ColumnSpan="2"/>
+				<Button Text="{Binding Sign}" Command="{Binding InvertSign}" Grid.Row="3" Grid.Column="2"/>
 			</Grid>
         </ScrollView>
     </ContentView>

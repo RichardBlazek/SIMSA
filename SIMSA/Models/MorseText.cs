@@ -66,7 +66,7 @@ namespace SIMSA.Models
 		public static MorseText Parse(string text) => new MorseText(text.Where(c => c == '.' || c == '-' || c == ',').Cat());
 		public MorseText Add(char c, int i) => c == '.' || c == '-' || c == ',' ? new MorseText(Text[..i] + c + Text[i..]) : this;
 		public MorseText Remove(int i) => Text.Length > i && i >= 0 ? new MorseText(Text[..i] + Text[(i + 1)..]) : this;
-		public MorseText Invert() => new MorseText(Text.Replace('.', '$').Replace('-', '.').Replace('$', '-'));
+		public MorseText Inverted => new MorseText(Text.Replace('.', '$').Replace('-', '.').Replace('$', '-'));
 		public static MorseText Parse(IEnumerable<char> text) => new MorseText(text.Where(c => c == '.' || c == '-' || c == ',').Cat());
 
 		public int Length => Text.Length;

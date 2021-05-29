@@ -22,7 +22,7 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Label Text="{Binding Output}" Style="{StaticResource Output}" Grid.Row="0" Grid.ColumnSpan="2"/>
-				<Entry Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" Keyboard="Numeric" Grid.Row="1" Grid.ColumnSpan="2"/>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" Grid.Row="1" Grid.ColumnSpan="2"/>
 				<Button Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="2" Grid.Column="0"/>
 				<Button Command="{Binding ToBinary}" Text="{x:Static resources:AppResources.ConvertToBinary}" Grid.Row="2" Grid.Column="1"/>
 			</Grid>

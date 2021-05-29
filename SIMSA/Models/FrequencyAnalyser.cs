@@ -39,7 +39,7 @@ namespace SIMSA.Models
 					new LetterFrequency('X', 0.150 / 100),
 					new LetterFrequency('Y', 1.974 / 100),
 					new LetterFrequency('Z', 0.074 / 100)
-				}.ToImmutableArray()
+				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
 			},
 			{
 				Language.CzechDiacritics, new[]
@@ -70,7 +70,7 @@ namespace SIMSA.Models
 					new LetterFrequency('X', 0.0755 / 100),
 					new LetterFrequency('Y', 2.9814 / 100),
 					new LetterFrequency('Z', 3.1939 / 100)
-				}.ToImmutableArray()
+				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
 			},
 			{
 				Language.Czech, new[]
@@ -116,7 +116,7 @@ namespace SIMSA.Models
 					new LetterFrequency('Ý', 1.0721 / 100),
 					new LetterFrequency('Z', 2.1987 / 100),
 					new LetterFrequency('Ž', 0.9952 / 100)
-				}.ToImmutableArray()
+				}.OrderByDescending(p => p.Frequency).ToImmutableArray()
 			}
 		}.ToImmutableDictionary();
 		public static ImmutableArray<LetterFrequency> Analyse(string text)
@@ -130,7 +130,7 @@ namespace SIMSA.Models
 				}
 			}
 			var sum = (double)occurences.Sum(pair => pair.Value);
-			return occurences.Select(p => new LetterFrequency(p.Key, p.Value / sum)).ToImmutableArray();
+			return occurences.Select(p => new LetterFrequency(p.Key, p.Value / sum)).OrderByDescending(p => p.Frequency).ToImmutableArray();
 		}
 	}
 }

@@ -11,13 +11,13 @@ namespace SIMSA.ViewModels
 		public string Input
 		{
 			get => text.Text;
-			set => ChangeProperty(ref text, MorseText.Parse(value), "Input", "Output");
+			set => ChangePropertyUI(ref text, MorseText.Parse(value), text.Text, value, "Input", "Output");
 		}
 		public ICommand Invert { get; }
 		public ICommand ToBinary { get; }
 		public MorseVM() : base(Config.Initial)
 		{
-			Invert = new Command(() => ChangeProperty(ref text, text, "Input", "Output"));
+			Invert = new Command(() => ChangeProperty(ref text, text.Inverted, "Input", "Output"));
 			ToBinary = new Command(() => { });
 		}
 	}

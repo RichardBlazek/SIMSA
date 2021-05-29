@@ -12,13 +12,14 @@ namespace SIMSA.ViewModels
 		public string Input
 		{
 			get => text.Text;
-			set => ChangeProperty(ref text, text.WithText(value), "Input", "Output");
+			set => ChangePropertyUI(ref text, text.WithText(value), text.Text, value, "Input", "Output");
 		}
 		public byte Radix
 		{
 			get => text.Radix;
-			set => ChangeProperty(ref text, text.WithRadix(value), "Input", "Output", "Radix");
+			set => ChangePropertyUI(ref text, text.WithRadix(value), text.Radix, value, "Input", "Output", "Radix");
 		}
+		public string AlphabetName => text.Alphabet.Name;
 		public ICommand Invert { get; }
 		public ICommand SelectAlphabet { get; }
 		void SetAlphabet(IAlphabet alphabet) => ChangeProperty(ref text, text.WithAlphabet(alphabet), "Output");
@@ -26,7 +27,11 @@ namespace SIMSA.ViewModels
 		{
 			text = new NumericText(config.DefaultAlphabet);
 			Invert = new Command(() => ChangeProperty(ref text, text.Invert(), "Input", "Output"));
-			SelectAlphabet = new Command(() => selectAlphabet(SetAlphabet));
+			SelectAlphabet = new Command(() =>
+			{
+				selectAlphabet(SetAlphabet);
+				OnPropertyChanged("AlphabetName");
+			});
 		}
 	}
 }

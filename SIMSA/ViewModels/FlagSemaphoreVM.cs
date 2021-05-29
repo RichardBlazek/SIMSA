@@ -21,6 +21,6 @@ namespace SIMSA.ViewModels
 			Mirror = new Command(() => ChangeProperty(ref text, text.Mirror(), "Output", "Angles"));
 			Turn = new Command(() => ChangeProperty(ref text, text.Turn(1), "Output", "Angles"));
 		}
-		public void SetAngle(double angle) => ChangeProperty(ref text, text.SetFlag(((int)Math.Round(angle * 4 / Math.PI + 2)).Mod(8)));
+		public void SetAngle(double angle) => ChangeProperty(ref text, text.SetFlag(((int)Math.Round(angle * 4 / Math.PI + 2)).Mod(8)), "Output", "Angles");
 	}
 }

@@ -33,7 +33,7 @@
 
 				<Label Text="{x:Static resources:AppResources.NumericBase}" Style="{StaticResource Caption}" Grid.Row="2"/>
 				<Entry Text="{Binding Radix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.NumericBase}" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
-				<Button Command="{Binding SelectAlphabet}" Grid.Row="3"/>
+				<Button Text="{Binding AlphabetName}" Command="{Binding SelectAlphabet}" Grid.Row="3"/>
 				<Button Command="{Binding Invert}" Text="{x:Static resources:AppResources.Invert}" Grid.Row="3" Grid.Column="1"/>
 			</Grid>
 		</ScrollView>

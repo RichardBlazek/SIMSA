@@ -29,7 +29,7 @@ namespace SIMSA.Pages
 				canvas.Clear();
 				canvas.DrawCircle(info.Width / 2f, info.Height / 2f, radius, new SKPaint { Color = new SKColor(255, 255, 255) });
 				canvas.DrawLine(info.Width / 2f, info.Height / 2f, MathF.Cos(angle1) * radius + info.Width / 2, MathF.Sin(angle1) * radius + info.Height / 2, new SKPaint { Color = new SKColor(0, 0, 0), StrokeWidth = 3 });
-				canvas.DrawLine(info.Width / 2f, info.Height / 2f, MathF.Cos(angle2) * radius + info.Width / 2, MathF.Sin(angle1) * radius + info.Height / 2, new SKPaint { Color = new SKColor(0, 0, 0), StrokeWidth = 3 });
+				canvas.DrawLine(info.Width / 2f, info.Height / 2f, MathF.Cos(angle2) * radius + info.Width / 2, MathF.Sin(angle2) * radius + info.Height / 2, new SKPaint { Color = new SKColor(0, 0, 0), StrokeWidth = 3 });
 			}
 		}
 		void VMChangeHandler(object sender, System.ComponentModel.PropertyChangedEventArgs e)

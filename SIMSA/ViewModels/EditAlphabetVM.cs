@@ -20,7 +20,7 @@ namespace SIMSA.ViewModels
 		public string Letters
 		{
 			get => alphabet.ToString();
-			set => ChangeProperty(ref alphabet, alphabet.WithLetters(value), "Letters");
+			set => ChangePropertyUI(ref alphabet, alphabet.WithLetters(value), alphabet.ToString(), value, "Letters");
 		}
 
 		void DoSave() => save(Config.With(Config.Alphabets.Update(alphabetIndex, alphabet)));

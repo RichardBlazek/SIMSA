@@ -14,8 +14,8 @@ namespace SIMSA.ViewModels
 			get => upperBound;
 			set
 			{
-				upperBound = value;
-				ChangeProperty(ref primes, upperBound.AllLowerPrimes(), "UpperBound", "Output", "Count");
+				primes = value.AllLowerPrimes();
+				ChangeProperty(ref upperBound, value, "UpperBound", "Output", "Count");
 			}
 		}
 		public PrimesVM() : base(Config.Initial) { }

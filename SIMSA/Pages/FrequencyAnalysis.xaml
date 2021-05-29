@@ -11,53 +11,51 @@
 		<viewmodels:FrequencyAnalysisVM/>
 	</ContentPage.BindingContext>
 	<ContentView>
-		<ScrollView Style="{StaticResource Content}">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="190"/>
-					<RowDefinition Height="60"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Editor Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" IsSpellCheckEnabled="False" Grid.ColumnSpan="2">
-					<Editor.Keyboard>
-						<Keyboard x:FactoryMethod="Create">
-							<x:Arguments>
-								<KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
-							</x:Arguments>
-						</Keyboard>
-					</Editor.Keyboard>
-				</Editor>
-				<Button Command="{Binding Analyse}" Text="{x:Static resources:AppResources.Analyse}" Grid.Row="1" Grid.Column="0"/>
-				<Button Command="{Binding SwitchLanguage}" Text="{Binding LanguageName}" Grid.Row="1" Grid.Column="1"/>
-				<ListView ItemsSource="{Binding AnalysisOutput}" VerticalScrollBarVisibility="Never" Grid.Row="2" Grid.Column="0">
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<ViewCell x:DataType="models:LetterFrequency">
-								<FlexLayout JustifyContent="SpaceBetween" Margin="10,0">
-									<Label Text="{Binding Letter}"/>
-									<Label Text="{Binding Frequency, StringFormat='{0:P2}'}"/>
-								</FlexLayout>
-							</ViewCell>
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-				<ListView ItemsSource="{Binding LanguageOutput}" VerticalScrollBarVisibility="Never" Grid.Row="2" Grid.Column="1">
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<ViewCell x:DataType="models:LetterFrequency">
-								<FlexLayout JustifyContent="SpaceBetween" Margin="10,0">
-									<Label Text="{Binding Letter}"/>
-									<Label Text="{Binding Frequency, StringFormat='{0:P2}'}"/>
-								</FlexLayout>
-							</ViewCell>
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-			</Grid>
-        </ScrollView>
-    </ContentView>
+		<Grid Style="{StaticResource Content}">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="190"/>
+				<RowDefinition Height="60"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Editor Text="{Binding Input, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.Text}" IsSpellCheckEnabled="False" Grid.ColumnSpan="2">
+				<Editor.Keyboard>
+					<Keyboard x:FactoryMethod="Create">
+						<x:Arguments>
+							<KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+						</x:Arguments>
+					</Keyboard>
+				</Editor.Keyboard>
+			</Editor>
+			<Button Command="{Binding Analyse}" Text="{x:Static resources:AppResources.Analyse}" Grid.Row="1" Grid.Column="0"/>
+			<Button Command="{Binding SwitchLanguage}" Text="{Binding LanguageName}" Grid.Row="1" Grid.Column="1"/>
+			<ListView ItemsSource="{Binding AnalysisOutput}" Grid.Row="2" Grid.Column="0">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell x:DataType="models:LetterFrequency">
+							<FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Margin="10,0">
+								<Label Text="{Binding Letter}"/>
+								<Label Text="{Binding Frequency, StringFormat='{0:P2}'}"/>
+							</FlexLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<ListView ItemsSource="{Binding LanguageOutput}" Grid.Row="2" Grid.Column="1">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell x:DataType="models:LetterFrequency">
+							<FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Margin="10,0">
+								<Label Text="{Binding Letter}"/>
+								<Label Text="{Binding Frequency, StringFormat='{0:P2}'}"/>
+							</FlexLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Grid>
+	</ContentView>
 </ContentPage>
