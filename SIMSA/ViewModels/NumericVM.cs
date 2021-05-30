@@ -17,7 +17,7 @@ namespace SIMSA.ViewModels
 		public byte Radix
 		{
 			get => text.Radix;
-			set => ChangePropertyUI(ref text, text.WithRadix(value), text.Radix, value, "Input", "Output", "Radix");
+			set => ChangePropertyUI(ref text, text.WithRadix(value), text.Radix, value, "Input", "Output", "Radix", "InputKeyboard");
 		}
 		public string AlphabetName => text.Alphabet.Name;
 		public ICommand Invert { get; }
@@ -30,7 +30,7 @@ namespace SIMSA.ViewModels
 			SelectAlphabet = new Command(() =>
 			{
 				selectAlphabet(SetAlphabet);
-				OnPropertyChanged("AlphabetName");
+				PropertyChange("AlphabetName");
 			});
 		}
 	}

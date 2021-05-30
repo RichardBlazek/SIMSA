@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
-using System.Windows.Input;
 using SIMSA.Models;
 using SIMSA.Resources;
 using Xamarin.Forms;
@@ -10,17 +9,26 @@ namespace SIMSA.ViewModels
 {
 	public class ManageAlphabetsVM : ViewModelBase
 	{
-		readonly Action<Config, Action<Config>, int> select;
+		readonly Action<Action<Config>, int> select;
 		readonly Action<Config> save;
-		ICommand CommandFor(int i) => new Command(() => select(Config, save, i));
-		ICommand AddAlphabetCommand => new Command(() =>
+		ButtonVM ButtonFor(string name, int i) => new ButtonVM(name, new Command(() => select(save, i)));
+		void AddAlphabet()
 		{
-			Config = Config.Add(CustomAlphabet.Empty);
-			select(Config, save, Config.Alphabets.Custom.Count - 1);
-		});
-		ButtonVM AddAlphabetButton => new ButtonVM(AppResources.AddAlphabet, AddAlphabetCommand);
-		public IEnumerable<ButtonVM> Buttons => Config.Alphabets.Custom.Select((abc, i) => new ButtonVM(abc.Name, CommandFor(i))).Append(AddAlphabetButton);
-		public ManageAlphabetsVM(Config config, Action<Config> save, Action<Config, Action<Config>, int> select) : base(config)
+			save(Config.Add(CustomAlphabet.Empty));
+			select(save, Config.Alphabets.Custom.Count - 1);
+		}
+		ButtonVM AlphabetCreator => new ButtonVM(AppResources.AddAlphabet, new Command(AddAlphabet));
+		public ImmutableArray<ButtonVM> Buttons => Config.Alphabets.Custom.Select((abc, i) => ButtonFor(abc.Name, i)).Append(AlphabetCreator).ToImmutableArray();
+		public override Config Config
+		{
+			get => base.Config;
+			set
+			{
+				base.Config = value;
+				PropertyChange("Buttons");
+			}
+		}
+		public ManageAlphabetsVM(Config config, Action<Config> save, Action<Action<Config>, int> select) : base(config)
 		{
 			this.select = select;
 			this.save = save;

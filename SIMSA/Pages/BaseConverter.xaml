@@ -24,15 +24,7 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Label Text="{Binding Output}" Style="{StaticResource Output}" VerticalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"/>
-				<Entry Text="{Binding Input, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="3">
-					<Entry.Keyboard>
-						<Keyboard x:FactoryMethod="Create">
-							<x:Arguments>
-								<KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
-							</x:Arguments>
-						</Keyboard>
-					</Entry.Keyboard>
-				</Entry>
+				<Entry Text="{Binding Input, Mode=TwoWay}" Keyboard="{Binding InputKeyboard}" Grid.Row="1" Grid.ColumnSpan="3"/>
 				<Entry Text="{Binding FromRadix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.FromRadix}" Keyboard="Numeric" Grid.Row="2" Grid.Column="0"/>
 				<Label Text="→" FontSize="30" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center"/>
 				<Entry Text="{Binding ToRadix, Mode=TwoWay}" Placeholder="{x:Static resources:AppResources.ToRadix}" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"/>

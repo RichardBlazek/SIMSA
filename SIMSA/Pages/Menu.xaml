@@ -6,17 +6,15 @@
 			 x:Class="SIMSA.Pages.Menu"
 			 x:DataType="viewmodels:MenuVM"
              Title="{x:Static resources:AppResources.MenuPageTitle}">
-	<ContentView>
-		<ScrollView Style="{StaticResource Content}">
-			<ListView ItemsSource="{Binding Buttons}" HasUnevenRows="True">
-				<ListView.ItemTemplate>
-					<DataTemplate x:DataType="viewmodels:ButtonVM">
-						<ViewCell>
-							<Button Text="{Binding Title}" Command="{Binding Command}"/>
-						</ViewCell>
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
-		</ScrollView>
-    </ContentView>
+	<ListView ItemsSource="{Binding Buttons}" HasUnevenRows="True" SeparatorVisibility="None">
+		<ListView.ItemTemplate>
+			<DataTemplate x:DataType="viewmodels:ButtonVM">
+				<ViewCell>
+					<StackLayout>
+						<Button Text="{Binding Title}" Command="{Binding Command}" Margin="10,5"/>
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
 </ContentPage>

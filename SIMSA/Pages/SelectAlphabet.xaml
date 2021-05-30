@@ -6,15 +6,15 @@
 			 x:Class="SIMSA.Pages.SelectAlphabet"
 			 x:DataType="viewmodels:SelectAlphabetVM"
 			 Title="{x:Static resources:AppResources.SelectAlphabetPageTitle}">
-	<ContentView>
-		<ScrollView Style="{StaticResource Content}">
-			<ListView ItemsSource="{Binding Buttons}">
-				<ListView.ItemTemplate>
-					<DataTemplate x:DataType="viewmodels:ButtonVM">
-						<TextCell Text="{Binding Title}" Command="{Binding Command}"/>
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
-		</ScrollView>
-	</ContentView>
+	<ListView ItemsSource="{Binding Buttons}" HasUnevenRows="True" SeparatorVisibility="None">
+		<ListView.ItemTemplate>
+			<DataTemplate x:DataType="viewmodels:ButtonVM">
+				<ViewCell>
+					<StackLayout>
+						<Button Text="{Binding Title}" Command="{Binding Command}" Margin="10,5"/>
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
 </ContentPage>

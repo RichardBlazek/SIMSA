@@ -9,9 +9,9 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ManageAlphabets : ContentPage
 	{
-		async void OpenEdit(Config config, Action<Config> save, int i)
+		async void OpenEdit(Action<Config> save, int i)
 		{
-			var page = new EditAlphabet(config, save, i);
+			var page = new EditAlphabet((BindingContext as ManageAlphabetsVM)!.Config, save, i);
 			await Navigation.PushAsync(page, false);
 		}
 

@@ -6,7 +6,7 @@ namespace SIMSA.ViewModels
 	public class PrimesVM : ViewModelBase
 	{
 		int upperBound;
-		ImmutableArray<int> primes;
+		ImmutableArray<int> primes = ImmutableArray<int>.Empty;
 		public string Output => primes.Cat(", ");
 		public int Count => primes.Length;
 		public int UpperBound

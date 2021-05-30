@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using SIMSA.Models;
+using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
@@ -13,11 +14,7 @@ namespace SIMSA.ViewModels
 		public int FromRadix
 		{
 			get => fromRadix;
-			set
-			{
-				ChangeProperty(ref fromRadix, value, "FromRadix");
-				ChangeProperty(ref input, Filter(input, Math.Max(2, fromRadix)), "Input", "Output");
-			}
+			set => ChangeProperty(ref fromRadix, value, "FromRadix", "Output", "InputKeyboard");
 		}
 		public int ToRadix
 		{
@@ -29,10 +26,13 @@ namespace SIMSA.ViewModels
 			get => input;
 			set
 			{
+				ChangePropertyUI(ref input, Filter(value, fromRadix), input, value, "Input");
 				ChangeProperty(ref fromRadix, Math.Max(2, fromRadix), "FromRadix");
-				ChangePropertyUI(ref input, Filter(value, fromRadix), input, value, "Input", "Output");
+				ChangeProperty(ref toRadix, Math.Max(2, toRadix), "ToRadix");
+				PropertyChange("Output");
 			}
 		}
-		public string Output => input.TryParse(fromRadix, out long value) ? value.ToString(toRadix) : "";
+		public Keyboard InputKeyboard => fromRadix > 10 ? Keyboard.Create(KeyboardFlags.CapitalizeCharacter) : Keyboard.Numeric;
+		public string Output => Filter(input, fromRadix).TryParse(fromRadix, out long value) ? value.ToString(toRadix) : "";
 	}
 }

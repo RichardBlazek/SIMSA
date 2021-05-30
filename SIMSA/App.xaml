@@ -41,6 +41,7 @@
 		</Style>
 		<Style TargetType="ListView">
 			<Setter Property="SelectionMode" Value="None"/>
+			<Setter Property="BackgroundColor" Value="#222"/>
 		</Style>
 	</Application.Resources>
 </Application>
