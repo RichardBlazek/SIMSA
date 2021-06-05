@@ -106,6 +106,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ASCII.
+        /// </summary>
+        public static string Ascii {
+            get {
+                return ResourceManager.GetString("Ascii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Numeric base converter.
         /// </summary>
         public static string BaseConverterPageTitle {
@@ -426,6 +435,15 @@ namespace SIMSA.Resources {
         public static string Result {
             get {
                 return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russian alphabet.
+        /// </summary>
+        public static string RussianAlphabet {
+            get {
+                return ResourceManager.GetString("RussianAlphabet", resourceCulture);
             }
         }
         

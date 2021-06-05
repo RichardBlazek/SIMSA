@@ -7,7 +7,7 @@ namespace SIMSA.Models
 		public Alphabets Alphabets { get; }
 		public Config(Alphabets alphabets) => Alphabets = alphabets;
 		public static readonly Config Initial = new Config(Alphabets.Initial);
-		public IAlphabet DefaultAlphabet => Alphabets[0];
+		public IAlphabet DefaultAlphabet => Alphabets.Default;
 		public Config With(Alphabets alphabets) => new Config(alphabets);
 		public Config Add(CustomAlphabet alphabet) => With(Alphabets.Add(alphabet));
 

@@ -240,6 +240,9 @@
   <data name="Result" xml:space="preserve">
     <value>Výsledek</value>
   </data>
+  <data name="RussianAlphabet" xml:space="preserve">
+    <value>Azbuka</value>
+  </data>
   <data name="SelectAlphabetPageTitle" xml:space="preserve">
     <value>Vybrat abecedu</value>
   </data>

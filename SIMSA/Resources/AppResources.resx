@@ -132,6 +132,9 @@
   <data name="Analyse" xml:space="preserve">
     <value>Analyse</value>
   </data>
+  <data name="Ascii" xml:space="preserve">
+    <value>ASCII</value>
+  </data>
   <data name="BaseConverterPageTitle" xml:space="preserve">
     <value>Numeric base converter</value>
   </data>
@@ -239,6 +242,9 @@
   </data>
   <data name="Result" xml:space="preserve">
     <value>Result</value>
+  </data>
+  <data name="RussianAlphabet" xml:space="preserve">
+    <value>Russian alphabet</value>
   </data>
   <data name="SelectAlphabetPageTitle" xml:space="preserve">
     <value>Select alphabet</value>
