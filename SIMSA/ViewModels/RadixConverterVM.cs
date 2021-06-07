@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class BaseConverterVM : ViewModelConfiguratedBase
+	public class RadixConverterVM : ViewModelConfiguratedBase
 	{
-		public BaseConverterVM() : base(Config.Initial) { }
+		public RadixConverterVM() : base(Config.Initial) { }
 		int fromRadix, toRadix;
 		string input = "";
 		static string Filter(string s, long radix) => s.ToUpper().Where((c, i) => (i == 0 && c == '-') || (c >= '0' && c < '0' + radix) || (c >= 'A' && c < 'A' + radix - 10 && c <= 'Z')).Cat();

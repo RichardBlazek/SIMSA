@@ -4,8 +4,8 @@ using Xamarin.Forms.Xaml;
 namespace SIMSA.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BaseConverter : ContentPage
+	public partial class RadixConverter : ContentPage
 	{
-		public BaseConverter() => InitializeComponent();
+		public RadixConverter() => InitializeComponent();
 	}
 }

@@ -22,16 +22,16 @@ namespace SIMSA.Pages
 			InitializeComponent();
 			pages = new ContentPage[]
 			{
-				new BaseConverter(),
 				new Braille(),
+				new ColorConverter(),
 				new FlagSemaphore(),
 				new FrequencyAnalysis(),
 				new Morse(ForEachViewModel, ForEachPage),
 				new Numeric(config),
 				new Playfair(),
 				new Primes(),
+				new RadixConverter(),
 				new Vigenere(config),
-				new ColorConverter(),
 				new ManageAlphabets(config, Save)
 			}.ToImmutableArray();
 			var buttons = pages.Select(page => new ButtonVM(page.Title, OpenCommand(page))).ToImmutableArray();

@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:SIMSA.Resources"
 			 xmlns:viewmodels="clr-namespace:SIMSA.ViewModels"
-			 x:DataType="viewmodels:BaseConverterVM"
-			 x:Class="SIMSA.Pages.BaseConverter"
-             Title="{x:Static resources:AppResources.BaseConverterPageTitle}">
+			 x:DataType="viewmodels:RadixConverterVM"
+			 x:Class="SIMSA.Pages.RadixConverter"
+             Title="{x:Static resources:AppResources.RadixConverterPageTitle}">
 	<ContentPage.BindingContext>
-		<viewmodels:BaseConverterVM FromRadix="10" ToRadix="2" Input="0"/>
+		<viewmodels:RadixConverterVM FromRadix="10" ToRadix="2" Input="0"/>
 	</ContentPage.BindingContext>
     <ContentView>
 		<ScrollView Style="{StaticResource Content}">

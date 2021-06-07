@@ -115,15 +115,6 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numeric base converter.
-        /// </summary>
-        public static string BaseConverterPageTitle {
-            get {
-                return ResourceManager.GetString("BaseConverterPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Braille alphabet.
         /// </summary>
         public static string BraillePageTitle {
@@ -142,7 +133,7 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Colours.
+        ///   Looks up a localized string similar to Colors.
         /// </summary>
         public static string ColorConverterPageTitle {
             get {
@@ -444,6 +435,15 @@ namespace SIMSA.Resources {
         public static string Radix {
             get {
                 return ResourceManager.GetString("Radix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radix converter.
+        /// </summary>
+        public static string RadixConverterPageTitle {
+            get {
+                return ResourceManager.GetString("RadixConverterPageTitle", resourceCulture);
             }
         }
         

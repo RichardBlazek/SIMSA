@@ -132,9 +132,6 @@
   <data name="Analyse" xml:space="preserve">
     <value>Analyzovat</value>
   </data>
-  <data name="BaseConverterPageTitle" xml:space="preserve">
-    <value>Převod číselných soustav</value>
-  </data>
   <data name="BraillePageTitle" xml:space="preserve">
     <value>Braillovo písmo</value>
   </data>
@@ -242,6 +239,9 @@
   </data>
   <data name="Radix" xml:space="preserve">
     <value>Základ</value>
+  </data>
+  <data name="RadixConverterPageTitle" xml:space="preserve">
+    <value>Převod číselných soustav</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Výsledek</value>
