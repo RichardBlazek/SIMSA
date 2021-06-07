@@ -6,15 +6,13 @@
 			 x:Class="SIMSA.Pages.ManageAlphabets"
 			 x:DataType="viewmodels:ManageAlphabetsVM"
              Title="{x:Static resources:AppResources.ManageAlphabetsPageTitle}">
-	<ListView ItemsSource="{Binding Buttons}" HasUnevenRows="True" SeparatorVisibility="None">
-		<ListView.ItemTemplate>
+	<CollectionView ItemsSource="{Binding Buttons}">
+		<CollectionView.ItemTemplate>
 			<DataTemplate x:DataType="viewmodels:ButtonVM">
-				<ViewCell>
-					<StackLayout>
-						<Button Text="{Binding Title}" Command="{Binding Command}" Margin="10,5"/>
-					</StackLayout>
-				</ViewCell>
+				<StackLayout>
+					<Button Text="{Binding Title}" Command="{Binding Command}" Margin="10,5"/>
+				</StackLayout>
 			</DataTemplate>
-		</ListView.ItemTemplate>
-	</ListView>
+		</CollectionView.ItemTemplate>
+	</CollectionView>
 </ContentPage>

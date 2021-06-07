@@ -14,8 +14,8 @@ namespace SIMSA.Pages
 	{
 		readonly ImmutableArray<ContentPage> pages;
 		void Save(Config config) => (BindingContext as MenuVM)!.Config = config;
-		void ForEachViewModel(Action<ViewModelBase> modifier) => (BindingContext as MenuVM)!.ForEach(modifier);
-		void ForEachPage(Action<ContentPage> modifier) => pages.ForEach(modifier);
+		void ForEachViewModel<T>(Action<T> modifier) => (BindingContext as MenuVM)!.ForEach(modifier);
+		void ForEachPage<T>(Action<T> modifier) => pages.ForEach(modifier);
 		ICommand OpenCommand(ContentPage page) => new Command(async () => await Navigation.PushAsync(page, false));
 		public Menu(Config config, Action<Config> save)
 		{
@@ -31,6 +31,7 @@ namespace SIMSA.Pages
 				new Playfair(),
 				new Primes(),
 				new Vigenere(config),
+				new ColorConverter(),
 				new ManageAlphabets(config, Save)
 			}.ToImmutableArray();
 			var buttons = pages.Select(page => new ButtonVM(page.Title, OpenCommand(page))).ToImmutableArray();

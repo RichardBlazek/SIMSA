@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class EditAlphabetVM : ViewModelBase
+	public class EditAlphabetVM : ViewModelConfiguratedBase
 	{
 		readonly Action<Config> save;
 		readonly int alphabetIndex;

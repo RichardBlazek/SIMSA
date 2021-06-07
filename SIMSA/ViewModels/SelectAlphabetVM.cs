@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class SelectAlphabetVM : ViewModelBase
+	public class SelectAlphabetVM : ViewModelConfiguratedBase
 	{
 		readonly Action<IAlphabet> select;
 		ButtonVM ButtonFor(IAlphabet alphabet) => new ButtonVM(alphabet.Name, new Command(() => select(alphabet)));

@@ -142,6 +142,15 @@ namespace SIMSA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Colours.
+        /// </summary>
+        public static string ColorConverterPageTitle {
+            get {
+                return ResourceManager.GetString("ColorConverterPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string Confirm {
@@ -273,6 +282,15 @@ namespace SIMSA.Resources {
         public static string GreekAlphabet {
             get {
                 return ResourceManager.GetString("GreekAlphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hebrew alphabet.
+        /// </summary>
+        public static string HebrewAlphabet {
+            get {
+                return ResourceManager.GetString("HebrewAlphabet", resourceCulture);
             }
         }
         

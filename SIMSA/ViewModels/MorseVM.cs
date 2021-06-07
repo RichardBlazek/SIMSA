@@ -16,6 +16,6 @@ namespace SIMSA.ViewModels
 		}
 		public ICommand Invert { get; }
 		void DoInvert() => ChangeProperty(ref text, text.Inverted, "Input", "Output");
-		public MorseVM() : base(Config.Initial) => Invert = new Command(DoInvert);
+		public MorseVM() => Invert = new Command(DoInvert);
 	}
 }

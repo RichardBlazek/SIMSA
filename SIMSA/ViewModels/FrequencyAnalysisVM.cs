@@ -22,7 +22,7 @@ namespace SIMSA.ViewModels
 		}
 		public ICommand Analyse { get; }
 		public ICommand SwitchLanguage { get; }
-		public FrequencyAnalysisVM() : base(Config.Initial)
+		public FrequencyAnalysisVM()
 		{
 			Analyse = new Command(() => ChangeProperty(ref analysisOutput, FrequencyAnalyser.Analyse(input), "AnalysisOutput"));
 			SwitchLanguage = new Command(() => ChangeProperty(ref language, FrequencyAnalyser.Next(language), "LanguageOutput", "LanguageName"));

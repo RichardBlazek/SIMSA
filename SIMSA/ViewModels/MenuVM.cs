@@ -4,7 +4,7 @@ using SIMSA.Models;
 
 namespace SIMSA.ViewModels
 {
-	public class MenuVM : ViewModelBase
+	public class MenuVM : ViewModelConfiguratedBase
 	{
 		public ImmutableArray<ButtonVM> Buttons { get; }
 		readonly Action<Config> save = x => { };
@@ -16,9 +16,9 @@ namespace SIMSA.ViewModels
 			ViewModels = viewModels;
 			this.save = save;
 		}
-		public void ForEach(Action<ViewModelBase> modifier)
+		public void ForEach<T>(Action<T> modifier)
 		{
-			foreach (var vm in ViewModels)
+			foreach (var vm in ViewModels.OfType<T>())
 			{
 				modifier(vm);
 			}
@@ -29,7 +29,7 @@ namespace SIMSA.ViewModels
 			set
 			{
 				base.Config = value;
-				ForEach(vm => vm.Config = value);
+				ForEach<ViewModelConfiguratedBase>(vm => vm.Config = value);
 				save(value);
 			}
 		}

@@ -21,6 +21,6 @@ namespace SIMSA.ViewModels
 			get => text.Replaced;
 			set => ChangeProperty(ref text, text.WithReplaced(value), "Replace", "Output");
 		}
-		public PlayfairVM() : base(Config.Initial) { }
+		public PlayfairVM() { }
 	}
 }

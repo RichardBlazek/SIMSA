@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class BrailleVM : ViewModelBase
+	public class BrailleVM : ViewModelConfiguratedBase
 	{
 		BrailleText text = new BrailleText();
 		public ICommand Backspace { get; }

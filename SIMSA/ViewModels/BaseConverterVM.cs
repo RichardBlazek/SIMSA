@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class BaseConverterVM : ViewModelBase
+	public class BaseConverterVM : ViewModelConfiguratedBase
 	{
 		public BaseConverterVM() : base(Config.Initial) { }
 		int fromRadix, toRadix;

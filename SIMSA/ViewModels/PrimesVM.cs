@@ -18,6 +18,6 @@ namespace SIMSA.ViewModels
 				ChangeProperty(ref upperBound, value, "UpperBound", "Output", "Count");
 			}
 		}
-		public PrimesVM() : base(Config.Initial) { }
+		public PrimesVM() { }
 	}
 }

@@ -160,5 +160,13 @@ namespace SIMSA
 				action(item);
 			}
 		}
+		public static void ForEach<T>(this IEnumerable e, Action<T> action)
+		{
+			foreach (var item in e.OfType<T>())
+			{
+				action(item);
+			}
+		}
+		public static string Repeat(this char c, int times) => new string(c, times);
 	}
 }

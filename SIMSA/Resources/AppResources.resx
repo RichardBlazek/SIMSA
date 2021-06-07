@@ -144,6 +144,9 @@
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
+  <data name="ColorConverterPageTitle" xml:space="preserve">
+    <value>Colours</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="GreekAlphabet" xml:space="preserve">
     <value>Greek alphabet</value>
+  </data>
+  <data name="HebrewAlphabet" xml:space="preserve">
+    <value>Hebrew alphabet</value>
   </data>
   <data name="Invert" xml:space="preserve">
     <value>Invert</value>

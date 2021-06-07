@@ -8,30 +8,24 @@ namespace SIMSA.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Morse : ContentPage
 	{
-		readonly Action<Action<ViewModelBase>> forEachViewModel;
-		readonly Action<Action<ContentPage>> forEachPage;
-		void ChangeToBinary(ViewModelBase vm)
+		readonly Action<Action<NumericVM>> forEachViewModel;
+		readonly Action<Action<Numeric>> forEachPage;
+		void ChangeToBinary(NumericVM vm)
 		{
-			if (vm is NumericVM numericVm)
-			{
-				numericVm.Radix = 2;
-				numericVm.Input = (BindingContext as MorseVM)!.AsBinary;
-			}
+			vm.Radix = 2;
+			vm.Input = (BindingContext as MorseVM)!.AsBinary;
 		}
-		async void GoToBinary(ContentPage page)
+		async void GoToBinary(Numeric page)
 		{
-			if (page is Numeric numeric)
-			{
-				Navigation.InsertPageBefore(numeric, this);
-				_ = await Navigation.PopAsync();
-			}
+			Navigation.InsertPageBefore(page, this);
+			_ = await Navigation.PopAsync();
 		}
 		void ToBinary(object sender, EventArgs e)
 		{
 			forEachViewModel(ChangeToBinary);
 			forEachPage(GoToBinary);
 		}
-		public Morse(Action<Action<ViewModelBase>> forEachViewModel, Action<Action<ContentPage>> forEachPage)
+		public Morse(Action<Action<NumericVM>> forEachViewModel, Action<Action<Numeric>> forEachPage)
 		{
 			this.forEachViewModel = forEachViewModel;
 			this.forEachPage = forEachPage;

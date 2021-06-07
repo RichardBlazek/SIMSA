@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class ManageAlphabetsVM : ViewModelBase
+	public class ManageAlphabetsVM : ViewModelConfiguratedBase
 	{
 		readonly Action<Action<Config>, int> select;
 		readonly Action<Config> save;

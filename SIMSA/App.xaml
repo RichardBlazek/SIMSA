@@ -39,8 +39,9 @@
 		<Style TargetType="ContentView">
 			<Setter Property="BackgroundColor" Value="#222"/>
 		</Style>
-		<Style TargetType="ListView">
+		<Style TargetType="CollectionView">
 			<Setter Property="SelectionMode" Value="None"/>
+			<Setter Property="ItemSizingStrategy" Value="MeasureFirstItem"/>
 			<Setter Property="BackgroundColor" Value="#222"/>
 		</Style>
 	</Application.Resources>

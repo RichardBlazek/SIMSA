@@ -14,7 +14,7 @@ namespace SIMSA.ViewModels
 		public ICommand Turn { get; }
 		public string Output => text.ToString();
 		public (float, float) Angles => ((text[^1, false] - 2) * MathF.PI / 4, (text[^1, true] - 2) * MathF.PI / 4);
-		public FlagSemaphoreVM() : base(Config.Initial)
+		public FlagSemaphoreVM()
 		{
 			Backspace = new Command(() => ChangeProperty(ref text, text.Pop(), "Output", "Angles"));
 			Confirm = new Command(() => ChangeProperty(ref text, text.Add(), "Output", "Angles"));

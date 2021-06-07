@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel;
-using SIMSA.Models;
 
 namespace SIMSA.ViewModels
 {
 	public abstract class ViewModelBase : INotifyPropertyChanged
 	{
-		public virtual Config Config { get; set; }
-		protected ViewModelBase(Config config) => Config = config;
 		public event PropertyChangedEventHandler? PropertyChanged;
 		protected void PropertyChange(params string[] names) => names.ForEach(name => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name)));
 		protected void ChangeProperty<T>(ref T variable, T newValue, params string[] effects)

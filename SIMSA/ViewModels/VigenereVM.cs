@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class VigenereVM : ViewModelBase
+	public class VigenereVM : ViewModelConfiguratedBase
 	{
 		VigenereText text;
 		public string Output => text.ToString();

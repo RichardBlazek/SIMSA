@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SIMSA.ViewModels
 {
-	public class NumericVM : ViewModelBase
+	public class NumericVM : ViewModelConfiguratedBase
 	{
 		NumericText text;
 		public string Output => text.ToString();
