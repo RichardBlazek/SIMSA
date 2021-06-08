@@ -7,8 +7,8 @@ namespace SIMSA.Models
 	{
 		ImmutableArray<string> Names { get; }
 		string Name => Names.Cat();
-		string Filter(string input, int i);
-		RGBColor ToRGB(IReadOnlyList<string> inputs);
-		ImmutableArray<string> FromRGB(RGBColor color);
+		bool NumbersOnly { get; }
+		(ImmutableArray<string>, RGBColor) Parse(IReadOnlyList<string> inputs);
+		ImmutableArray<string> ToStrings(RGBColor color);
 	}
 }

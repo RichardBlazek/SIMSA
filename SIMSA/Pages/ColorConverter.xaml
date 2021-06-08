@@ -7,23 +7,23 @@
              x:Class="SIMSA.Pages.ColorConverter"
              Title="{x:Static resources:AppResources.ColorConverterPageTitle}">
 	<ContentPage.BindingContext>
-		<viewmodels:ColorConverterVM/>
+		<viewmodels:ColorConverterVM x:Name="viewModel"/>
 	</ContentPage.BindingContext>
 	<ContentView>
 		<ScrollView Style="{StaticResource Content}">
-			<StackLayout Background="#222" RadioButtonGroup.GroupName="radios" RadioButtonGroup.SelectedValue="{Binding SelectedModel, Mode=TwoWay}">
-				<Rectangle WidthRequest="200" HeightRequest="60" BackgroundColor="{Binding Color}"/>
-				<StackLayout BindableLayout.ItemsSource="{Binding ModelNames}">
+			<StackLayout Background="#222">
+				<Rectangle WidthRequest="1000" HeightRequest="60" BackgroundColor="{Binding Color}"/>
+				<StackLayout BindableLayout.ItemsSource="{Binding Radios}">
 					<BindableLayout.ItemTemplate>
-						<DataTemplate x:DataType="x:String">
-							<RadioButton Content="{Binding .}" Value="{Binding .}" GroupName="radios"/>
+						<DataTemplate x:DataType="viewmodels:RadioVM">
+							<RadioButton Content="{Binding Text}" Value="{Binding Text}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
 						</DataTemplate>
 					</BindableLayout.ItemTemplate>
 				</StackLayout>
-				<StackLayout BindableLayout.ItemsSource="{Binding Inputs}">
+				<StackLayout BindableLayout.ItemsSource="{Binding Entries}">
 					<BindableLayout.ItemTemplate>
 						<DataTemplate x:DataType="viewmodels:EntryVM">
-							<Entry Placeholder="{Binding Caption}" Text="{Binding Text, Mode=TwoWay}" Keyboard="Numeric"/>
+							<Entry Placeholder="{Binding Caption}" Text="{Binding Text, Mode=TwoWay}" Keyboard="{Binding Keyboard, Source={x:Reference viewModel}}"/>
 						</DataTemplate>
 					</BindableLayout.ItemTemplate>
 				</StackLayout>

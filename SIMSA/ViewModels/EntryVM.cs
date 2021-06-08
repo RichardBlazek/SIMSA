@@ -7,12 +7,11 @@ namespace SIMSA.ViewModels
 		string text;
 		readonly Action changed;
 		public string Caption { get; }
-		
-		public EntryVM(string caption, string text, Action changed)
+		public EntryVM(string caption, Action changed, string text)
 		{
-			this.text = text;
-			this.changed = changed;
 			Caption = caption;
+			this.changed = changed;
+			this.text = text;
 		}
 		public string Text
 		{

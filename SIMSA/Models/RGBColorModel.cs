@@ -7,8 +7,12 @@ namespace SIMSA.Models
 	public class RGBColorModel : IColorModel
 	{
 		public ImmutableArray<string> Names => ImmutableArray.Create("R", "G", "B");
-		public string Filter(string input, int i) => input.Where(c => c >= '0' && c <= '9').DefaultIfEmpty('0').Cat();
-		public RGBColor ToRGB(IReadOnlyList<string> inputs) => new RGBColor(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-		public ImmutableArray<string> FromRGB(RGBColor color) => ImmutableArray.Create(color.R.ToString(), color.G.ToString(), color.B.ToString());
+		public bool NumbersOnly => true;
+		public (ImmutableArray<string>, RGBColor) Parse(IReadOnlyList<string> inputs)
+		{
+			var texts = inputs.Align(3, "0").Select(s => s.RemoveNonDigits()).ToImmutableArray();
+			return (texts, new RGBColor(texts[0].ParseInt(), texts[1].ParseInt(), texts[2].ParseInt()));
+		}
+		public ImmutableArray<string> ToStrings(RGBColor color) => ImmutableArray.Create(color.R.ToString(), color.G.ToString(), color.B.ToString());
 	}
 }

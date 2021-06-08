@@ -10,35 +10,34 @@ namespace SIMSA.ViewModels
 	public class ColorConverterVM : ViewModelBase
 	{
 		static readonly ImmutableArray<IColorModel> models = ImmutableArray.Create<IColorModel>(new RGBColorModel(), new HTMLColorModel(), new CMYKColorModel(), new HSVColorModel(), new HSLColorModel());
-		public ImmutableArray<string> ModelNames { get; }
-		public ObservableCollection<EntryVM> Inputs { get; private set; }
+		public ImmutableArray<RadioVM> Radios { get; }
+		public ImmutableArray<EntryVM> Entries { get; private set; }
 		int selected = 0;
-		RGBColor RGBColor => models[selected].ToRGB(Inputs.Select(inp => inp.Text).ToImmutableArray());
-		public Color Color => RGBColor.ToXamarin;
+		RGBColor color = new RGBColor(0, 0, 0);
+		public Keyboard Keyboard => models[selected].NumbersOnly ? Keyboard.Numeric : Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
+		public Color Color => color.ToXamarin;
 		void InputChanged(int i)
 		{
-			Inputs[i].Text = models[selected].Filter(Inputs[i].Text, i);
+			var (texts, newColor) = models[selected].Parse(Entries.Select(s => s.Text).ToImmutableArray());
+			color = newColor;
+			Entries[i].Text = texts[i];
 			PropertyChange("Color");
 		}
-		ObservableCollection<EntryVM> CreateInputs(IColorModel model, RGBColor color)
+		ImmutableArray<EntryVM> CreateInputs(IColorModel model, RGBColor color)
 		{
-			var values = model.FromRGB(color);
-			return new ObservableCollection<EntryVM>(model.Names.Select((name, i) => new EntryVM(name, values[i], () => InputChanged(i))));
+			var values = model.ToStrings(color);
+			return model.Names.Select((name, i) => new EntryVM(name, () => InputChanged(i), values[i])).ToImmutableArray();
 		}
-		public string SelectedModel
+		void SelectModel(int newSelected)
 		{
-			get => models[selected].Name;
-			set
-			{
-				int i = Math.Clamp(ModelNames.IndexOf(value), 0, ModelNames.Length - 1);
-				Inputs = CreateInputs(models[i], RGBColor);
-				ChangePropertyUI(ref selected, i, SelectedModel, ModelNames[i], "SelectedModel", "Color", "Inputs");
-			}
+			selected = newSelected;
+			Entries = CreateInputs(models[selected], color);
+			PropertyChange("Entries");
 		}
 		public ColorConverterVM()
 		{
-			ModelNames = models.Select(m => m.Name).ToImmutableArray();
-			Inputs = CreateInputs(models[selected], new RGBColor(0, 0, 0));
+			Radios = models.Select((m, i) => new RadioVM(m.Name, i == 0, () => SelectModel(i))).ToImmutableArray();
+			Entries = CreateInputs(models[selected], color);
 		}
 	}
 }

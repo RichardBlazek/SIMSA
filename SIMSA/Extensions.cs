@@ -115,7 +115,7 @@ namespace SIMSA
 		{
 			value = 0;
 			bool negative = str.Length > 0 && str[0] == '-';
-			bool correct = str.Length >= (negative ? 2 : 1) && radix >= 2;
+			bool correct = str.Length >= (negative ? 1 : 0) && radix >= 2;
 			for (int i = negative ? 1 : 0; i < str.Length && correct; ++i)
 			{
 				long digit = DigitValue(str[i]);
@@ -125,23 +125,10 @@ namespace SIMSA
 			value = negative ? -value : value;
 			return correct;
 		}
-		public static void Clamp(this Entry e, long min = long.MinValue, long max = long.MaxValue, long radix = 10)
+		public static int ParseInt(this string str, int radix = 10)
 		{
-			if (e.Text.TryParse(radix, out long value))
-			{
-				if (value > max)
-				{
-					e.Text = max.ToString();
-				}
-				else if (value < min && value <= 0)
-				{
-					e.Text = min.ToString();
-				}
-			}
-			else if (e.Text.Length > 0 && (min >= 0 || e.Text != "-"))
-			{
-				e.Text = e.Text.Where(c => DigitValue(c) < radix).Cat();
-			}
+			_ = str.TryParse(radix, out long v);
+			return (int)v;
 		}
 		static int CombineHashCodes(int h1, int h2) => ((h1 << 5) + h1) ^ h2;
 		public static int HashSequence(this IEnumerable seq)
@@ -167,6 +154,32 @@ namespace SIMSA
 				action(item);
 			}
 		}
-		public static string Repeat(this char c, int times) => new string(c, times);
+		public static IEnumerable<T> Align<T>(this IEnumerable<T> e, int length, T value)
+		{
+			int i = 0;
+			var iterator = e.GetEnumerator();
+			while (iterator.MoveNext() && i < length)
+			{
+				yield return iterator.Current;
+				++i;
+			}
+			while (i < length)
+			{
+				yield return value;
+				++i;
+			}
+		}
+		public static string RemoveNonDigits(this string s) => s.Where(c => c >= '0' && c <= '9').Cat();
+		public static int Find<T>(this IReadOnlyList<T> list, Func<T, bool> predicate)
+		{
+			for (int i = 0, len = list.Count; i < len; ++i)
+			{
+				if (predicate(list[i]))
+				{
+					return i;
+				}
+			}
+			return -1;
+		}
 	}
 }
