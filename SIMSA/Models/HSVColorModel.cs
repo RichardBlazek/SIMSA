@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace SIMSA.Models
 		public (ImmutableArray<string>, RGBColor) Parse(IReadOnlyList<string> inputs)
 		{
 			var texts = inputs.Align(3, "0").Select(s => s.RemoveNonDigits()).ToImmutableArray();
-			int h = texts[0].ParseInt() % 360, s = texts[1].ParseInt() % 256, v = texts[2].ParseInt() % 256;
+			int h = Math.Clamp(texts[0].ParseInt(), 0, 360) % 360, s = Math.Clamp(texts[1].ParseInt(), 0, 255), v = Math.Clamp(texts[2].ParseInt(), 0, 255);
 			int chroma = v * s / 255;
 			return (texts, ColorCalculations.RGBColor(chroma, h, v - chroma));
 		}

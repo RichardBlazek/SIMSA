@@ -169,7 +169,7 @@ namespace SIMSA
 				++i;
 			}
 		}
-		public static string RemoveNonDigits(this string s) => s.Where(c => c >= '0' && c <= '9').Cat();
+		public static string RemoveNonDigits(this string s, int radix = 10) => s.ToUpper().Where(c => (c >= '0' && c <= '9' && c < '0' + radix) || (c >= 'A' && c <= 'Z' && c < 'A' + radix - 10)).Cat();
 		public static int Find<T>(this IReadOnlyList<T> list, Func<T, bool> predicate)
 		{
 			for (int i = 0, len = list.Count; i < len; ++i)
